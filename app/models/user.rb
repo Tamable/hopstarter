@@ -42,6 +42,6 @@ class User < ApplicationRecord
   end
 
   def assign_default_image
-    self.image_url ||= '/assets/orange_circle.png'
+    self.image_url ||= 'orange_circle.png'
   end
 end

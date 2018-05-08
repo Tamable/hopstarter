@@ -18,7 +18,7 @@ class Greeting extends React.Component {
     const loggedIn = () => {
       return (
         <div>
-          <img src={currentUser.image_url} />
+          <img src={currentUser.image_url} /><br></br>
           <span>{currentUser.name}</span>
           <button onClick={logout}>Logout</button>
         </div>
