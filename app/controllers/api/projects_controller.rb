@@ -1,6 +1,6 @@
 class Api::ProjectsController < ApplicationController
   def index
-    @projects = Project.all.includes(:creator)
+    @projects = Project.all.includes(:creator, :category)
     render :index
   end
 

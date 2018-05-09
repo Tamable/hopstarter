@@ -8,7 +8,9 @@ export const login = (userInfo) => {
   return dispatch => {
     return ApiUtil.login(userInfo).then(user => {
       return dispatch(receiveCurrentUser(user));
-    });
+    }, err => {
+      return dispatch(receiveSessionErrors(err.responseJSON))
+    })
   };
 };
 
@@ -16,7 +18,9 @@ export const signup = (userInfo) => {
   return dispatch => {
     return ApiUtil.signup(userInfo).then(user => {
       return dispatch(receiveCurrentUser(user));
-    });
+    }, err => {
+      return dispatch(receiveSessionErrors(err.responseJSON))
+    })
   };
 };
 

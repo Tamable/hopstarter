@@ -49,15 +49,15 @@ class SessionForm extends React.Component {
 
     let demoButton;
     if (this.props.header === 'Log in') {
-      demoButton =           <input type="submit" value="Sign in as a guest" onClick={this.demoLogin} className='demo-login'></input>;
+      demoButton = <input type="submit" value="Sign in as a guest" onClick={this.demoLogin} className='demo-login'></input>;
     }
 
     return (
       <form onSubmit={this.handleSubmit} className="session-form">
         <h1 className="session-text-top">{this.props.header}</h1>
-        <ul>
+        <ul className="session-error">
           {this.props.errors.map((error, i) => {
-            <li key={`${i}`}>{error}</li>
+            return <li key={`${i}`}>{error}</li>
           })}
         </ul>
           { nameInput }
