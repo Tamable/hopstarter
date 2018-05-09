@@ -11,7 +11,6 @@ const mapStateToProps = (state) => {
     link: <Link to="/login">Log in</Link>,
     linkText: 'Have an account?',
     header: 'Sign up',
-    nameClass: 'SignupName'
   }
 }
 

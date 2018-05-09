@@ -6,6 +6,7 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       email: "",
       password: ""
     }
@@ -48,7 +49,7 @@ class SessionForm extends React.Component {
             <li key={`${i}`}>{error}</li>
           })}
         </ul>
-          <input type="text" onChage={this.update('name')} value={this.state.name} placeholder='Name:' className='SignupName'></input>
+          <input type="text" onChange={this.update('name')} value={this.state.name} placeholder='Name:' className='SignupName'></input>
           <input type="text" onChange={this.update('email')} value={this.state.email} placeholder='Email: '></input>
         <br></br>
           <input type="password" onChange={this.update('password')} value={this.state.password} placeholder="Password:"></input>

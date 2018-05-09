@@ -8,12 +8,6 @@ const Auth = (props) => {
   let loggedIn = props.loggedIn;
   let exact = props.exact;
 
-  // let componentToRender;
-  // if (!loggedIn) {
-  //   componentToRender = <Component {...props} />;
-  // } else {
-  //   componentToRender = <Redirect to="/" />;
-  // }
   return (
     <Route path={path} exact={exact} render={(props) => {
       return(
