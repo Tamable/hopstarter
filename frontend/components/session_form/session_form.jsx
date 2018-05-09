@@ -30,24 +30,21 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    // <span>Please {this.props.formType} or {this.props.link}</span>
     return (
-      <form onSubmit={this.handleSubmit}>
-        {this.props.linkText}{this.props.link}
+      <form onSubmit={this.handleSubmit} className="session-form">
+        <div className="session-text-top">
+        <p>{this.props.linkText}</p>
+        <p className="session-link">{this.props.link}</p>
+        </div>
         <ul>
           {this.props.errors.map((error, i) => {
             <li key={`${i}`}>{error}</li>
           })}
         </ul>
-        <label>
-          Email:
-          <input type="text" onChange={this.update('email')} value={this.state.email}></input>
-        </label><br></br>
-        <label>
-          Password:
-          <input type="password" onChange={this.update('password')} value={this.state.password}></input>
-        </label><br></br>
-      <button>{this.props.buttonText}</button>
+          <input type="text" onChange={this.update('email')} value={this.state.email} placeholder="Email:"></input>
+        <br></br>
+          <input type="password" onChange={this.update('password')} value={this.state.password} placeholder="Password:"></input>
+          <input type="submit" value={this.props.buttonText}></input>
       </form>
     )
   }

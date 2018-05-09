@@ -1,3 +1,127 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.outer-container {
+  padding: 10px 20px;
+}
+
+// app.jsx
+.nav-bar-container {
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  border-bottom: 2px solid grey;
+  z-index: 1;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logo {
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+  // color: #034752;
+  color: #E4572E
+}
+
+// greeting.jsx
+.right-corner {
+  // display: flex;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  font-size: 14px;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content li {
+  color: black;
+  padding: 10px 20px;
+  display: block;
+}
+
+.dropdown-content li:hover {
+  color: orange;
+  text-decoration: underline;
+}
+
+.right-corner:hover .dropdown-content {
+  display: block;
+  width: 120px;
+  left: -70px;
+}
+
+.signin-link {
+  text-decoration: none;
+}
+
+.signin-link:hover {
+  text-decoration: underline;
+  color: orange;
+}
+
+.form-background {
+  background-color: #EAEBEB;
+  padding: 10px;
+}
+
+.form-container {
+  margin: auto;
+  width: 400px;
+  margin-top: 30px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+// session_form.jsx
+.session-form {
+  font-family: 'Open Sans', sans-serif;
+  padding: 10px 20px;
+}
+
+.session-text-top {
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.session-link {
+  color: blue;
+}
+
+.session-link:hover {
+  color: black;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 90%;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  text-align: center;
+  color: white;
+}

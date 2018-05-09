@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
     buttonText: 'Log me in!',
     errors: state.errors.session,
     link: <Link to="/signup">Sign up!</Link>,
-    linkText: 'New to Hopstarter?   '
+    linkText: 'New to HopStarter?   '
   }
 }
 

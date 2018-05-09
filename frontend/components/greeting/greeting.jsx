@@ -10,17 +10,19 @@ class Greeting extends React.Component {
     const notLoggedIn = () => {
       return (
         <div>
-          <Link to='/login'>Sign in</Link><br></br>
+          <Link to='/login' className='signin-link'>Sign in</Link><br></br>
         </div>
       )
     }
 
     const loggedIn = () => {
       return (
-        <div>
-          <img src={currentUser.image_url} /><br></br>
-          <span>{currentUser.name}</span>
-          <button onClick={logout}>Logout</button>
+        <div className='right-corner'>
+          <img className='profile-img' src={currentUser.image_url} />
+          <div class='dropdown-content'>
+            <li>{currentUser.name}</li>
+            <li onClick={logout}>Log out</li>
+          </div>
         </div>
       )
     }
