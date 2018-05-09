@@ -16,7 +16,6 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-debugger
     this.props.processForm(merge({}, this.state))
     this.setState({
       name: "",
@@ -39,7 +38,6 @@ debugger
       email: 'test@email.com',
       password: 'password123'
     }
-debugger
     this.props.processForm(userInfo);
   }
 
@@ -47,6 +45,11 @@ debugger
     let nameInput;
     if (this.props.header === 'Sign up') {
       nameInput = <input type="text" onChange={this.update('name')} value={this.state.name} placeholder='Name:' className='SignupName'></input>;
+    }
+
+    let demoButton;
+    if (this.props.header === 'Log in') {
+      demoButton =           <input type="submit" value="Sign in as a guest" onClick={this.demoLogin} className='demo-login'></input>;
     }
 
     return (
@@ -62,7 +65,7 @@ debugger
         <br></br>
           <input type="password" onChange={this.update('password')} value={this.state.password} placeholder="Password:"></input>
           <input type="submit" value={this.props.buttonText}></input>
-          <input type="submit" value="Sign in as a guest" onClick={this.demoLogin} className='demo-login'></input>
+          { demoButton }
           <div className="session-text-bottom">
           <p>{this.props.linkText}</p>
           <p className="session-link">{this.props.link}</p>
