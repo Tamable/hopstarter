@@ -16,7 +16,7 @@ const App = () => {
           <span>Explore</span>
           <span>Start a project</span>
           </div>
-          <div className="logo">TEST</div>
+          <Link to="/" className="logo">TEST</Link>
           <GreetingContainer />
         </header>
       </div>

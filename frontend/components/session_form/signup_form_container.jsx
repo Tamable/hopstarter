@@ -9,7 +9,9 @@ const mapStateToProps = (state) => {
     buttonText: 'Create an account',
     errors: state.errors.session,
     link: <Link to="/login">Log in</Link>,
-    linkText: 'Have an account?   '
+    linkText: 'Have an account?',
+    header: 'Sign up',
+    username: true
   }
 }
 

@@ -23,8 +23,8 @@
 }
 
 .logo {
-  font-family: 'Fredoka One', cursive;
-  font-size: 22px;
+  font-family: 'Sniglet', cursive;
+  font-size: 26px;
   // color: #034752;
   color: #E4572E
 }
@@ -81,6 +81,7 @@
   margin: auto;
   width: 400px;
   margin-top: 30px;
+  margin-bottom: 30px;
   background-color: white;
   border-radius: 5px;
 }
@@ -92,10 +93,15 @@
 }
 
 .session-text-top {
+  font-size: 32px;
+  margin: 10px 5px 20px 5px;
+}
+
+.session-text-bottom {
   text-align: center;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 8px;
-  margin-bottom: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+  margin-top: 20px;
 }
 
 .session-link {
@@ -124,4 +130,8 @@ input[type=submit] {
   background-color: #4CAF50;
   text-align: center;
   color: white;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
 }

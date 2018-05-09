@@ -16,6 +16,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     this.props.processForm(merge({}, this.state))
     this.setState({
+      name: "",
       email: "",
       password: ""
     })
@@ -32,19 +33,21 @@ class SessionForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="session-form">
-        <div className="session-text-top">
-        <p>{this.props.linkText}</p>
-        <p className="session-link">{this.props.link}</p>
-        </div>
+        <h1 className="session-text-top">{this.props.header}</h1>
         <ul>
           {this.props.errors.map((error, i) => {
             <li key={`${i}`}>{error}</li>
           })}
         </ul>
-          <input type="text" onChange={this.update('email')} value={this.state.email} placeholder="Email:"></input>
+          <input type="text" onChage={this.update('name')} value={this.state.name} placeholder='Name:' className='SignupName'></input>
+          <input type="text" onChange={this.update('email')} value={this.state.email} placeholder='Email: '></input>
         <br></br>
           <input type="password" onChange={this.update('password')} value={this.state.password} placeholder="Password:"></input>
           <input type="submit" value={this.props.buttonText}></input>
+          <div className="session-text-bottom">
+          <p>{this.props.linkText}</p>
+          <p className="session-link">{this.props.link}</p>
+          </div>
       </form>
     )
   }
