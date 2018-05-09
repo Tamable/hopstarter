@@ -20,11 +20,9 @@ const App = () => {
           <GreetingContainer />
         </header>
       </div>
-      <div className="form-background">
-        <div className="form-container">
-        <AuthRoute exact path="/login" component={ LogInFormContainer } />
-        <AuthRoute exact path="/signup" component={ SignUpFormContainer } />
-        </div>
+      <div className="form-container">
+      <AuthRoute exact path="/login" component={ LogInFormContainer } />
+      <AuthRoute exact path="/signup" component={ SignUpFormContainer } />
       </div>
     </div>
   )

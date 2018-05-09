@@ -72,24 +72,21 @@
   color: orange;
 }
 
-.form-background {
-  background-color: #EAEBEB;
-  padding: 10px;
-}
-
 .form-container {
-  margin: auto;
-  width: 400px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: white;
-  border-radius: 5px;
+  background-color: #EAEBEB;
+  overflow: auto;
 }
 
 // session_form.jsx
 .session-form {
   font-family: 'Open Sans', sans-serif;
   padding: 10px 20px;
+  margin: auto;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  width: 400px;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .session-text-top {
