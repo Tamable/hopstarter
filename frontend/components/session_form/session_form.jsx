@@ -11,10 +11,12 @@ class SessionForm extends React.Component {
       password: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
+debugger
     this.props.processForm(merge({}, this.state))
     this.setState({
       name: "",
@@ -31,16 +33,22 @@ class SessionForm extends React.Component {
     }
   }
 
-  demoLogIn() {
-    return (e) => {
-      this.setState({
-        email: "test@email.com",
-        password: "password123"
-      })
+  demoLogin(e) {
+    e.preventDefault();
+    let userInfo = {
+      email: 'test@email.com',
+      password: 'password123'
     }
+debugger
+    this.props.processForm(userInfo);
   }
 
   render() {
+    let nameInput;
+    if (this.props.header === 'Sign up') {
+      nameInput = <input type="text" onChange={this.update('name')} value={this.state.name} placeholder='Name:' className='SignupName'></input>;
+    }
+
     return (
       <form onSubmit={this.handleSubmit} className="session-form">
         <h1 className="session-text-top">{this.props.header}</h1>
@@ -49,12 +57,12 @@ class SessionForm extends React.Component {
             <li key={`${i}`}>{error}</li>
           })}
         </ul>
-          <input type="text" onChange={this.update('name')} value={this.state.name} placeholder='Name:' className='SignupName'></input>
+          { nameInput }
           <input type="text" onChange={this.update('email')} value={this.state.email} placeholder='Email: '></input>
         <br></br>
           <input type="password" onChange={this.update('password')} value={this.state.password} placeholder="Password:"></input>
           <input type="submit" value={this.props.buttonText}></input>
-          <button onClick={this.demoLogIn}  className='demo-login'>Demo Log In</button>
+          <input type="submit" value="Sign in as a guest" onClick={this.demoLogin} className='demo-login'></input>
           <div className="session-text-bottom">
           <p>{this.props.linkText}</p>
           <p className="session-link">{this.props.link}</p>

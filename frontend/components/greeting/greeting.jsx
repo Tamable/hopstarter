@@ -19,7 +19,7 @@ class Greeting extends React.Component {
       return (
         <div className='right-corner'>
           <img className='profile-img' src={currentUser.image_url} />
-          <div class='dropdown-content'>
+          <div className='dropdown-content'>
             <li>{currentUser.name}</li>
             <li onClick={logout}>Log out</li>
           </div>
