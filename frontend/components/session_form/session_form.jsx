@@ -30,6 +30,15 @@ class SessionForm extends React.Component {
     }
   }
 
+  demoLogIn() {
+    return (e) => {
+      this.setState({
+        email: "test@email.com",
+        password: "password123"
+      })
+    }
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="session-form">
@@ -44,6 +53,7 @@ class SessionForm extends React.Component {
         <br></br>
           <input type="password" onChange={this.update('password')} value={this.state.password} placeholder="Password:"></input>
           <input type="submit" value={this.props.buttonText}></input>
+          <button onClick={this.demoLogIn}  className='demo-login'>Demo Log In</button>
           <div className="session-text-bottom">
           <p>{this.props.linkText}</p>
           <p className="session-link">{this.props.link}</p>

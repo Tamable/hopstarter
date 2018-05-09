@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
     link: <Link to="/signup">Sign up!</Link>,
     linkText: 'New to HopStarter?',
     header: 'Log in',
-    name: false
+    nameClass: ''
   }
 }
 

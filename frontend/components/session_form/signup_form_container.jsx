@@ -6,12 +6,12 @@ import SessionForm from './session_form';
 
 const mapStateToProps = (state) => {
   return {
-    buttonText: 'Create an account',
+    buttonText: 'Create account',
     errors: state.errors.session,
     link: <Link to="/login">Log in</Link>,
     linkText: 'Have an account?',
     header: 'Sign up',
-    username: true
+    nameClass: 'SignupName'
   }
 }
 
