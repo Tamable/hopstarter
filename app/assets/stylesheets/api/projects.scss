@@ -4,14 +4,20 @@
 
 .project-index-container {
   font-family: 'Open Sans', sans-serif;
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-wrap: row wrap;
+  align-content: space-around;
+  flex-direction: row;
+  border: 2px solid red;
+  grid-gap: 10px;
   padding: 10px;
+  margin: 45px;
+  list-style: none;
 }
 
 .image-container {
   margin-top: 30px;
-  width: 398px;
+  width: 328px;
   height: 200px;
   background-color: #EDEDF2;
   border: 1px solid #aaa;
@@ -32,7 +38,7 @@
 }
 
 .project-index-item {
-  width: 378px;
+  width: 308px;
   height: 260px;
   padding: 10px;
   margin-bottom: 30px;
@@ -41,7 +47,7 @@
 
 .project-img {
   display: block;
-  max-width: 400px;
+  max-width: 328px;
   max-height: 200px;
   width: auto;
   height: auto;

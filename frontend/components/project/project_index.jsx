@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ProjectIndexItemContainer from './project_index_item_container';
 
 class ProjectIndex extends React.Component {

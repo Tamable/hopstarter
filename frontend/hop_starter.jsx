@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store'
 import Root from './components/root';
-import { login, logout } from './actions/session_actions'
+import { fetchProject, fetchProjects } from './actions/project_actions'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
     const preloadedState = {
       entities: {
-        user: { [window.currentUser.id]: window.currentUser }
+        users: { [window.currentUser.id]: window.currentUser }
       },
       session: { id: window.currentUser.id }
     };
@@ -21,9 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 // TESTING START
-  window.getState = store.getState;
-  // window.dispatch = store.dispatch;
-  // window.login = login
+  // window.getState = store.getState;
+  // // window.dispatch = store.dispatch;
+  // // window.login = login
+  // window.fetchProject = fetchProject;
+  // window.fetchProjects = fetchProjects;
 //TESTING END
 
   ReactDOM.render(<Root store={store} />, root);

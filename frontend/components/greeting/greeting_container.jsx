@@ -5,10 +5,10 @@ import Greeting from './greeting'
 
 const mapStateToProps = (state) => {
   let session = state.session
-  let user = state.entities.user
+  let users = state.entities.users
 
   return {
-    currentUser: user[session.id]
+    currentUser: users[session.id]
   }
 }
 
