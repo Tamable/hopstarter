@@ -4,13 +4,13 @@ import { fetchProjects } from '../../actions/project_actions';
 
 const mapStateToProps = (state) => {
   return {
-    projects: Object.values(state.entities.projects);
+    projects: Object.values(state.entities.projects)
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchProjects: () => dispatch(fetchProjects());
+    fetchProjects: () => dispatch(fetchProjects())
   }
 }
 

@@ -9,7 +9,7 @@ class ProjectIndex extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='project-index-container'>
         <ul>
           {this.props.projects.map(project => {
             return <ProjectIndexItemContainer key={project.id} project={project} />

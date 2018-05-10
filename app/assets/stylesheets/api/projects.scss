@@ -1,3 +1,96 @@
 // Place all the styles related to the api/projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.project-index-container {
+  font-family: 'Open Sans', sans-serif;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.image-container {
+  margin-top: 30px;
+  width: 398px;
+  height: 200px;
+  background-color: #EDEDF2;
+  border: 1px solid #aaa;
+  border-bottom: none;
+}
+
+.collection {
+  position: relative;
+  left: 20px;
+  top: -15px;
+  width: 110px;
+  height: 25px;
+  padding-top: 5px;
+  text-align: center;
+  border: 1px solid #aaa;
+  font-size: 13px;
+  background-color: white;
+}
+
+.project-index-item {
+  width: 378px;
+  height: 260px;
+  padding: 10px;
+  margin-bottom: 30px;
+  border: 1px solid #aaa;
+}
+
+.project-img {
+  display: block;
+  max-width: 400px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+.title-name {
+  width: 360px;
+  height: 110px;
+  line-height: 2.7;
+  margin: 0 10px;
+  padding: 0 10px;
+}
+
+.project-title {
+  font-size: 22px;
+
+}
+
+.project-creator {
+  font-size: 13px;
+}
+
+.pledge-progress-container {
+
+}
+
+@for $i from 1 through 100 {
+  .percentage-#{$i} {
+    $value: ($i * 1%);
+    width: $value;
+  }
+}
+
+.percentage {
+  height: 0.3rem;
+  color: #037362;
+  width: 100%;
+}
+
+.project-pledge {
+  color: #037362;
+}
+
+.stats-box {
+  width: 324px;
+  height: 90px;
+  padding: 18px;
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.7;
+}

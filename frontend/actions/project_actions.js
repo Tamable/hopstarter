@@ -9,7 +9,7 @@ export const receiveProjects = (payload) => {
   return {
     type: RECEIVE_PROJECTS,
     projects: payload.projects,
-    creators: payload.users,
+    users: payload.users,
     categories: payload.categories
   }
 }
@@ -18,7 +18,7 @@ export const receiveProject = (payload) => {
   return {
     type: RECEIVE_PROJECT,
     project: payload.project,
-    creator: payload.user,
+    user: payload.user,
     category: payload.category
   }
 }

@@ -3,18 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .outer-container {
-  padding: 10px 20px;
+  padding: 10px 0;
 }
 
 // app.jsx
 .nav-bar-container {
   position: relative;
   font-family: 'Open Sans', sans-serif;
-  border-bottom: 2px solid grey;
+  border-bottom: 1px solid grey;
   z-index: 1;
 }
 
 .nav-bar {
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   margin: auto;
@@ -25,13 +26,11 @@
 .logo {
   font-family: 'Sniglet', cursive;
   font-size: 26px;
-  // color: #034752;
   color: #E4572E
 }
 
 // greeting.jsx
 .right-corner {
-  // display: flex;
   text-align: center;
   flex-direction: column;
   position: relative;

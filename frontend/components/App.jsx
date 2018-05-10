@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
+import ProjectIndexContainer from './project/project_index_container';
 
 const App = () => {
   return (
@@ -13,8 +14,7 @@ const App = () => {
       <div className="nav-bar-container">
         <header className='nav-bar'>
           <div className="left-corner">
-          <span>Explore</span>
-          <span>Start a project</span>
+          <Link to="/projects">Explore</Link>
           </div>
           <Link to="/" className="logo">TEST</Link>
           <GreetingContainer />
@@ -24,6 +24,7 @@ const App = () => {
       <AuthRoute exact path="/login" component={ LogInFormContainer } />
       <AuthRoute exact path="/signup" component={ SignUpFormContainer } />
       </div>
+      <Route path="/projects" component={ProjectIndexContainer} />
     </div>
   )
 }
