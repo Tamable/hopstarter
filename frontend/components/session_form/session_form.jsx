@@ -64,7 +64,7 @@ class SessionForm extends React.Component {
           <input type="text" onChange={this.update('email')} value={this.state.email} placeholder='Email: '></input>
         <br></br>
           <input type="password" onChange={this.update('password')} value={this.state.password} placeholder="Password:"></input>
-          <input type="submit" value={this.props.buttonText}></input>
+          <input className='enter-button' type="submit" value={this.props.buttonText}></input>
           { demoButton }
           <div className="session-text-bottom">
           <p>{this.props.linkText}</p>

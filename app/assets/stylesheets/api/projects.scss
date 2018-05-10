@@ -4,15 +4,18 @@
 
 .project-index-container {
   font-family: 'Open Sans', sans-serif;
-  display: flex;
-  flex-wrap: row wrap;
-  align-content: space-around;
-  flex-direction: row;
-  border: 2px solid red;
-  grid-gap: 10px;
   padding: 10px;
-  margin: 45px;
   list-style: none;
+}
+
+.project-index-container > ul {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.index-outer-container {
+  margin: auto;
 }
 
 .image-container {
@@ -99,4 +102,152 @@
   font-size: 13px;
   color: #aaa;
   line-height: 1.7;
+}
+
+// show
+
+.show-outer-container {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+.show-top-section {
+  background-color: #EDEDF2;
+  margin: auto;
+
+}
+
+.title-section {
+  display: flex;
+  padding: 32px 22px 10px 22px;
+}
+
+.title-sec-left {
+  flex-direction: column;
+  width: 20%;
+  height: 118px;
+  font-size: 13px;
+  padding-left: 35px;
+}
+
+.title-sec-left > img {
+  max-width: 42px;
+  max-height: 42px;
+  width: auto;
+  height: auto;
+  padding-bottom: 10px;
+  padding-top: 15px;
+}
+
+.creator-name {
+  color: black;
+}
+
+.project-count {
+  color: #aaa;
+}
+
+.title-sec-right {
+  width: 80%;
+  height: 132px;
+  padding: 0 12px;
+}
+
+.title-sec-right > h1 {
+  font-size: 40px;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.title-sec-right > span {
+  font-size: 16px;
+  color: #aaa;
+}
+
+.image-section {
+  display: flex;
+  padding: 0 45px;
+}
+
+.show-image-container {
+  width: 70%;
+  height: 390px;
+  background-color: white;
+}
+
+.image {
+  max-height: 390px;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+.stats-side {
+  width: 30%;
+  padding: 10px 35px 0 35px;
+}
+
+.show-pledged {
+  font-size: 24px;
+  color: #007460;
+
+}
+
+.stats-side > div {
+  font-size: 24px;
+}
+
+.stats-side > p {
+  font-size: 14px;
+  color: #9BA0A4;
+  margin-bottom: 10px;
+}
+
+input[type=submit].commit-button {
+  background-color: #009E74;
+  color: white;
+  text-align: center;
+  padding: 0 24px;
+  width: 300px;
+  height: 48px;
+  margin-top: 40px;
+  border-radius: none;
+  margin-bottom: 20px;
+}
+
+input[type=submit].commit-button:hover {
+  background-color: #008561;
+}
+
+.small-print-underlined {
+  font-size: 11px;
+  line-height: 1.5;
+  text-decoration: underline;
+}
+
+.small-print {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.category-location-bottom {
+  display: flex;
+  color: #59575C;
+  font-size: 12px;
+  height: 20px;
+  padding: 15px 0 50px 45px;
+  width: 50%;
+}
+
+.category-location-bottom > p {
+  margin-right: 20px;
+
+}
+
+.category-location-bottom > img {
+  max-height: 15px;
+  max-width: 15px;
+  height: auto;
+  margin-right: 5px;
+
 }
