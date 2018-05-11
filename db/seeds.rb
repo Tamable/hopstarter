@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Project.destroy_all
+
 c1 = Category.create!(
   name: "Hedgehogs"
 )
@@ -33,7 +36,7 @@ u2 = User.create!(
 )
 
 p1 = Project.create!(
-  title: "Test 1",
+  title: "Flamingo Project 1",
   category_id: c3.id,
   creator_id: u1.id,
   description: "deicae pecunarerunt iter aegemur vos unanimeratis demonire aliquid titor exercar transatus.",
@@ -43,7 +46,7 @@ p1 = Project.create!(
 )
 
 p2 = Project.create!(
-  title: "Test 2",
+  title: "Hedgehog Project 2",
   category_id: c1.id,
   creator_id: u2.id,
   description: "vectum cum ubum animeram ac tyritus herberrimum.",
@@ -53,7 +56,7 @@ p2 = Project.create!(
 )
 
 p3 = Project.create!(
-  title: "Test 3",
+  title: "Penguin Project 3",
   category_id: c2.id,
   creator_id: u1.id,
   description: "lanatant mihi vertunt, es insolantis cupidisti mercor.",
