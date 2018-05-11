@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509194817) do
+ActiveRecord::Schema.define(version: 20180511013857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20180509194817) do
     t.integer "parent_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pledges", force: :cascade do |t|
+    t.integer "amount", null: false
+    t.integer "supporter_id", null: false
+    t.integer "project_id", null: false
+    t.integer "reward_id"
+    t.index ["supporter_id"], name: "index_pledges_on_supporter_id", unique: true
   end
 
   create_table "projects", force: :cascade do |t|

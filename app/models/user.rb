@@ -10,6 +10,10 @@ class User < ApplicationRecord
     class_name: 'Project',
     foreign_key: :creator_id
 
+  has_many :pledges,
+    class_name: 'Pledge',
+    foreign_key: :supporter_id
+
   after_initialize :ensure_session_token
   after_initialize :assign_default_image
 

@@ -9,10 +9,19 @@ class Project < ApplicationRecord
     class_name: 'Category',
     foreign_key: :category_id
 
-  has_many :backers,
-    class_name: 'User'
+  has_many :pledges,
+    class_name: 'Pledge',
+    foreign_key: :project_id
 
-  # def backer_count
-  #   self.backers.count
-  # end
+  has_many :backers,
+  through: :pledges,
+  source: :supporter_id
+
+  def backer_count
+    self.pledges.count
+  end
+
+  def pledges_total
+    self.amount_pledged = self.pledges.amount.reduce(:+)
+  end
 end

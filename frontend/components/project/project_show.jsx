@@ -8,9 +8,11 @@ class ProjectShow extends React.Component {
   }
 
   render() {
-    let project = this.props.project
-    let creator = this.props.creator
-    let category = this.props.category
+    let project = this.props.project;
+    let creator = this.props.creator;
+    let category = this.props.category;
+    let pledges = this.props.pledges;
+
     let today = new Date();
     let endDate = new Date(project.end_date);
     let oneDay = 24*60*60*1000;

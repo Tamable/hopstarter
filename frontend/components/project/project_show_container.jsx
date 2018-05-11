@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import ProjectShow from './project_show';
 import { fetchProject, fetchProjects } from '../../actions/project_actions';
+import { createPledge } from '../../actions/pledge_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -12,6 +13,9 @@ const mapStateToProps = (state, ownProps) => {
   if (project) {
     creator = state.entities.users[project.creator_id],
     category = state.entities.categories[project.category_id]
+    // pledges = Object.values(state.entities.pledges).filter((pledge) => {
+    //   pledge.project_id === project.id
+    // })
   } else {
     project = {};
   }
@@ -20,6 +24,7 @@ const mapStateToProps = (state, ownProps) => {
     project,
     creator,
     category,
+    pledges
   }
 }
 
