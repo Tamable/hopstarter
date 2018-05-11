@@ -104,6 +104,16 @@
   line-height: 1.7;
 }
 
+.project-category {
+  font-size: 13px;
+  color: #aaa;
+  text-decoration: underline;
+}
+
+.project-category:hover {
+  color: black;
+}
+
 // show
 
 .show-outer-container {
@@ -139,11 +149,11 @@
   padding-top: 15px;
 }
 
-.creator-name {
+.creator-info {
   color: black;
 }
 
-.project-count {
+.creator-info > span {
   color: #aaa;
 }
 
@@ -236,18 +246,17 @@ input[type=submit].commit-button:hover {
   font-size: 12px;
   height: 20px;
   padding: 15px 0 50px 45px;
-  width: 50%;
+  width: 35%;
+  justify-content: space-around;
 }
 
-.category-location-bottom > p {
-  margin-right: 20px;
-
+.category-location-bottom > div {
+  display: flex;
 }
 
-.category-location-bottom > img {
+.category-location-bottom > div > img {
   max-height: 15px;
   max-width: 15px;
   height: auto;
   margin-right: 5px;
-
 }

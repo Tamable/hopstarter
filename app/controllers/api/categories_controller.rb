@@ -7,7 +7,7 @@ class Api::CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    render json: @category
+    render :show
   end
 
   def create

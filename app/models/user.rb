@@ -7,7 +7,8 @@ class User < ApplicationRecord
     class_name: 'Project'
 
   has_many :project_proposals,
-    class_name: 'Project'
+    class_name: 'Project',
+    foreign_key: :creator_id
 
   after_initialize :ensure_session_token
   after_initialize :assign_default_image
@@ -40,6 +41,10 @@ class User < ApplicationRecord
     self.session_token = SecureRandom::urlsafe_base64
     self.save!
     self.session_token
+  end
+
+  def project_count
+    self.project_proposals.count
   end
 
   private

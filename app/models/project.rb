@@ -11,4 +11,8 @@ class Project < ApplicationRecord
 
   has_many :backers,
     class_name: 'User'
+
+  # def backer_count
+  #   self.backers.count
+  # end
 end

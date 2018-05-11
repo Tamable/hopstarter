@@ -32,7 +32,7 @@ const ProjectIndexItem = (props) => {
           <span className='project-pledge'>${amountPledged} pledged</span><br></br>
           <span>{pledgePercent}% funded</span><br></br>
           <span>{diffDays} days to go</span><br></br><br></br>
-          <span className='project-category'>{props.category.name}</span>
+          <Link to={`/categories/${props.category.id}`} className='project-category'>{props.category.name}</Link>
           </div>
         </li>
       </Link>

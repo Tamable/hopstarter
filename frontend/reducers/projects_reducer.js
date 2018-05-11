@@ -1,5 +1,6 @@
 import { merge } from 'lodash';
 import { RECEIVE_PROJECTS, RECEIVE_PROJECT, REMOVE_PROJECT } from '../actions/project_actions';
+import { RECEIVE_CATEGORY } from '../actions/category_actions';
 
 const projectsReducer = (state = {}, action) => {
   switch(action.type) {
@@ -11,6 +12,8 @@ const projectsReducer = (state = {}, action) => {
       let newState = merge({}, state);
       delete newState[action.id];
       return newState;
+    case RECEIVE_CATEGORY:
+      return action.projects;
     default:
       return state;
   }

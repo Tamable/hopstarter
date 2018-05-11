@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store'
 import Root from './components/root';
-import { fetchProject, fetchProjects } from './actions/project_actions'
+import { fetchCategory } from './actions/category_actions'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // // window.login = login
   // window.fetchProject = fetchProject;
   // window.fetchProjects = fetchProjects;
+  // window.fetchCategory = fetchCategory;
 //TESTING END
 
   ReactDOM.render(<Root store={store} />, root);

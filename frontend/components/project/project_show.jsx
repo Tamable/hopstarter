@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ProjectShow extends React.Component {
 
@@ -23,7 +24,9 @@ class ProjectShow extends React.Component {
             <section className='title-section'>
               <div className='title-sec-left'>
                 <img src={creator.image_url}></img>
-                <p className='creator-name'>{creator.name}</p><br></br>
+                <p className='creator-info'>{creator.name}<br></br>
+                  <span>{creator.project_count} created</span>
+                </p>
               </div>
               <div className='title-sec-right'>
                 <h1>{project.title}</h1>
@@ -36,9 +39,9 @@ class ProjectShow extends React.Component {
               </div>
               <div className='stats-side'>
                 <br></br><br></br>
-                <div className='show-pledged'>${project.amount_pledged}</div>
+                <div className='show-pledged'>${amountPledged}</div>
                 <p>pledged of ${project.funding_goal} goal</p>
-                <div>1 need to interpolate</div>
+                <div>TBD</div>
                 <p>backers</p>
                 <div>{diffDays}</div>
                 <p>days to go</p>
@@ -48,11 +51,13 @@ class ProjectShow extends React.Component {
               </div>
           </section>
           <div className='category-location-bottom'>
-            <img src={window.staticImages.favicon} />
-            <p >'Project We Love'</p>
-            <p >{category.name}</p>
-            <img src={window.staticImages.pin_map_icon} />
-            <p >City, State</p>
+
+            <div><img src={window.staticImages.favicon} />
+            <p>Project We Love</p></div>
+            <div><img src={window.staticImages.compass} />
+            <Link to={`/categories/${category.id}`}>{category.name}</Link></div>
+            <div><img src={window.staticImages.pin_map_icon} />
+            <p>City, State</p></div>
           </div>
         </section>
         </div>
@@ -60,6 +65,5 @@ class ProjectShow extends React.Component {
     )
   }
 }
-// <p className='project-count'>{creator.projects.length} created</p>
 
 export default ProjectShow;
