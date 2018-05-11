@@ -18,13 +18,14 @@ class ProjectShow extends React.Component {
     let diffDays = Math.round(Math.abs((endDate.getTime() - today.getTime())/(oneDay)));
     let amountPledged = project.amount_pledged ? project.amount_pledged : 0;
 
+    // <img src={creator.image_url}></img> line 28
+    // <img className='image' src={project.image_url} /> line 40
     return (
       <div>
         <div className='show-outer-container'>
           <section className='show-top-section'>
             <section className='title-section'>
               <div className='title-sec-left'>
-                <img src={creator.image_url}></img>
                 <p className='creator-info'>{creator.name}<br></br>
                   <span>{creator.project_count} created</span>
                 </p>
@@ -36,7 +37,6 @@ class ProjectShow extends React.Component {
             </section>
             <section className='image-section'>
               <div className='show-image-container'>
-                <img className='image' src={project.image_url} />
               </div>
               <div className='stats-side'>
                 <br></br><br></br>

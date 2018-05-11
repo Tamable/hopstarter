@@ -56,7 +56,7 @@ class User < ApplicationRecord
     self.session_token ||= SecureRandom::urlsafe_base64
   end
 
-  def assign_default_image
-    self.image_url ||= 'orange_circle.png'
-  end
+  # def assign_default_image
+  #   self.image_url ||= 'orange_circle.png'
+  # end
 end

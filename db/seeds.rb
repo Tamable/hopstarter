@@ -27,14 +27,12 @@ u1 = User.create!(
   email: "test1@email.com",
   name: "Demo one",
   password: "password123",
-  image_url: "default-user.png"
 )
 
 u2 = User.create!(
   email: "test2@email.com",
   name: "Demo two",
   password: "password456",
-  image_url: "orange_circle.png"
 )
 
 p1 = Project.create!(

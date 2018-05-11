@@ -11,11 +11,12 @@ const ProjectIndexItem = (props) => {
   let amountPledged = project.amount_pledged ? project.amount_pledged : 0;
   let pledgePercent = Math.round((project.amount_pledged / project.funding_goal) * 100)
 
+  // <img className='project-img' src={project.image_url} /> line 19
+
   return (
     <div>
       <Link to={`/projects/${project.id}`} className='index-outer-container'>
         <div className='image-container'>
-          <img className='project-img' src={project.image_url} />
         <div className="collection">Project We Love</div>
         </div>
         <li className='project-index-item'>
