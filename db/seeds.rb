@@ -6,11 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Project.destroy_all
-User.destroy_all
-Category.destroy_all
-Pledge.destroy_all
-
 c1 = Category.create!(
   name: "Hedgehogs"
 )
@@ -39,7 +34,7 @@ u2 = User.create!(
 
 p1 = Project.create!(
   title: "Test 1",
-  category_id: c1.id,
+  category_id: c3.id,
   creator_id: u1.id,
   description: "deicae pecunarerunt iter aegemur vos unanimeratis demonire aliquid titor exercar transatus.",
   image_url: "flamingos.jpeg",
@@ -49,7 +44,7 @@ p1 = Project.create!(
 
 p2 = Project.create!(
   title: "Test 2",
-  category_id: c2.id,
+  category_id: c1.id,
   creator_id: u2.id,
   description: "vectum cum ubum animeram ac tyritus herberrimum.",
   image_url: "hedgehog.jpeg",
@@ -59,28 +54,10 @@ p2 = Project.create!(
 
 p3 = Project.create!(
   title: "Test 3",
-  category_id: c3.id,
+  category_id: c2.id,
   creator_id: u1.id,
   description: "lanatant mihi vertunt, es insolantis cupidisti mercor.",
   image_url: "penguin1.jpeg",
   funding_goal: 30000,
   end_date: "2018-8-1"
-)
-
-p1 = Pledge.create!(
-  amount: 2500,
-  supporter_id: u1.id,
-  project_id: p1.id
-)
-
-p2 = Pledge.create!(
-  amount: 7000,
-  supporter_id: u1.id,
-  project_id: p2.id
-)
-
-p3 = Pledge.create!(
-  amount: 10000,
-  supporter_id: u2.id,
-  project_id: p3.id
 )

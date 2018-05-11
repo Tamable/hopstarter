@@ -213,19 +213,19 @@
   margin-bottom: 10px;
 }
 
-input[type=submit].commit-button {
+.pledge-link-button {
+  display: block;
   background-color: #009E74;
   color: white;
   text-align: center;
-  padding: 0 24px;
+  font-size: 16px;
+  padding-top: 15px;
   width: 300px;
-  height: 48px;
+  height: 38px;
   margin-top: 40px;
-  border-radius: none;
-  margin-bottom: 20px;
 }
 
-input[type=submit].commit-button:hover {
+.pledge-link-button:hover {
   background-color: #008561;
 }
 

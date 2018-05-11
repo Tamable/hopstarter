@@ -56,7 +56,7 @@ export const fetchProject = (id) => {
 export const createProject = (project) => {
   return dispatch => {
     return ApiUtil.createProject(project).then((payload) => {
-      return dispatch(createProject(payload))
+      return dispatch(receiveProject(payload))
     }, (err) => {
       return dispatch(receiveProjectErrors(err.responseJSON));
     })
@@ -66,7 +66,7 @@ export const createProject = (project) => {
 export const updateProject = (project) => {
   return dispatch => {
     return ApiUtil.updateProject(project).then((payload) => {
-      return dispatch(updateProject(payload))
+      return dispatch(receiveProject(payload))
     }, (err) => {
       return dispatch(receiveProjectErrors(err.responseJSON));
     })

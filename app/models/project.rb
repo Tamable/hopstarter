@@ -20,8 +20,4 @@ class Project < ApplicationRecord
   def backer_count
     self.pledges.count
   end
-
-  def pledges_total
-    self.amount_pledged = self.pledges.amount.reduce(:+)
-  end
 end

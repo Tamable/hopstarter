@@ -7,9 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
     resources :categories, only: [:index, :show]
-    resources :projects do
-      resources :pledges, only: [:create]
-    end
-    resources :pledges, only: [:update, :delete]
+    resources :projects
+    resources :pledges, only: [:create, :update, :delete]
   end
 end

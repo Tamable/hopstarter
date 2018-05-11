@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
   demoLogin(e) {
     e.preventDefault();
     let userInfo = {
-      email: 'test@email.com',
+      email: 'test1@email.com',
       password: 'password123'
     }
     this.props.processForm(userInfo);
@@ -55,7 +55,7 @@ class SessionForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="session-form">
         <h1 className="session-text-top">{this.props.header}</h1>
-        <ul className="session-error">
+        <ul className="error">
           {this.props.errors.map((error, i) => {
             return <li key={`${i}`}>{error}</li>
           })}

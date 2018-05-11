@@ -1,13 +1,12 @@
 class Api::PledgesController < ApplicationController
   def create
     @pledge = Pledge.new(pledge_params)
-    @pledge.project_id = params[:project_id]
-    @pledge.supporter_id = current_user.id
 
     if @pledge.save
-      render 'api/projects/show'
+      render :show
     else
       render json: @pledge.errors.full_messages
+    end
   end
 
   def edit
@@ -18,7 +17,7 @@ class Api::PledgesController < ApplicationController
     @pledge = current_user.pledges.find(params[:id])
 
     if @pledge.update(pledge_params)
-      render 'api/projects/show'
+      render :show
     else
       render json: @pledge.errors.full_messages
     end
@@ -27,10 +26,10 @@ class Api::PledgesController < ApplicationController
   def delete
     pledge = current_user.pledges.find(params[:id])
     pledge.destroy
-    render 'api/projects/show'
+    render :show
   end
 
   def pledge_params
-    params.require(:pledge).permit(:amount, :reward_id)
+    params.require(:pledge).permit(:amount, :supporter_id, :project_id, :reward_id)
   end
 end

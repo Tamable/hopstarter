@@ -1,7 +1,7 @@
 export const createPledge = (pledge) => {
   return $.ajax({
     method: 'POST',
-    url: '/api/projects/:id/pledges',
+    url: `/api/pledges`,
     data: { pledge: pledge }
   })
 }

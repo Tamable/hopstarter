@@ -9,6 +9,7 @@ import LogInFormContainer from './session_form/login_form_container';
 import ProjectIndexContainer from './project/project_index_container';
 import ProjectShowContainer from './project/project_show_container';
 import CategoryShowContainer from './category/category_show_container';
+import CreatePledgeFormContainer from './pledge/create_pledge_form_container';
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
       <Route exact path="/projects" component={ProjectIndexContainer} />
       <Route exact path="/projects/:id" component={ProjectShowContainer} />
       <Route exact path="/categories/:id" component={CategoryShowContainer} />
+      <Route exact path="/projects/:id/pledge" component={CreatePledgeFormContainer} />
     </div>
   )
 }

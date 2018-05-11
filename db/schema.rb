@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180511132330) do
+ActiveRecord::Schema.define(version: 20180511141509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20180511132330) do
   end
 
   create_table "pledges", force: :cascade do |t|
-    t.integer "amount", null: false
     t.integer "supporter_id", null: false
     t.integer "project_id", null: false
     t.integer "reward_id"
+    t.integer "amount", default: 0
     t.index ["supporter_id", "project_id"], name: "index_pledges_on_supporter_id_and_project_id", unique: true
   end
 
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20180511132330) do
     t.text "description", null: false
     t.string "image_url"
     t.integer "funding_goal", null: false
-    t.integer "amount_pledged"
     t.boolean "reward_offered", default: false
     t.date "end_date", null: false
+    t.integer "amount_pledged", default: 0
     t.index ["creator_id"], name: "index_projects_on_creator_id"
   end
 

@@ -11,7 +11,6 @@ class ProjectShow extends React.Component {
     let project = this.props.project;
     let creator = this.props.creator;
     let category = this.props.category;
-    let pledges = this.props.pledges;
 
     let today = new Date();
     let endDate = new Date(project.end_date);
@@ -43,11 +42,11 @@ class ProjectShow extends React.Component {
                 <br></br><br></br>
                 <div className='show-pledged'>${amountPledged}</div>
                 <p>pledged of ${project.funding_goal} goal</p>
-                <div>TBD</div>
+                <div>{project.backer_count}</div>
                 <p>backers</p>
                 <div>{diffDays}</div>
                 <p>days to go</p>
-                <input className='commit-button' type='submit' value='Back this project'></input><br></br>
+                <span className='pledge-link-button'><Link to={`/projects/${project.id}/pledge`}>Back this project</Link></span><br></br>
                 <span className='small-print-underlined'>All or nothing.&nbsp;</span>
                 <span className='small-print'>This project will only be funded if it reaches its goal by {project.end_date}.</span>
               </div>
