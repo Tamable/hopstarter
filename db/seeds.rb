@@ -37,7 +37,7 @@ p1 = Project.create!(
   category_id: c3.id,
   creator_id: u1.id,
   description: "deicae pecunarerunt iter aegemur vos unanimeratis demonire aliquid titor exercar transatus.",
-  image_url: "flamingos.jpeg",
+  image_url: "flamingos",
   funding_goal: 10000,
   end_date: "2018-6-30"
 )
@@ -47,7 +47,7 @@ p2 = Project.create!(
   category_id: c1.id,
   creator_id: u2.id,
   description: "vectum cum ubum animeram ac tyritus herberrimum.",
-  image_url: "hedgehog.jpeg",
+  image_url: "hedgehog",
   funding_goal: 20000,
   end_date: "2018-7-15"
 )
@@ -57,7 +57,7 @@ p3 = Project.create!(
   category_id: c2.id,
   creator_id: u1.id,
   description: "lanatant mihi vertunt, es insolantis cupidisti mercor.",
-  image_url: "penguin1.jpeg",
+  image_url: "penguin1",
   funding_goal: 30000,
   end_date: "2018-8-1"
 )
