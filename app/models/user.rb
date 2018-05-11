@@ -15,7 +15,7 @@ class User < ApplicationRecord
     foreign_key: :supporter_id
 
   after_initialize :ensure_session_token
-  after_initialize :assign_default_image
+  # after_initialize :assign_default_image
 
   attr_reader :password
 
