@@ -15,10 +15,6 @@ const projectsReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_CATEGORY:
       return action.projects;
-    case RECEIVE_PLEDGE:
-
-    case REMOVE_PLEDGE:
-
     default:
       return state;
   }

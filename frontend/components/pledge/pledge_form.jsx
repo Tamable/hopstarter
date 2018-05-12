@@ -27,26 +27,52 @@ class PledgeForm extends React.Component {
           <h1>{this.props.project.title}</h1>
           <span>by {this.props.creator.name}</span>
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <h1>Support this project</h1>
-          <div className='pledge-box'>
-            <span>Make a pledge</span>
-            <p>Pledge amount</p>
-            <div className='amount-box-container'>
-              <p>$</p>
-              <input type='text' value={this.state.amount} onChange={this.update()}></input>
+        <section className="pledge-form-section">
+          <div>
+            <form onSubmit={this.handleSubmit}>
+              <h1 className='support-title'>Support this project</h1>
+              <div className='pledge-box'>
+                <label className='check-container'>Make a pledge
+                <input type='checkbox' />
+                <span className='checkmark'></span>
+                </label>
+                <span></span>
+                <p>Pledge amount</p>
+                <div className='amount-box-container'>
+                  <p>$</p>
+                  <input type='text' value={this.state.amount} onChange={this.update()}></input>
+                </div>
+                <button className='pledge-commit-button'>{this.props.buttonText}</button><br></br>
+              </div>
+            </form>
+          </div>
+          <div className='pledge-right-side'>
+            <div className='disclaimer'>
+              <span className='disclaimer-title'>Hopstarter is not a store.</span><br></br>
+              <span className='disclaimer-body'>It's a way to bring creative projects to life.</span><br></br>
+              <p>Hopstarter does not guarantee projects or investigate a creator's ability to complete their project. It is the responsibility of the project creator to complete their project as promised, and the claims of this project are theirs alone.</p>
             </div>
-            <button className='pledge-commit-button'>{this.props.buttonText}</button><br></br>
-          <ul className="error">
-            {this.props.errors.map((error, i) => {
-              return <li key={`${i}`}>{error}</li>
-            })}
-          </ul>
+            <span className='faq-title'>FREQUENTLY ASKED QUESTIONS</span><br></br>
+            <div className='faq'>
+              <span>▶ How do I pledge?</span><br></br>
+              <p className='answer'>Enter your pledge amount and select a reward. Then, enter your payment information to complete the checkout process.</p>
+              <br></br>
+              <span>▶ When is my card charged?</span><br></br>
+              <p className='answer'>If this project is successfully funded, your card will be charged on {this.props.project.end_date}, along with all the other backers of this project.</p>
+              <br></br>
+              <span>▶ So I'm only charged if funding succeeds?</span><br></br>
+              <p className='answer'>Yes! That's part of what makes Kickstarter special. If a project isn't successfully funded, no one pays anything.</p>
+            </div>
         </div>
-      </form>
+      </section>
     </div>
     );
   }
 }
 
+// <ul className="error">
+//   {this.props.errors.map((error, i) => {
+//     return <li key={`${i}`}>{error}</li>
+//   })}
+// </ul>
 export default PledgeForm;
