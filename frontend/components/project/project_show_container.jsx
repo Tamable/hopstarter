@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 
 import ProjectShow from './project_show';
 import { fetchProject } from '../../actions/project_actions';
-import { createPledge } from '../../actions/pledge_actions';
 
 const mapStateToProps = (state, ownProps) => {
 

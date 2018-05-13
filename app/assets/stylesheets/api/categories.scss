@@ -1,3 +1,212 @@
 // Place all the styles related to the api/categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.home-page {
+  font-family: 'Open Sans', sans-serif;
+  color: #090B0C;
+  border-bottom: 1px solid black;
+}
+
+.main-stats-bar {
+  display: flex;
+  border-bottom: 1px solid black;
+  margin-bottom: 55px;
+}
+
+.main-stats-bar > div {
+  padding: 30px 45px;
+  border-right: 1px solid #DCDEDD;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.main-stats-bar > div:last-of-type {
+  border-right: none;
+}
+
+.stats-title {
+  color: #37393A;
+}
+
+.stats {
+  font-weight: bolder;
+}
+
+.category-menu {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.category-menu > ul {
+  border-bottom: 1px solid #DCDEDD;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 10px;
+  color: #D3D4D9;
+  font-weight: lighter;
+}
+
+.category-menu > ul > li:hover {
+  color: #9B9E9E;
+}
+
+.featured-cat-container {
+  margin: 30px;
+}
+
+.featured-category {
+  font-size: 32px;
+  padding-right: 15px;
+}
+
+.top-view-all {
+  font-size: 12px;
+}
+
+.top-view-all:hover {
+  text-decoration: underline;
+  color: #27AEAF;
+}
+
+.featured-proj {
+  margin: 30px;
+  display: flex;
+  min-height: 440px;
+}
+
+.featured-left {
+  width: 50%;
+  margin-right: 20px
+}
+
+.feature-title {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.proj-image-container {
+  height: 80%;
+  background-color: yellow;
+}
+
+.project-info-container {
+  position: relative;
+  top: -135px;
+  left: 35px;
+  display: inline-block;
+}
+
+.project-info-container:hover {
+  color: #27AEAF;
+  max-width: 85%;
+}
+
+.featured-title {
+  font-size: 26px;
+  background-color: white;
+  padding: 5px;
+}
+
+.featured-creator {
+  background-color: white;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+.featured-pledge {
+  background-color: white;
+  padding: 5px;
+}
+
+.featured-right {
+  width: 50%;
+  margin-left: 20px;
+}
+
+.headings {
+  display: flex;
+  justify-content: space-between;
+  color: #D3D4D9;
+  font-size: 12px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #DCDEDD;
+  font-weight: lighter;
+}
+
+// .headings >li:first-of-type
+
+.headings >li:hover {
+  color: #9B9E9E
+}
+
+.project-list-container {
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 0.7px solid #DCDEDD;
+}
+
+.list-image {
+  width: 30%;
+  min-height: 60px;
+  background-color: orange;
+}
+
+.list-item > div {
+  width: 63%;
+  line-height: 1.6;
+}
+
+.list-pledge {
+  color: #D3D4D9;
+  font-size: 13px;
+}
+
+.view-all-bottom {
+  position: absolute;
+  top: 690px;
+  border: 1px solid #D3D4D9;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.view-all-bottom:hover {
+  border: 1px solid black;
+}
+
+.footer {
+  font-family: 'Open Sans', sans-serif;
+  color: #090B0C;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.category-list {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px 0;
+  border-bottom: 2px solid #DCDEDD;
+}
+
+.category-list > li:hover {
+  text-decoration: underline;
+  color: #27AEAF;
+}
+
+.footer-icons {
+  padding: 15px;
+  color: #9B9E9E;
+}
+
+.footer-icons > li {
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 40px;
+
+}
+
+.footer-icons > li > img {
+  width: auto;
+}

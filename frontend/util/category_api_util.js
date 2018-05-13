@@ -1,8 +1,13 @@
-const fetchCategory = (id) => {
+export const fetchCategory = (id) => {
   return $.ajax({
     method: 'GET',
     url: `api/categories/${id}`
   })
-}
+};
 
-export default fetchCategory;
+export const fetchCategories = () => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/categories'
+  })
+};

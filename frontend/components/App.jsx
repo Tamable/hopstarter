@@ -10,6 +10,9 @@ import ProjectIndexContainer from './project/project_index_container';
 import ProjectShowContainer from './project/project_show_container';
 import CategoryShowContainer from './category/category_show_container';
 import CreatePledgeFormContainer from './pledge/create_pledge_form_container';
+import CategoryIndexContainer from './category/category_index_container';
+import CategoryIndexEachContainer from './category/category_index_each_container';
+import CreateProjectFormContainer from './project/create_project_form_container';
 
 const App = () => {
   return (
@@ -18,16 +21,11 @@ const App = () => {
         <header className='nav-bar'>
           <div className="left-corner">
           <Link to="/projects">Explore</Link>
+          <Link to="/newproject/create">Start a project</Link>
           </div>
-          <Link to="/" className="logo">TEST</Link>
+          <Link to="/" className="logo">HOPSTARTER</Link>
           <GreetingContainer />
         </header>
-      </div>
-
-      <div className='stats-bar-container'>
-        <div className='stats-bar'>
-
-        </div>
       </div>
 
       <div className="form-container">
@@ -38,6 +36,9 @@ const App = () => {
       <Route exact path="/projects/:id" component={ProjectShowContainer} />
       <Route exact path="/categories/:id" component={CategoryShowContainer} />
       <Route exact path="/projects/:id/pledge" component={CreatePledgeFormContainer} />
+      <Route exact path="/" component={CategoryIndexContainer} />
+      <Route path="/newproject/create" component={CreateProjectFormContainer} />
+
     </div>
   )
 }
