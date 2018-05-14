@@ -16,7 +16,9 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(merge({}, this.state))
+    this.props.processForm(merge({}, this.state)).then((user) => {
+      this.props.history.push('home')
+    });
     this.setState({
       name: "",
       email: "",
@@ -38,7 +40,9 @@ class SessionForm extends React.Component {
       email: 'test1@email.com',
       password: 'password123'
     }
-    this.props.processForm(userInfo);
+    this.props.processForm(userInfo).then((user) => {
+      this.props.history.push('home')
+    });
   }
 
   render() {

@@ -3,9 +3,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: { message: "Sorry, there is already an account with that email." }
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_many :projects,
-    class_name: 'Project'
-
   has_many :project_proposals,
     class_name: 'Project',
     foreign_key: :creator_id
@@ -13,6 +10,10 @@ class User < ApplicationRecord
   has_many :pledges,
     class_name: 'Pledge',
     foreign_key: :supporter_id
+
+  has_many :supporting_projects,
+  through: :pledges,
+  source: :supporter
 
   after_initialize :ensure_session_token
   # after_initialize :assign_default_image

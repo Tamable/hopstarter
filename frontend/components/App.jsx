@@ -14,6 +14,7 @@ import CategoryIndexContainer from './category/category_index_container';
 import CategoryIndexEachContainer from './category/category_index_each_container';
 import CreateProjectFormContainer from './project/create_project_form_container';
 import EditProjectFormContainer from './project/edit_project_form_container';
+import UserProfileContainer from './user/user_profile_container';
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
       <Route exact path="/newproject/create" component={CreateProjectFormContainer} />
       <Route exact path="/projects/:id/edit" component={EditProjectFormContainer} />
       <Route path="/home" component={CategoryIndexContainer} />
+      <ProtectedRoute path="/users/:id" component={UserProfileContainer} />
     </div>
   )
 }

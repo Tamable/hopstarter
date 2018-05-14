@@ -1,2 +1,2 @@
-json.extract! user, :id, :email, :name, :project_count
-# json.image_url asset_path(user.image_url)
+json.extract! user, :id, :email, :name, :project_count, :project_proposals, :supporting_projects
+json.image_url asset_path(user.image_url)
