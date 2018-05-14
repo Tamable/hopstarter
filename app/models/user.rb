@@ -12,8 +12,8 @@ class User < ApplicationRecord
     foreign_key: :supporter_id
 
   has_many :supporting_projects,
-  through: :pledges,
-  source: :supporter
+    through: :pledges,
+    source: :project
 
   after_initialize :ensure_session_token
   # after_initialize :assign_default_image
