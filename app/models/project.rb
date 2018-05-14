@@ -14,8 +14,8 @@ class Project < ApplicationRecord
     foreign_key: :project_id
 
   has_many :backers,
-  through: :pledges,
-  source: :supporter_id
+    through: :pledges,
+    source: :supporter_id
 
   def backer_count
     self.pledges.count

@@ -17,7 +17,7 @@ class CategoryShow extends React.Component {
     return (
       <div className='project-index-container'>
         <ul>
-          {projects.map((project) => {
+          {projects.reverse().map((project) => {
             let creator = creators[project.creator_id];
             return (
               <div key={project.id}>

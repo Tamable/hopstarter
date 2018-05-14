@@ -8,11 +8,11 @@ const NewAndNoteworthy = ({ projectsOfCategory, featuredProject }) => {
   let newProjects = sortedByCreatedAt.slice(0, 4).map((project) => {
     if (project !== featuredProject) {
       return (
-        <div key={project.id} className="list-item">
+        <Link to={`/projects/${project.id}`} key={project.id} className="list-item">
           <li className="list-image">project image placeholder</li>
           <div><li className="list-title">{project.title}</li>
           <li className="list-pledge">{Math.round((project.amount_pledged / project.funding_goal) * 100)}% funded</li></div>
-        </div>
+        </Link>
       )
     }
   });

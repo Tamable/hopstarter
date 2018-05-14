@@ -25,9 +25,9 @@ class Api::ProjectsController < ApplicationController
   end
 
   def update
-    @project = current_user.projects.find(params[:id])
+    @project = current_user.project_proposals.find(params[:id])
 
-    if @project.update
+    if @project.update(project_params)
       render :show
     else
       render json: @project.errors.full_messages
@@ -35,7 +35,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def delete
-    project = current_user.projects.find(params[:id])
+    project = current_user.project_proposals.find(params[:id])
     project.destroy
     render :index
   end

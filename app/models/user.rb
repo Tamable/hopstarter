@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: { message: "Sorry, there is already an account with that email." }
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_many :supporting_projects,
+  has_many :projects,
     class_name: 'Project'
 
   has_many :project_proposals,

@@ -69,7 +69,7 @@ class CategoryIndex extends React.Component {
           <ul>{categoryList}</ul>
         </section>
 
-        <Route exact path='/home/:id' component={CategoryIndexEachContainer} />
+        <Route path='/home/:id' component={CategoryIndexEachContainer} />
         <Route exact path='/home' component={FeaturedCategoryContainer} />
 
       <div className="footer">

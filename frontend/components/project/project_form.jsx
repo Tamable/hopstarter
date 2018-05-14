@@ -10,10 +10,6 @@ class ProjectForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
-  componentDidMount() {
-    // this.props.fetchCategories();
-  }
-
   update(field) {
     return e => {
       this.setState({ [field]: e.target.value })

@@ -21,7 +21,7 @@ class ProjectIndex extends React.Component {
     <div>
       <div className='project-index-container'>
         <ul>
-          {this.props.projects.map(project => {
+          {this.props.projects.reverse().map(project => {
             return <ProjectIndexItemContainer key={project.id} project={project} />
           })}
         </ul>
