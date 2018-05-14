@@ -1,10 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import NewAndNoteworthy from './new_and_noteworthy';
 
 const CategoryIndexEach = (props) => {
-  const showCategoryId = props.showCategoryId;
-  const projects = props.projects.filter((project) => { project.category_id == showCategoryId })
-  const featuredProject = projects.sort((a, b) => {
+  const allProjects = props.projects;
+  const allCreators = props.creators;
+  const categoryName = props.categoryObj.name;
+
+  const projectsOfCategory = allProjects.filter((project) =>  project.category_id == props.categoryObj.id )
+  const featuredProject = projectsOfCategory.sort((a, b) => {
     return b.amount_pledged - a.amount_pledged })[0];
 
   let featuredTitle = "";
@@ -13,33 +17,16 @@ const CategoryIndexEach = (props) => {
   let featuredId = "";
   if (featuredProject) {
     featuredTitle = featuredProject.title;
-    featuredCreator = this.props.creators[featuredProject.creator_id].name.toUpperCase();
+    featuredCreator = allCreators[featuredProject.creator_id].name.toUpperCase();
     pledgePercent = Math.round((featuredProject.amount_pledged / featuredProject.funding_goal) * 100);
     featuredId = featuredProject.id;
   };
 
-  const categoryName = props.category.name;
-
-  const sortedByCreatedAt = projects.sort((a, b) => {
-    return new Date(b.created_at) - new Date(a.created_at)
-  });
-  let newProjects = sortedByCreatedAt.slice(0, 4).map((project) => {
-    if (project !== featuredProject) {
-      return (
-        <div key={project.id} className="list-item">
-          <li className="list-image">project image placeholder</li>
-          <div><li className="list-title">{project.title}</li>
-          <li className="list-pledge">{Math.round((project.amount_pledged / project.funding_goal) * 100)}% funded</li></div>
-        </div>
-      )
-    }
-  });
-
   return (
-    <div>
+    <div className="project-container">
       <div className="featured-cat-container">
         <span className="featured-category">{categoryName}</span>
-        <Link className="top-view-all" to={`/categories/${showCategoryId}`}>VIEW ALL →</Link>
+        <Link className="top-view-all" to={`/categories/${props.categoryObj.id}`}>VIEW ALL →</Link>
       </div>
 
       <div className="featured-proj">
@@ -59,10 +46,8 @@ const CategoryIndexEach = (props) => {
             <li>ALMOST THERE</li>
             <li>POPULAR</li>
           </ul>
-          <section className="project-list-container">
-            <ul>{newProjects}</ul>
-          </section>
-          <Link className="view-all-bottom" to={`/categories/${showCategoryId}`}>VIEW ALL</Link>
+          <NewAndNoteworthy projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} />
+          <Link className="view-all-bottom" to={`/categories/${props.categoryObj.id}`}>VIEW ALL</Link>
         </div>
       </div>
     </div>

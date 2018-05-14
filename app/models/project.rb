@@ -20,4 +20,6 @@ class Project < ApplicationRecord
   def backer_count
     self.pledges.count
   end
+
+  accepts_nested_attributes_for :category
 end

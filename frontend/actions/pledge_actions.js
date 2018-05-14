@@ -7,7 +7,7 @@ export const RECEIVE_PLEDGE_ERRORS = 'RECEIVE_PLEDGE_ERRORS';
 export const receivePledge = (pledge) => {
   return {
     type: RECEIVE_PLEDGE,
-    pledge: pledge
+    pledge: pledge,
   }
 }
 
@@ -28,7 +28,8 @@ export const receivePledgeErrors = (errorArr) => {
 export const createPledge = (pledge) => {
   return dispatch => {
     return ApiUtil.createPledge(pledge).then((pledge) => {
-      return dispatch(receivePledge(pledge))
+      return dispatch(receivePledge(pledge));
+      return pledge;
     }, (err) => {
       return dispatch(receivePledgeErrors(err.responseJSON));
     })
@@ -38,7 +39,8 @@ export const createPledge = (pledge) => {
 export const updatePledge = (pledge) => {
   return dispatch => {
     return ApiUtil.updatePledge(pledge).then((pledge) => {
-      return dispatch(receivePledge(pledge))
+      return dispatch(receivePledge(pledge));
+      return pledge;
     }, (err) => {
       return dispatch(receivePledgeErrors(err.responseJSON));
     })

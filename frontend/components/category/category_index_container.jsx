@@ -5,12 +5,8 @@ import { fetchCategory } from '../../actions/category_actions';
 import { fetchProjects } from '../../actions/project_actions';
 
 const mapStateToProps = (state) => {
-  const categoryIdArr = Object.keys(state.entities.categories);
-  const showCategoryId = categoryIdArr[Math.floor(Math.random() * categoryIdArr.length)]
-
   return {
     categoryObj: state.entities.categories || {},
-    showCategoryId,
     projects: Object.values(state.entities.projects) || [],
     creators: state.entities.users
   }

@@ -4,7 +4,6 @@
 .home-page {
   font-family: 'Open Sans', sans-serif;
   color: #090B0C;
-  border-bottom: 1px solid black;
 }
 
 .main-stats-bar {
@@ -48,6 +47,9 @@
 
 .category-menu > ul > li:hover {
   color: #9B9E9E;
+}
+
+.project-container {
 }
 
 .featured-cat-container {
@@ -182,6 +184,7 @@
   color: #090B0C;
   font-size: 13px;
   line-height: 1.6;
+  border-top: 1px solid black;
 }
 .category-list {
   display: flex;

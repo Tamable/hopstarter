@@ -26,7 +26,6 @@ class Greeting extends React.Component {
         </div>
       )
     }
-
     if (currentUser) {
       return loggedIn();
     } else {

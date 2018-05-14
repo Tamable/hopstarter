@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class PledgeForm extends React.Component {
 
@@ -17,7 +17,9 @@ class PledgeForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state);
+    this.props.action(this.state).then((pledge) => {
+      this.props.history.replace(`/projects/${this.props.match.params.id}`)
+    });
   }
 
   render() {
@@ -75,4 +77,4 @@ class PledgeForm extends React.Component {
 //     return <li key={`${i}`}>{error}</li>
 //   })}
 // </ul>
-export default PledgeForm;
+export default withRouter(PledgeForm);

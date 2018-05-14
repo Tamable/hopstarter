@@ -17,6 +17,7 @@ class ProjectShow extends React.Component {
     let oneDay = 24*60*60*1000;
     let diffDays = Math.round(Math.abs((endDate.getTime() - today.getTime())/(oneDay)));
     let amountPledged = project.amount_pledged ? project.amount_pledged : 0;
+    let location = project.location ? project.location : "N/A"
 
     // <img src={creator.image_url}></img> line 28
     // <img className='image' src={project.image_url} /> line 40
@@ -58,7 +59,7 @@ class ProjectShow extends React.Component {
             <div><img src={window.staticImages.compass} />
             <Link to={`/categories/${category.id}`}>{category.name}</Link></div>
             <div><img src={window.staticImages.pin_map_icon} />
-            <p>City, State</p></div>
+            <p>{location}</p></div>
           </div>
         </section>
         </div>
