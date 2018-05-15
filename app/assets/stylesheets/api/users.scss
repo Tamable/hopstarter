@@ -1,3 +1,91 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.profile-container {
+  font-family: 'Open Sans', sans-serif;
+  color: #090B0C;
+
+}
+
+.profile-upper {
+  background-color: #F7F7F9;
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  transition: transform .2s;
+}
+
+.profile-image:hover {
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  box-shadow: 5px 10px 18px #888888;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+.user-name {
+  font-size: 28px;
+  font-weight: bolder;
+  margin-bottom: 15px;
+}
+
+.user-projects {
+  color: #80809E;
+  font-size: 13px;
+}
+
+.project-panes {
+  color: #80809E;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bolder;
+  border-bottom: 0.5px solid #DCDEDD
+}
+
+.project-panes > li:hover {
+  cursor: pointer;
+  color: #090B0C;
+}
+
+section.project-list-container {
+  padding: 15px 30px;
+
+}
+
+.profile-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 0.7px solid #DCDEDD;
+}
+
+.edit-botton {
+  background-color: #60A589;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+}
+
+.edit-botton:hover{
+  background-color: #AFE1B7;
+}

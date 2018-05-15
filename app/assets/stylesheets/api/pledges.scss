@@ -52,13 +52,13 @@
 }
 
 .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 
 .check-container input:checked ~ .checkmark:after {
-    display: block;
+  display: block;
 }
 
 .check-container .checkmark:after {

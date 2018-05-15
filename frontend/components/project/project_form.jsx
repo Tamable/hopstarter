@@ -8,6 +8,7 @@ class ProjectForm extends React.Component {
     super(props);
     this.state = this.props.project;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.delete = this.delete.bind(this);
   };
 
   update(field) {
@@ -22,6 +23,13 @@ class ProjectForm extends React.Component {
       this.props.history.replace(`/projects/${payload.project.id}`);
     })
   };
+
+  delete(e) {
+    e.preventDefault();
+    this.props.deleteProject(this.props.project.id).then(() => {
+      this.props.history.replace(`/users/${this.props.currentUserId}`)
+    })
+  }
 
   render() {
     const categoryList = this.props.categories.map((category) => {
@@ -95,6 +103,7 @@ console.log(this.props.project)
           </label>
           <button className="project-form-submit">{this.props.buttonText}</button>
         </form>
+        <button className="delete-button" onClick={this.delete}>X Delete</button>
 
       </div>
     )

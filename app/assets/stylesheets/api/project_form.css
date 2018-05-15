@@ -2,7 +2,7 @@
   font-family: 'Open Sans', sans-serif;
   background-color: #EAEBEB;
   font-size: 14px;
-  padding: 10px 30px;
+  padding: 10px 30px 40px 30px;
 }
 
 .editor-menu {
@@ -114,4 +114,10 @@
 
 .project-form-submit:hover {
   background-color: #004853;
+}
+
+.delete-button {
+  position: absolute;
+  right: 70px;
+  bottom: -260px;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
+
 import NewAndNoteworthy from './new_and_noteworthy';
 import AlmostThere from './almost_there';
 import Popular from './popular';

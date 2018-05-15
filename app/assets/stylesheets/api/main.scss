@@ -33,7 +33,16 @@
  .logo {
    font-family: 'Sniglet', cursive;
    font-size: 26px;
-   color: #E4572E
+   color: #E4572E;
+   transition: transform .2s;
+ }
+
+ .logo:hover{
+   -ms-transform: scale(1.1);
+   -webkit-transform: scale(1.1);
+   transform: scale(1.1);
+   text-shadow: 0px 10px 18px #888888;
+
  }
 
  // greeting.jsx
@@ -41,6 +50,20 @@
    text-align: center;
    flex-direction: column;
    position: relative;
+ }
+
+ .profile-img {
+   border-radius: 50%;
+   width: 50px;
+   height: 50px;
+   object-fit: cover;
+   transition: transform .2s;
+ }
+
+ .profile-img:hover {
+   -ms-transform: scale(1.1);
+   -webkit-transform: scale(1.1);
+   transform: scale(1.1);
  }
 
  .dropdown-content {

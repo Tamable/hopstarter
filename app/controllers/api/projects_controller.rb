@@ -34,10 +34,9 @@ class Api::ProjectsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     project = current_user.project_proposals.find(params[:id])
     project.destroy
-    render :index
   end
 
   private

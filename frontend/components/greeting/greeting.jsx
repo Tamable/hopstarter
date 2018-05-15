@@ -20,7 +20,7 @@ class Greeting extends React.Component {
         <div className='right-corner'>
           <img className='profile-img' src={currentUser.image_url} />
           <div className='dropdown-content'>
-            <li>{currentUser.name}</li>
+            <li><Link to={`/users/${currentUser.id}`}>{currentUser.name}</Link></li>
             <li onClick={logout}>Log out</li>
           </div>
         </div>
