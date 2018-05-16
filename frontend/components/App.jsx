@@ -18,6 +18,7 @@ import UserProfileContainer from './user/user_profile_container';
 import EditRewardFormContainer from './reward/edit_reward_form_container';
 import CreateRewardFormContainer from './reward/create_reward_form_container';
 import ProjectPreviewContainer from './project/project_preview_container';
+import FlashMessageContainer from './flash/flash_message_container';
 
 const App = () => {
   return (

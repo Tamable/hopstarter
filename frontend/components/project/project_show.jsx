@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import FlashMessageContainer from '../flash/flash_message_container';
+
 class ProjectShow extends React.Component {
 
   componentDidMount() {
@@ -11,22 +13,24 @@ class ProjectShow extends React.Component {
     let project = this.props.project;
     let creator = this.props.creator;
     let category = this.props.category;
-
-    const rewards = project.rewards.map((reward) => {
-      return (
-        <li className="each-reward-container">
-          <div>
-          <div className="reward-amount">Pledge ${reward.pledge_amount} or more</div>
-          <div className="reward-title">{reward.title}</div>
-          <div className="reward-item">{reward.item}</div>
-          <div className="reward-description">{reward.description}</div>
-          </div>
-          <div className="overlay">
-            <div className="pledge-text"><Link to={`/projects/${project.id}/pledge`}>Back this project</Link></div>
-          </div>
-        </li>
-      )
-    })
+    let rewards;
+    if (project.rewards) {
+      rewards = project.rewards.map((reward) => {
+        return (
+          <li className="each-reward-container">
+            <div>
+              <div className="reward-amount">Pledge ${reward.pledge_amount} or more</div>
+              <div className="reward-title">{reward.title}</div>
+              <div className="reward-item">{reward.item}</div>
+              <div className="reward-description">{reward.description}</div>
+            </div>
+            <div className="overlay">
+              <div className="pledge-text"><Link to={`/projects/${project.id}/pledge`}>Back this project</Link></div>
+            </div>
+          </li>
+        )
+      })
+    }
 
     let today = new Date();
     let endDate = new Date(project.end_date);
@@ -50,6 +54,7 @@ class ProjectShow extends React.Component {
               <div className='title-sec-right'>
                 <h1>{project.title}</h1>
                 <span>{project.description}</span>
+                <FlashMessageContainer />
               </div>
             </section>
             <section className='image-section'>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+
 class PledgeForm extends React.Component {
 
   constructor(props) {
@@ -18,6 +19,10 @@ class PledgeForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state).then((pledge) => {
+      this.props.addFlashMessage({
+        type: 'succcess',
+        text: 'Thank you for your support!'
+      });
       this.props.history.replace(`/projects/${this.props.match.params.id}`)
     });
   }

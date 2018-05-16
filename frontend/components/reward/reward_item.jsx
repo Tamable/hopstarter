@@ -31,6 +31,14 @@ class RewardItem extends React.Component {
   };
 
   render() {
+    let now = new Date();
+    let month = (now.getMonth() + 1);
+    let day = now.getDate();
+    if (month < 10)
+        month = "0" + month;
+    if (day < 10)
+        day = "0" + day;
+    let today = now.getFullYear() + '-' + month + '-' + day;
 
     return (
         <form onSubmit={this.handleSubmit} className="reward-list">
@@ -61,14 +69,15 @@ class RewardItem extends React.Component {
           <label className="form-label">
             <div className="field">Estimated delivery</div>
             <div className="input">
-            <input type='date' value={this.state.estimated_delivery} onChange={this.update('estimated_delivery')}></input>
+            <input type='date' min={today} value={this.state.estimated_delivery} onChange={this.update('estimated_delivery')}></input>
             </div>
           </label>
-          <label className="collapse" htmlFor="_limited">
-            <div className="field">Limited Availability</div>
+          <label>
+            <div className="field">Limited availability</div>
+            <div className="input">
+              <input type='number' min='0' value={this.state.backer_limit} onChange={this.update('backer_limit')}></input>
+            </div>
           </label>
-          <input id="_limited" type="checkbox" />
-          <div><input type="number" value={this.state.backer_limit}></input></div>
           <button className="reward-submit-button">{this.props.buttonText}</button>
           <button className="reward-delete-button" onClick={this.delete}><img src={window.staticImages.trash} /> Delete</button>
         </form>

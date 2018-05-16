@@ -86,7 +86,7 @@
   padding-right: 30px;
 }
 
-.input > input[type=text], select, input[type=date] {
+.input > input[type=text], select, input[type=date], input[type=number] {
   background-color: white;
   border: 1px solid #DCDEDD;
   font-size: 13px;
@@ -101,6 +101,10 @@
 
 .input > input[type=date] {
   box-sizing: border-box;
+}
+
+.input > input[type=number] {
+  padding: 10px;
 }
 
 .project-form-submit {

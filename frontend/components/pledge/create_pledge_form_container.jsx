@@ -1,6 +1,7 @@
 import { connect} from 'react-redux';
 import PledgeForm from './pledge_form';
 import { createPledge } from '../../actions/pledge_actions';
+import { addFlashMessage } from '../../actions/message_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const project = state.entities.projects[ownProps.match.params.id]
@@ -23,6 +24,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     action: (pledge) => dispatch(createPledge(pledge)),
+    addFlashMessage: (message) => dispatch(addFlashMessage(message))
   }
 }
 

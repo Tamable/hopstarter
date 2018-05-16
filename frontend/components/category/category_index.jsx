@@ -14,12 +14,6 @@ class CategoryIndex extends React.Component {
     this.props.fetchProjects();
   }
 
-  componentWillReceiveProps(newProps) {
-    if (this.props.match.params.id !== newProps.match.params.id) {
-      this.props.fetchCategory(newCategoryId);
-    }
-  }
-
   render() {
     const allProjects = this.props.projects;
     const categories = Object.values(this.props.categoryObj);

@@ -260,3 +260,18 @@
   height: auto;
   margin-right: 5px;
 }
+
+.flash-message {
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+  position: fixed;
+  right: 65px;
+  top: 160px;
+  color: #F71735;
+  text-shadow: 0px 15px 8px #6D8EA0;
+  padding:25px;
+}
+
+.message-close {
+  font-size: 26px;
+}
