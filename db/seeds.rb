@@ -11,6 +11,7 @@ Category.destroy_all
 User.destroy_all
 Project.destroy_all
 
+
 u1 = User.create!(
   email: "test1@email.com",
   name: "DemoOne",
@@ -71,9 +72,10 @@ User.all.each do |user|
       title: "#{Faker::Dessert.variety}",
       category_id: c1.id,
       creator_id: user.id,
-      description: "#{Faker::Lorem.sentences(1)}",
+      description: "#{Faker::HowIMetYourMother.quote}",
       funding_goal: "#{Faker::Number.number(5)}",
-      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}"
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
     )
   end
 end
@@ -84,9 +86,10 @@ User.all.each do |user|
       title: "#{Faker::Dessert.topping}",
       category_id: c2.id,
       creator_id: user.id,
-      description: "#{Faker::Lorem.sentences(1)}",
+      description: "#{Faker::HowIMetYourMother.quote}",
       funding_goal: "#{Faker::Number.number(5)}",
-      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}"
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
     )
   end
 end
@@ -97,9 +100,10 @@ User.all.each do |user|
       title: "#{Faker::Dessert.flavor}",
       category_id: c3.id,
       creator_id: user.id,
-      description: "#{Faker::Lorem.sentences(1)}",
+      description: "#{Faker::HowIMetYourMother.quote}",
       funding_goal: "#{Faker::Number.number(5)}",
-      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}"
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
     )
   end
 end
