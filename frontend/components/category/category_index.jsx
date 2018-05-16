@@ -37,6 +37,29 @@ class CategoryIndex extends React.Component {
       return new Date(project.end_date) >= today
     }).length;
 
+    let sampleProjects = [];
+    for (let i = 0; i < 6; i++) {
+      let randomChoice = allProjects[Math.floor(Math.random() * allProjects.length)];
+      sampleProjects.push(randomChoice)
+    };
+    let sampleProjectList = [];
+    if (typeof(sampleProjects[0]) !== 'undefined') {
+        sampleProjectList = sampleProjects.map((project) => {
+        return (
+          <li className="sample-project-list" key={project.id}>
+            <div>
+            <Link to={`/projects/${project.id}`}>
+              <div className='sample-image'>image placeholder</div>
+              <div className='sample-info'>
+              <div className="proj-description">{project.description.substring(0, 50)}...</div>
+              <div className="proj-link">{project.title}</div>
+              </div>
+            </Link>
+            </div>
+          </li>
+        )
+      });
+    }
 
     return (
       <div className="home-page">
@@ -65,6 +88,13 @@ class CategoryIndex extends React.Component {
 
         <Route path='/home/:id' component={CategoryIndexEachContainer} />
         <Route exact path='/home' component={FeaturedCategoryContainer} />
+
+      <section className='sample-project-outer-container'>
+        <div>
+          <ul className="sample-projects-container">{sampleProjectList}</ul>
+        </div>
+
+      </section>
 
       <div className="footer">
         <ul className="category-list">{categoryList}</ul>
