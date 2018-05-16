@@ -15,6 +15,9 @@ import CategoryIndexEachContainer from './category/category_index_each_container
 import CreateProjectFormContainer from './project/create_project_form_container';
 import EditProjectFormContainer from './project/edit_project_form_container';
 import UserProfileContainer from './user/user_profile_container';
+import EditRewardFormContainer from './reward/edit_reward_form_container';
+import CreateRewardFormContainer from './reward/create_reward_form_container';
+import ProjectPreviewContainer from './project/project_preview_container';
 
 const App = () => {
   return (
@@ -31,17 +34,20 @@ const App = () => {
       </div>
 
       <div className="form-container">
-      <AuthRoute exact path="/login" component={ LogInFormContainer } />
-      <AuthRoute exact path="/signup" component={ SignUpFormContainer } />
+      <AuthRoute exact path="/login" component={LogInFormContainer} />
+      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       </div>
       <Route exact path="/projects" component={ProjectIndexContainer} />
       <Route exact path="/projects/:id" component={ProjectShowContainer} />
       <Route exact path="/categories/:id" component={CategoryShowContainer} />
       <Route exact path="/projects/:id/pledge" component={CreatePledgeFormContainer} />
-      <Route exact path="/newproject/create" component={CreateProjectFormContainer} />
-      <Route exact path="/projects/:id/edit" component={EditProjectFormContainer} />
+      <ProtectedRoute exact path="/newproject/create" component={CreateProjectFormContainer} />
+      <ProtectedRoute exact path="/projects/:id/edit" component={EditProjectFormContainer} />
       <Route path="/home" component={CategoryIndexContainer} />
       <ProtectedRoute path="/users/:id" component={UserProfileContainer} />
+      <Route exact path="/projects/:id/rewards" component={CreateRewardFormContainer} />
+      <Route exact path="/projects/:id/preview" component={ProjectPreviewContainer} />
+      <Route exact path="/projects/:id/rewards/edit" component={EditRewardFormContainer} />
     </div>
   )
 }

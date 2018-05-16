@@ -148,6 +148,7 @@
 }
 
 .project-list-container {
+  font-size: smaller;
 }
 
 .list-item {
@@ -166,6 +167,11 @@
 .list-item > div {
   width: 63%;
   line-height: 1.6;
+}
+
+.list-item > div:hover {
+  text-decoration: underline;
+  color: #27AEAF;
 }
 
 .list-pledge {

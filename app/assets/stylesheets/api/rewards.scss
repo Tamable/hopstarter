@@ -1,0 +1,127 @@
+// Place all the styles related to the api/rewards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.rewards-outer-container {
+  position: relative;
+}
+
+.support {
+  position: absolute;
+}
+
+.reward-list {
+  background-color: white;
+  padding: 15px;
+  margin: 25px;
+  position: relative;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  height: 65px;
+  background-color: #F8F9FD;
+  border-radius: 5px;
+  margin: 15px;
+}
+
+.reward-submit-button {
+  background-color: #047F76;
+  padding: 15px;
+  color: white;
+  position: absolute;
+  right: 137px;
+  bottom: 11px;
+}
+
+.reward-submit-button:hover {
+  background-color: #1EA896;
+}
+
+.reward-delete-button {
+  position: absolute;
+  right: 45px;
+  bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.reward-delete-button > img {
+  width: 40px;
+}
+
+.rewards-container {
+  margin: 20px 100px;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.support {
+  font-family: 'Open Sans', sans-serif;
+  color: #252525;
+  font-size: 24px;
+  width: 25%;
+  margin: 0 23px;
+}
+
+
+.each-reward-container {
+  padding: 20px;
+  line-height: 1.7;
+  border: 0.5px solid #DCDEDD;
+  margin: 20px;
+  box-sizing: border-box;
+  width: 400px;
+  position: relative;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background: rgba(0,158,116,0.9);
+
+}
+
+.each-reward-container:hover .overlay {
+  opacity: 1;
+}
+
+.pledge-text {
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.reward-amount {
+  font-size: 16px;
+}
+
+.reward-title {
+  font-size: 14px;
+}
+
+.reward-description {
+  font-size: 13px;
+  color: #80809E;
+}
+
+.reward_item {
+  font-size: 13px;
+  color: #80809E;
+}

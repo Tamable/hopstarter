@@ -7,8 +7,10 @@ class ProjectForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.project;
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.addRewardRedirect = this.addRewardRedirect.bind(this);
+    this.editRewardRedirect = this.editRewardRedirect.bind(this);
     this.delete = this.delete.bind(this);
+    this.noRewardRedirect = this.noRewardRedirect.bind(this);
   };
 
   update(field) {
@@ -17,10 +19,24 @@ class ProjectForm extends React.Component {
     }
   };
 
-  handleSubmit(e) {
+  addRewardRedirect(e) {
     e.preventDefault();
     this.props.action(this.state).then((payload) => {
-      this.props.history.replace(`/projects/${payload.project.id}`);
+      this.props.history.replace(`/projects/${payload.project.id}/rewards`);
+    })
+  };
+
+  editRewardRedirect(e) {
+    e.preventDefault();
+    this.props.action(this.state).then((payload) => {
+      this.props.history.replace(`/projects/${payload.project.id}/rewards/edit`);
+    })
+  };
+
+  noRewardRedirect(e) {
+    e.preventDefault();
+    this.props.action(this.state).then((payload) => {
+      this.props.history.replace(`/projects/${payload.project.id}/preview`)
     })
   };
 
@@ -44,12 +60,12 @@ class ProjectForm extends React.Component {
         <option key={i}>{location}</option>
       )
     });
-console.log(this.props.project)
+
     return (
       <div className="project-form">
         <ul className="editor-menu">
-          <li>Exit editor</li>
-          <li><Link to="/newproject/create">Basics</Link></li>
+          <li><Link to={`/users/${this.props.currentUserId}`}>Exit editor</Link></li>
+          <li className="selected-banner">Basics</li>
           <li>Rewards</li>
           <li>Preview</li>
         </ul>
@@ -58,7 +74,7 @@ console.log(this.props.project)
         <h1>Let's get started.</h1>
         <p>Make a great first impression with your project’s title and image, and set your funding goal, campaign duration, and project category.</p>
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <label>
             <div className="field">Project title</div>
             <div className="input">
@@ -101,9 +117,14 @@ console.log(this.props.project)
             <input type="text" placeholder="$" value={this.state.funding_goal} onChange={this.update('funding_goal')}></input>
             </div>
           </label>
-          <button className="project-form-submit">{this.props.buttonText}</button>
+
+          <div className="proceed-buttons">
+          <button onClick={this.addRewardRedirect}>{this.props.addRewardButton}</button>
+          <button onClick={this.editRewardRedirect}>{this.props.editRewardButton}</button>
+          <button onClick={this.noRewardRedirect}>Skip rewards and go to preview</button>
+          </div>
         </form>
-        <button className="delete-button" onClick={this.delete}>X Delete</button>
+        <button className="delete-button" onClick={this.delete}>{this.props.deleteButton}</button>
 
       </div>
     )

@@ -66,9 +66,10 @@
   color: #090B0C;
 }
 
-section.project-list-container {
-  padding: 15px 30px;
-
+.profile-project-container > ul {
+  padding: 15px 80px;
+  min-height: 500px;
+  font-size: smaller;
 }
 
 .profile-list-item {

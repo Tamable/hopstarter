@@ -15,7 +15,7 @@ const createdProjects = ({ createdProjects }) => {
   });
 
   return (
-    <section className="project-list-container">
+    <section className="profile-project-container">
       <ul>{createdProjectList}</ul>
     </section>
   );

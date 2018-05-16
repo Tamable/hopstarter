@@ -9,7 +9,9 @@ const mapStateToProps = (state, ownProps) => {
   return {
     project: state.entities.projects[ownProps.match.params.id] || {},
     categories: Object.values(state.entities.categories),
-    buttonText: "Update Project",
+    addRewardButton: "Add new rewards",
+    editRewardButton: "Edit existing rewards",
+    deleteButton: "X Delete this project",
     currentUserId: state.session.id
   }
 }
@@ -31,10 +33,10 @@ class EditPostForm extends React.Component {
   }
 
   render() {
-    const { action, fetchCategories, buttonText, project, categories, deleteProject, currentUserId } = this.props;
+    const { action, fetchCategories, buttonText, project, categories, deleteProject, currentUserId, addRewardButton, editRewardButton, deleteButton } = this.props;
 
     return (
-      <ProjectForm action={action} project={project} buttonText={buttonText} categories={categories} deleteProject={deleteProject} currentUserId={currentUserId} />
+      <ProjectForm action={action} project={project} buttonText={buttonText} categories={categories} deleteProject={deleteProject} currentUserId={currentUserId} addRewardButton={addRewardButton} editRewardButton={editRewardButton} deleteButton={deleteButton} />
     )
   }
 }

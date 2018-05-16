@@ -17,9 +17,11 @@ class Project < ApplicationRecord
     through: :pledges,
     source: :supporter_id
 
+  has_many :rewards,
+    class_name: 'Reward',
+    foreign_key: :project_id
+
   def backer_count
     self.pledges.count
   end
-
-  accepts_nested_attributes_for :category
 end

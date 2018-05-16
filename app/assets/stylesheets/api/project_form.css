@@ -90,6 +90,7 @@
   background-color: white;
   border: 1px solid #DCDEDD;
   font-size: 13px;
+  padding-left: 10px;
 }
 
 .input > select, input[type=date] {
@@ -99,7 +100,6 @@
 }
 
 .input > input[type=date] {
-  padding: 0 350px 0 10px;
   box-sizing: border-box;
 }
 
@@ -118,6 +118,64 @@
 
 .delete-button {
   position: absolute;
-  right: 70px;
+  right: 45px;
   bottom: -260px;
+  display: flex;
+  align-items: center;
+}
+
+.delete-button > img {
+  width: 40px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 35px;
+}
+
+div.preview-save {
+  font-size: 18px;
+  background-color: #047F76;
+  color: white;
+  margin: 6px 0;
+  padding: 10px;
+}
+
+div.preview-return {
+  font-size: 18px;
+  background-color: #FF5900;
+  color: white;
+  margin: 6px 0;
+  padding: 10px;
+}
+
+div.preview-save:hover {
+  background-color: #1EA896;
+}
+
+div.preview-return:hover {
+  background-color: #FF715B;
+}
+
+li.selected-banner {
+  background-color: #D0E0EF;
+  font-weight: bolder;
+}
+
+.proceed-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bolder;
+}
+
+.proceed-buttons > button {
+  padding: 10px;
+  color: grey;
+}
+
+.proceed-buttons > button:hover {
+  text-decoration: underline;
+  color: #27AEAF;
 }

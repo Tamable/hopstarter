@@ -15,7 +15,9 @@ const mapStateToProps = (state) => {
       end_date: ''
     },
     categories: Object.values(state.entities.categories),
-    buttonText: "Create Project"
+    addRewardButton: "Add rewards",
+    editRewardButton: null,
+    deleteButton: null,
   }
 };
 

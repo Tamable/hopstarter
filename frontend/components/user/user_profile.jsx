@@ -8,29 +8,22 @@ class UserProfile extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      createdActive: true,
-      backedActive: false
-    };
+    this.state = { currentPane: "createdActive" };
   };
 
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.id);
     this.props.fetchCategories();
+    this.props.fetchProjects();
   };
 
-  swithPanes(pane) {
-    e.preventDefault();
-    this.setState(
-      createdActive: false,
-      backedActive: false
-    );
-    this.setState({ [pane]: true });
+  switchPanes(pane) {
+    this.setState({ currentPane: [pane] });
   };
 
   render() {
     const user = this.props.user;
-    const pledges = this.props.user.pledges;
+    const pledges = this.props.user.pledges || [];
     const month = [
       "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
@@ -41,10 +34,10 @@ class UserProfile extends React.Component {
     const createdProjects = this.props.user.project_proposals;
     const backedProjects = this.props.user.supporting_projects;
     let selectedPane;
-    if (this.state.createdActive) {
+    if (this.state.currentPane == 'createdActive') {
       selectedPane = <CreatedProjects createdProjects={createdProjects} />
-    } else if (this.state.backedActive) {
-      selectedPane = <BackedProjects backedProjects={backedProjects} pleges={pledges} />
+    } else if (this.state.currentPane == 'backedActive') {
+      selectedPane = <BackedProjects backedProjects={backedProjects} pledges={pledges} />
     };
 
     const categories = Object.values(this.props.categoryObj);

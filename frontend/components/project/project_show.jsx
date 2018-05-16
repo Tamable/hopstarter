@@ -12,6 +12,22 @@ class ProjectShow extends React.Component {
     let creator = this.props.creator;
     let category = this.props.category;
 
+    const rewards = project.rewards.map((reward) => {
+      return (
+        <li className="each-reward-container">
+          <div>
+          <div className="reward-amount">Pledge ${reward.pledge_amount} or more</div>
+          <div className="reward-title">{reward.title}</div>
+          <div className="reward-item">{reward.item}</div>
+          <div className="reward-description">{reward.description}</div>
+          </div>
+          <div className="overlay">
+            <div className="pledge-text"><Link to={`/projects/${project.id}/pledge`}>Back this project</Link></div>
+          </div>
+        </li>
+      )
+    })
+
     let today = new Date();
     let endDate = new Date(project.end_date);
     let oneDay = 24*60*60*1000;
@@ -63,6 +79,12 @@ class ProjectShow extends React.Component {
           </div>
         </section>
         </div>
+        <section>
+          <div className="support">Support</div>
+          <ul className="rewards-container">
+            {rewards}
+          </ul>
+        </section>
       </div>
     )
   }

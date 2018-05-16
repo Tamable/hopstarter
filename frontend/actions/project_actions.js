@@ -10,7 +10,8 @@ export const receiveProjects = (payload) => {
     type: RECEIVE_PROJECTS,
     projects: payload.projects,
     users: payload.users,
-    categories: payload.categories
+    categories: payload.categories,
+    rewards: payload.rewards
   }
 }
 
@@ -79,6 +80,8 @@ export const deleteProject = (id) => {
   return dispatch => {
     return ApiUtil.deleteProject(id).then(() => {
       return dispatch(removeProject(id));
+    }, (err) => {
+      return dispatch(receiveProjectErrors(err.responseJSON));
     })
   }
 }

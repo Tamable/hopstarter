@@ -51,6 +51,8 @@ export const deletePledge = (id) => {
   return dispatch => {
     return ApiUtil.deletePledge(id).then(() => {
       return dispatch(removePledge(id))
+    }, (err) => {
+      return dispatch(receivePledgeErrors(err.responseJSON));
     })
   }
 }
