@@ -1,8 +1,8 @@
 # json.user do
   json.extract! user, :id, :email, :name, :project_count, :supporting_projects, :pledges, :created_at
   json.image_url asset_path(user.image.url)
-  json.projectProposalIds user.project_proposals.ids
-  json.supportProjectIds user.supporting_projects.ids
+  # json.projectProposalIds user.project_proposals.ids
+  # json.supportProjectIds user.supporting_projects.ids
 # end
 
 json.project_proposals do
