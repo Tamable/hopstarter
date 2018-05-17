@@ -32,11 +32,11 @@ class UserProfile extends React.Component {
     const joinedMonth = month[new Date(user.created_at).getMonth()];
     const joinedYear = new Date(user.created_at).getFullYear();
 
-    // const createdProjects = this.props.user.project_proposals;
+    const createdProjects = this.props.user.project_proposals;
     const backedProjects = this.props.user.supporting_projects;
-    let createdProjects = Object.values(projects).filter((project) => {
-      project.creator_id == user.id
-    }) || []
+    // let createdProjects = Object.values(projects).filter((project) => {
+    //   project.creator_id == user.id
+    // }) || []
 
     let selectedPane;
     if (this.state.currentPane == 'createdActive') {
