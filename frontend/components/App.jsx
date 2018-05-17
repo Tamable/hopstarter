@@ -27,10 +27,10 @@ const App = () => {
       <div className="nav-bar-container">
         <header className='nav-bar'>
           <div className="left-corner">
-          <Link className="explore" to="/projects">Explore</Link><br></br>
-          <Link to="/newproject/create">Start a project</Link>
+            <Link className="explore" to="/projects">Explore</Link><br></br>
+            <Link to="/newproject/create">Start a project</Link>
           </div>
-          <Link to="/home" className="logo">HOPSTARTER</Link>
+          <div className="logo"><Link to="/home">HOPSTARTER</Link></div>
           <GreetingContainer />
         </header>
       </div>

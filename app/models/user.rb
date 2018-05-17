@@ -18,6 +18,9 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   # after_initialize :assign_default_image
 
+  has_attached_file :image, default_url: "default-user.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)
@@ -58,6 +61,6 @@ class User < ApplicationRecord
   end
 
   # def assign_default_image
-  #   self.image_url ||= 'orange_circle.png'
+  #   self.image.url ||= 'orange_circle.png'
   # end
 end

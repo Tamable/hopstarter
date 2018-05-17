@@ -23,8 +23,6 @@ class ProjectPreview extends React.Component {
     let amountPledged = project.amount_pledged ? project.amount_pledged : 0;
     let location = project.location ? project.location : "N/A"
 
-    // <img className='image' src={project.image_url} /> line 40
-
     const rewards = project.rewards.map((reward) => {
       return (
         <li className="each-reward-container">
@@ -67,6 +65,7 @@ class ProjectPreview extends React.Component {
             </section>
             <section className='image-section'>
               <div className='show-image-container'>
+                <img src={project.image_url} />
               </div>
               <div className='stats-side'>
                 <br></br><br></br>

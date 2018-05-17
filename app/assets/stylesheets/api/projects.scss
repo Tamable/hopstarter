@@ -43,7 +43,7 @@
 .project-index-item {
   width: 308px;
   height: 260px;
-  padding: 10px;
+  padding: 56px 10px 10px 10px;
   margin-bottom: 30px;
   border: 1px solid #aaa;
 }
@@ -183,9 +183,11 @@
   width: 70%;
   height: 390px;
   background-color: white;
+  background-size: cover;
 }
 
 .image {
+  background-size:cover;
   max-height: 390px;
   width: auto;
   height: auto;

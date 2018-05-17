@@ -49,7 +49,7 @@ class CategoryIndex extends React.Component {
           <li className="sample-project-list" key={project.id}>
             <div>
             <Link to={`/projects/${project.id}`}>
-              <div className='sample-image'>image placeholder</div>
+              <div className='sample-image'><img src={project.image_url} /></div>
               <div className='sample-info'>
               <div className="proj-description">{project.description.substring(0, 50)}...</div>
               <div className="proj-link">{project.title}</div>

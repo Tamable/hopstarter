@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     categoryObj: state.entities.categories || {},
     user: state.entities.users[ownProps.match.params.id],
+    projects: state.entities.projects
   }
 };
 

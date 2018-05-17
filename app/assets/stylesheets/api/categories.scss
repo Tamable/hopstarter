@@ -78,7 +78,6 @@
 .featured-proj {
   margin: 30px;
   display: flex;
-  min-height: 440px;
 }
 
 .featured-left {
@@ -92,8 +91,9 @@
 }
 
 .proj-image-container {
-  height: 90%;
-  background-color: yellow;
+  height: 92%;
+  background-size: cover;
+  border: 0.5px solid #DCDEDD
 }
 
 .proj-image-container:hover {
@@ -132,7 +132,6 @@
 .featured-right {
   width: 50%;
   margin-left: 20px;
-  position: relative;
 }
 
 .headings {
@@ -153,6 +152,8 @@
 
 .project-list-container {
   font-size: smaller;
+  position: relative;
+  margin-bottom: 10px;
 }
 
 .list-item {
@@ -164,8 +165,13 @@
 
 .list-image {
   width: 30%;
-  min-height: 65px;
-  background-color: orange;
+  background-size: cover;
+}
+
+.list-image > img {
+  height: 100px;
+  width: auto;
+  margin: auto;
 }
 
 .list-item > div {
@@ -185,7 +191,6 @@
 
 .view-all-bottom {
   position: absolute;
-  top: 395px;
   border: 1px solid #D3D4D9;
   padding: 5px 10px;
   font-size: 12px;
@@ -262,8 +267,7 @@
 }
 
 .sample-image {
-  height: 400px;
-  background-color: grey;
+  background-size: cover;
 }
 
 .sample-info {

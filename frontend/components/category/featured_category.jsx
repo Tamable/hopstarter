@@ -37,11 +37,13 @@ class FeaturedCategory extends React.Component {
       let featuredCreator = "";
       let pledgePercent = "";
       let featuredId = "";
+      let image = "";
       if (featuredProject) {
         featuredTitle = featuredProject.title;
         featuredCreator = allCreators[featuredProject.creator_id].name.toUpperCase();
         pledgePercent = Math.round((featuredProject.amount_pledged / featuredProject.funding_goal) * 100);
         featuredId = featuredProject.id;
+        image = featuredProject.image_url
       };
 
     let categoryName = featuredCategory ? featuredCategory.name : ""
@@ -65,7 +67,7 @@ class FeaturedCategory extends React.Component {
         <div className="featured-proj">
           <div className="featured-left">
             <p className="feature-title">FEATURED PROJECT</p>
-            <div className="proj-image-container"><img /></div>
+            <div className="proj-image-container"><img src={image} /></div>
             <Link to={`/projects/${featuredId}`} className="project-info-container">
               <h1 className="featured-title">{featuredTitle}</h1>
               <p className="featured-creator">BY {featuredCreator}</p>

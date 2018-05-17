@@ -14,7 +14,7 @@ class Api::RewardsController < ApplicationController
       render :show
     else
       render json:
-      @reward.errors.full_messages
+      @reward.errors.full_messages, status: 422
     end
   end
 
@@ -28,7 +28,7 @@ class Api::RewardsController < ApplicationController
     if @reward.update(reward_params)
       render :show
     else
-      @reward.errors.full_messages
+      @reward.errors.full_messages, status: 422
     end
   end
 

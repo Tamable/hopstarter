@@ -6,7 +6,7 @@ import { RECEIVE_PLEDGE, REMOVE_PLEDGE } from '../actions/pledge_actions';
 const projectsReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_PROJECTS:
-      return action.projects;
+      return merge({}, state, action.projects);
     case RECEIVE_PROJECT:
       return merge({}, state, { [action.project.id]: action.project });
     case REMOVE_PROJECT:

@@ -10,7 +10,7 @@ class Api::PledgesController < ApplicationController
     if @pledge.save
       render :show
     else
-      render json: @pledge.errors.full_messages
+      render json: @pledge.errors.full_messages, status: 422
     end
   end
 
@@ -24,7 +24,7 @@ class Api::PledgesController < ApplicationController
     if @pledge.update(pledge_params)
       render :show
     else
-      render json: @pledge.errors.full_messages
+      render json: @pledge.errors.full_messages, status: 422
     end
   end
 

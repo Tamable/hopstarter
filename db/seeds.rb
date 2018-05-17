@@ -11,6 +11,9 @@ Category.destroy_all
 User.destroy_all
 Project.destroy_all
 
+filef = File.open("app/assets/images/flamingos.jpg")
+fileh = File.open("app/assets/images/hedgehog.jpg")
+filep = File.open("app/assets/images/penguin.jpg")
 
 u1 = User.create!(
   email: "test1@email.com",
@@ -73,6 +76,7 @@ User.all.each do |user|
       category_id: c1.id,
       creator_id: user.id,
       description: "#{Faker::HowIMetYourMother.quote}",
+      image: fileh,
       funding_goal: "#{Faker::Number.number(5)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
       location: "#{Faker::Address.city}, #{Faker::Address.state}"
@@ -87,6 +91,7 @@ User.all.each do |user|
       category_id: c2.id,
       creator_id: user.id,
       description: "#{Faker::HowIMetYourMother.quote}",
+      image: filep,
       funding_goal: "#{Faker::Number.number(5)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
       location: "#{Faker::Address.city}, #{Faker::Address.state}"
@@ -101,6 +106,7 @@ User.all.each do |user|
       category_id: c3.id,
       creator_id: user.id,
       description: "#{Faker::HowIMetYourMother.quote}",
+      image: filef,
       funding_goal: "#{Faker::Number.number(5)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
       location: "#{Faker::Address.city}, #{Faker::Address.state}"

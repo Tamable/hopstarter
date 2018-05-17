@@ -9,11 +9,11 @@ const usersReducer = (state={}, action) => {
     case RECEIVE_CURRENT_USER:
       return merge({}, state, { [action.user.id]: action.user });
     case RECEIVE_PROJECTS:
-      return action.users;
+      return merge({}, state, action.users);
     case RECEIVE_PROJECT:
       return merge({}, state, { [action.user.id]: action.user });
     case RECEIVE_CATEGORY:
-      return action.creators;
+      return merge({}, state, action.creators);
     case RECEIVE_USER:
       return merge({}, state, { [action.user.id]: action.user });
     default:

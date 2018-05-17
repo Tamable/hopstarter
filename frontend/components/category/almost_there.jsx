@@ -11,7 +11,7 @@ const AlmostThere = ({ projectsOfCategory, featuredProject }) => {
   let almostProjects = sortedByFundingProgress.slice(0, 4).map((project) => {
     return (
       <Link to={`/projects/${project.id}`} key={project.id} className="list-item">
-        <li className="list-image">project image placeholder</li>
+        <li className="list-image"><img src={project.image_url} /></li>
         <div><li className="list-title">{project.title}</li>
         <li className="list-pledge">{Math.round((project.amount_pledged / project.funding_goal) * 100)}% funded</li></div>
       </Link>

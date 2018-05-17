@@ -17,6 +17,7 @@ const ProjectIndexItem = (props) => {
     <div>
       <Link to={`/projects/${project.id}`} className='index-outer-container'>
         <div className='image-container'>
+          <img src={project.image_url} />
         <div className="collection">Project We Love</div>
         </div>
         <li className='project-index-item'>

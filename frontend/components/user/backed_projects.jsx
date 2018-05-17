@@ -9,7 +9,7 @@ const BackedProjects = ({ backedProjects, pledges }) => {
     let pledge = pledges.find((pledge) => pledge.project_id == project.id);
     return (
       <Link to={`/projects/${project.id}`} key={project.id} className="profile-list-item">
-        <li className="list-image">project image placeholder</li>
+        <li className="list-image"><img src={project.image_url} /></li>
         <div><li className="list-title">{project.title}</li>
         <li className="list-pledge">{pledgePercent}% funded</li></div>
         <div>supporting ${pledge.amount}</div>

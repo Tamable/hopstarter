@@ -2,7 +2,7 @@ import { merge } from 'lodash';
 
 import { RECEIVE_PLEDGE, REMOVE_PLEDGE } from '../actions/pledge_actions';
 
-const pledgeReducer = (state = {}, action) => {
+const pledgesReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_PLEDGE:
       return merge({}, state, { [action.pledge.id]: action.pledge });
@@ -15,4 +15,4 @@ const pledgeReducer = (state = {}, action) => {
   }
 }
 
-export default pledgeReducer;
+export default pledgesReducer;

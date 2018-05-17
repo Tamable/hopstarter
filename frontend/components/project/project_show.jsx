@@ -40,7 +40,7 @@ class ProjectShow extends React.Component {
         if (supportingProject.id == project.id) {
           redirectLink = `/projects/${project.id}/pledge/edit`;
           buttonText = "Edit your pledge";
-        } 
+        }
       })
       redirectLink = `/projects/${project.id}/pledge`;
       buttonText = "Back this project";
@@ -54,7 +54,6 @@ class ProjectShow extends React.Component {
     let location = project.location ? project.location : "N/A"
 
     // <img src={creator.image_url}></img> line 28
-    // <img className='image' src={project.image_url} /> line 40
     return (
       <div>
         <div className='show-outer-container'>
@@ -73,6 +72,7 @@ class ProjectShow extends React.Component {
             </section>
             <section className='image-section'>
               <div className='show-image-container'>
+                <img className='image' src={project.image_url} />
               </div>
               <div className='stats-side'>
                 <br></br><br></br>
