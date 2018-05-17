@@ -6,13 +6,13 @@ import RewardItem from './reward_item';
 class RewardForm extends React.Component {
 
   render() {
-    const { action, rewardsOfProject, buttonText, deleteReward, currentUserId, project } = this.props;
+    const { action, rewardsOfProject, buttonText, deleteReward, currentUserId, project, errors } = this.props;
 
     const rewardList = rewardsOfProject.map((reward) => {
       return (
         <ul>
           <li key={reward.id}>
-          <RewardItem reward={reward} action={action} deleteReward={deleteReward} buttonText={buttonText} project={project}/>
+          <RewardItem reward={reward} action={action} deleteReward={deleteReward} buttonText={buttonText} project={project} errors={errors}/>
           </li>
         </ul>
       )

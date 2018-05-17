@@ -21,6 +21,9 @@ class Project < ApplicationRecord
     class_name: 'Reward',
     foreign_key: :project_id
 
+  has_attached_file :image, default_url: "flamingos.jpg"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   def backer_count
     self.pledges.count
   end

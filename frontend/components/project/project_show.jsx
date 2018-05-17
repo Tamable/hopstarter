@@ -13,6 +13,7 @@ class ProjectShow extends React.Component {
     let project = this.props.project;
     let creator = this.props.creator;
     let category = this.props.category;
+    let currentUser = this.props.currentUser;
     let rewards;
     if (project.rewards) {
       rewards = project.rewards.map((reward) => {
@@ -30,6 +31,19 @@ class ProjectShow extends React.Component {
           </li>
         )
       })
+    }
+
+    let redirectLink = "";
+    let buttonText = "";
+    if (currentUser.supporting_projects) {
+      currentUser.supporting_projects.find((supportingProject) => {
+        if (supportingProject.id == project.id) {
+          redirectLink = `/projects/${project.id}/pledge/edit`;
+          buttonText = "Edit your pledge";
+        } 
+      })
+      redirectLink = `/projects/${project.id}/pledge`;
+      buttonText = "Back this project";
     }
 
     let today = new Date();
@@ -68,7 +82,7 @@ class ProjectShow extends React.Component {
                 <p>backers</p>
                 <div>{diffDays}</div>
                 <p>days to go</p>
-                <span className='pledge-link-button'><Link to={`/projects/${project.id}/pledge`}>Back this project</Link></span><br></br>
+                <span className='pledge-link-button'><Link to={redirectLink}>{buttonText}</Link></span><br></br>
                 <span className='small-print-underlined'>All or nothing.&nbsp;</span>
                 <span className='small-print'>This project will only be funded if it reaches its goal by {project.end_date}.</span>
               </div>

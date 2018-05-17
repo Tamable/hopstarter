@@ -12,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
     addRewardButton: "Add new rewards",
     editRewardButton: "Edit existing rewards",
     deleteButton: "X Delete this project",
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    errors: state.errors.pledge
   }
 }
 

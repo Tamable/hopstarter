@@ -27,13 +27,26 @@ class PledgeForm extends React.Component {
     });
   }
 
+  errors() {
+    if (this.props.erros) {
+      return (
+        this.props.errors.map((error) => {
+          return (<li key={error}>{error}</li>);
+        })
+      )
+    }
+  }
+
   render() {
     return (
       <div className='pledge-page'>
-        <div className='pledge-title-box'>
+          <Link to={`/projects/${this.props.match.params.id}`}><div className='pledge-title-box'>
           <h1>{this.props.project.title}</h1>
           <span>by {this.props.creator.name}</span>
-        </div>
+        </div></Link>
+        <ul className="error">
+          { this.errors() }
+        </ul>
         <section className="pledge-form-section">
           <div>
             <form onSubmit={this.handleSubmit}>
@@ -77,9 +90,4 @@ class PledgeForm extends React.Component {
   }
 }
 
-// <ul className="error">
-//   {this.props.errors.map((error, i) => {
-//     return <li key={`${i}`}>{error}</li>
-//   })}
-// </ul>
 export default withRouter(PledgeForm);

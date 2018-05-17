@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :categories, only: [:index, :show]
     resources :projects
-    resources :pledges, only: [:create, :update, :destroy]
+    resources :pledges, only: [:show, :create, :update, :destroy]
     resources :rewards
   end
 end

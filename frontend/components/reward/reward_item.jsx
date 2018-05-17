@@ -30,6 +30,16 @@ class RewardItem extends React.Component {
     });
   };
 
+  errors() {
+    if (this.props.erros) {
+      return (
+        this.props.errors.map((error) => {
+          return (<li key={error}>{error}</li>);
+        })
+      )
+    }
+  };
+
   render() {
     let now = new Date();
     let month = (now.getMonth() + 1);
@@ -41,6 +51,10 @@ class RewardItem extends React.Component {
     let today = now.getFullYear() + '-' + month + '-' + day;
 
     return (
+      <div>
+        <ul className="error">
+          { this.errors() }
+        </ul>
         <form onSubmit={this.handleSubmit} className="reward-list">
           <label className="form-label">
             <div className="field">Title</div>
@@ -81,6 +95,7 @@ class RewardItem extends React.Component {
           <button className="reward-submit-button">{this.props.buttonText}</button>
           <button className="reward-delete-button" onClick={this.delete}><img src={window.staticImages.trash} /> Delete</button>
         </form>
+      </div>
     )
   };
 };

@@ -1,4 +1,9 @@
 class Api::PledgesController < ApplicationController
+
+  def show
+
+  end
+
   def create
     @pledge = Pledge.new(pledge_params)
 
@@ -23,10 +28,9 @@ class Api::PledgesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     pledge = current_user.pledges.find(params[:id])
     pledge.destroy
-    render :show
   end
 
   def pledge_params

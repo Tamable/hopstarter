@@ -45,7 +45,17 @@ class ProjectForm extends React.Component {
     this.props.deleteProject(this.props.project.id).then(() => {
       this.props.history.replace(`/users/${this.props.currentUserId}`)
     })
-  }
+  };
+
+  errors() {
+    if (this.props.erros) {
+      return (
+        this.props.errors.map((error) => {
+          return (<li key={error}>{error}</li>);
+        })
+      )
+    }
+  };
 
   render() {
     const categoryList = this.props.categories.map((category) => {
@@ -74,6 +84,9 @@ class ProjectForm extends React.Component {
         <h1>Let's get started.</h1>
         <p>Make a great first impression with your project’s title and image, and set your funding goal, campaign duration, and project category.</p>
         </div>
+        <ul className="error">
+          { this.errors() }
+        </ul>
         <form>
           <label>
             <div className="field">Project title</div>

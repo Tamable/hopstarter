@@ -22,6 +22,16 @@ class CreateRewardForm extends React.Component {
     });
   };
 
+  errors() {
+    if (this.props.erros) {
+      return (
+        this.props.errors.map((error) => {
+          return (<li key={error}>{error}</li>);
+        })
+      )
+    }
+  };
+
   render() {
     let now = new Date();
     let month = (now.getMonth() + 1);
@@ -45,7 +55,9 @@ class CreateRewardForm extends React.Component {
         <h1>Set your rewards.</h1>
         <p>Invite backers to be a part of the creative experience by offering rewards like a copy of what you’re making, a special experience, or a behind-the-scenes look into your process.</p>
         </div>
-
+        <ul className="error">
+          { this.errors() }
+        </ul>
         <form onSubmit={this.handleSubmit}>
           <label>
             <div className="field">Title</div>

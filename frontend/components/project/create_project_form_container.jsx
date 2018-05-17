@@ -18,6 +18,7 @@ const mapStateToProps = (state) => {
     addRewardButton: "Add rewards",
     editRewardButton: null,
     deleteButton: null,
+    errors: state.errors.project
   }
 };
 

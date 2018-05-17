@@ -19,6 +19,7 @@ import EditRewardFormContainer from './reward/edit_reward_form_container';
 import CreateRewardFormContainer from './reward/create_reward_form_container';
 import ProjectPreviewContainer from './project/project_preview_container';
 import FlashMessageContainer from './flash/flash_message_container';
+import EditPledgeFormContainer from './pledge/edit_pledge_form_container';
 
 const App = () => {
   return (
@@ -39,16 +40,18 @@ const App = () => {
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       </div>
       <Route exact path="/projects" component={ProjectIndexContainer} />
-      <Route exact path="/projects/:id" component={ProjectShowContainer} />
+      <ProtectedRoute exact path="/projects/:id" component={ProjectShowContainer} />
       <Route exact path="/categories/:id" component={CategoryShowContainer} />
-      <Route exact path="/projects/:id/pledge" component={CreatePledgeFormContainer} />
+      <ProtectedRoute exact path="/projects/:id/pledge" component={CreatePledgeFormContainer} />
       <ProtectedRoute exact path="/newproject/create" component={CreateProjectFormContainer} />
       <ProtectedRoute exact path="/projects/:id/edit" component={EditProjectFormContainer} />
       <Route path="/home" component={CategoryIndexContainer} />
       <ProtectedRoute path="/users/:id" component={UserProfileContainer} />
-      <Route exact path="/projects/:id/rewards" component={CreateRewardFormContainer} />
-      <Route exact path="/projects/:id/preview" component={ProjectPreviewContainer} />
-      <Route exact path="/projects/:id/rewards/edit" component={EditRewardFormContainer} />
+      <ProtectedRoute exact path="/projects/:id/rewards" component={CreateRewardFormContainer} />
+      <ProtectedRoute exact path="/projects/:id/preview" component={ProjectPreviewContainer} />
+      <ProtectedRoute exact path="/projects/:id/rewards/edit" component={EditRewardFormContainer} />
+      <ProtectedRoute exact path="/projects/:id/pledge/edit" component={EditPledgeFormContainer} />
+
     </div>
   )
 }

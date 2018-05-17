@@ -25,12 +25,23 @@ export const receivePledgeErrors = (errorArr) => {
   }
 }
 
+export const fetchPledge = (id) => {
+  return dispatch => {
+    return ApiUtil.fetchPledge(id).then((pledge) => {
+      return dispatch(receivePledge(pledge));
+      return pledge;
+    }).fail((err) => {
+      return dispatch(receivePledgeErrors(err.responseJSON));
+    })
+  }
+}
+
 export const createPledge = (pledge) => {
   return dispatch => {
     return ApiUtil.createPledge(pledge).then((pledge) => {
       return dispatch(receivePledge(pledge));
       return pledge;
-    }, (err) => {
+    }).fail((err) => {
       return dispatch(receivePledgeErrors(err.responseJSON));
     })
   }
@@ -41,7 +52,7 @@ export const updatePledge = (pledge) => {
     return ApiUtil.updatePledge(pledge).then((pledge) => {
       return dispatch(receivePledge(pledge));
       return pledge;
-    }, (err) => {
+    }).fail((err) => {
       return dispatch(receivePledgeErrors(err.responseJSON));
     })
   }
@@ -51,7 +62,7 @@ export const deletePledge = (id) => {
   return dispatch => {
     return ApiUtil.deletePledge(id).then(() => {
       return dispatch(removePledge(id))
-    }, (err) => {
+    }).fail((err) => {
       return dispatch(receivePledgeErrors(err.responseJSON));
     })
   }

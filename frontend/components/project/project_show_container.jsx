@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import ProjectShow from './project_show';
 import { fetchProject } from '../../actions/project_actions';
+import { addFlashMessage } from '../../actions/message_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -16,16 +17,20 @@ const mapStateToProps = (state, ownProps) => {
     project = {};
   }
 
+  const currentUser = state.entities.users[state.session.id]
+
   return {
     project,
     creator,
     category,
+    currentUser,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProject: (id) => dispatch(fetchProject(id)),
+    addFlashMessage: () => dispatch(addFlashMessage())
   }
 }
 

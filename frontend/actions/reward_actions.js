@@ -38,7 +38,7 @@ export const fetchRewards = () => {
     return ApiUtil.fetchReward().then((rewards) => {
       return dispatch(receiveReward(rewards));
       return reward;
-    }, (err) => {
+    }).fail((err) => {
       return dispatch(receiveRewardErrors(err.responseJSON));
     })
   }
@@ -49,7 +49,7 @@ export const fetchReward = (id) => {
     return ApiUtil.fetchReward(id).then((reward) => {
       return dispatch(receiveReward(reward));
       return reward;
-    }, (err) => {
+    }).fail((err) => {
       return dispatch(receiveRewardErrors(err.responseJSON));
     })
   }
@@ -60,7 +60,7 @@ export const createReward = (reward) => {
     return ApiUtil.createReward(reward).then((reward) => {
       return dispatch(receiveReward(reward));
       return reward;
-    }, (err) => {
+    }).fail((err) => {
       return dispatch(receiveRewardErrors(err.responseJSON));
     })
   }
@@ -71,7 +71,7 @@ export const updateReward = (reward) => {
     return ApiUtil.updateReward(reward).then((reward) => {
       return dispatch(receiveReward(reward));
       return reward;
-    }, (err) => {
+    }).fail((err) => {
       return dispatch(receiveRewardErrors(err.responseJSON));
     })
   }
@@ -81,7 +81,7 @@ export const deleteReward = (id) => {
   return dispatch => {
     return ApiUtil.deleteReward(id).then(() => {
       return dispatch(removeReward(id))
-    }, (err) => {
+    }).fail((err) => {
       return dispatch(receiveRewardErrors(err.responseJSON));
     })
   }

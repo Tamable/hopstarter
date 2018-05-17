@@ -59,7 +59,7 @@ export const createProject = (project) => {
     return ApiUtil.createProject(project).then((payload) => {
       return dispatch(receiveProject(payload));
       return payload;
-    }, (err) => {
+    }).fail((err) => {
       return dispatch(receiveProjectErrors(err.responseJSON));
     })
   }
@@ -70,7 +70,7 @@ export const updateProject = (project) => {
     return ApiUtil.updateProject(project).then((payload) => {
       return dispatch(receiveProject(payload));
       return payload;
-    }, (err) => {
+    }).fail((err) => {
       return dispatch(receiveProjectErrors(err.responseJSON));
     })
   }
@@ -80,7 +80,7 @@ export const deleteProject = (id) => {
   return dispatch => {
     return ApiUtil.deleteProject(id).then(() => {
       return dispatch(removeProject(id));
-    }, (err) => {
+    }).fail((err) => {
       return dispatch(receiveProjectErrors(err.responseJSON));
     })
   }

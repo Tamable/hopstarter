@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
     rewardsOfProject: state.entities.projects[ownProps.match.params.id].rewards,
     project: state.entities.projects[ownProps.match.params.id],
     buttonText: "Update and preview",
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    errors: state.errors.reward
   }
 };
 

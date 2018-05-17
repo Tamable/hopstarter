@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515184324) do
+ActiveRecord::Schema.define(version: 20180517142755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,13 @@ ActiveRecord::Schema.define(version: 20180515184324) do
     t.integer "funding_goal", null: false
     t.boolean "reward_offered", default: false
     t.date "end_date", null: false
-    t.integer "amount_pledged", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "location"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["creator_id"], name: "index_projects_on_creator_id"
   end
 

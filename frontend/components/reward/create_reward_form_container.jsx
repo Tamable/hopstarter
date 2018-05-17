@@ -17,7 +17,8 @@ const mapStateToProps = (state, ownProps) => {
       backer_limit: ''
     },
     buttonText: "Create and preview",
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    errors: state.errors.reward
   }
 }
 
