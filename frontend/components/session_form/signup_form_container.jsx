@@ -7,7 +7,7 @@ import SessionForm from './session_form';
 const mapStateToProps = (state) => {
   return {
     buttonText: 'Create account',
-    errors: state.errors.session,
+    errors: Object.values(state.errors.session),
     link: <Link to="/login">Log in</Link>,
     linkText: 'Have an account?',
     header: 'Sign up',

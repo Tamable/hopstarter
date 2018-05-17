@@ -7,7 +7,7 @@ import SessionForm from './session_form';
 const mapStateToProps = (state) => {
   return {
     buttonText: 'Log me in!',
-    errors: state.errors.session,
+    errors: Object.values(state.errors.session),
     link: <Link to="/signup">Sign up!</Link>,
     linkText: 'New to HopStarter?',
     header: 'Log in',
