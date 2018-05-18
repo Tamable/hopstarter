@@ -393,6 +393,7 @@ c7 = Category.create!(
         pledge_amount: 100,
         title: "Reward 1",
         description: "This is reward 1."
+      )
     end
 end
 
@@ -402,5 +403,6 @@ Project.all.each do |project|
       pledge_amount: 500,
       title: "Reward 2",
       description: "This is reward 2."
+    )
   end
 end
