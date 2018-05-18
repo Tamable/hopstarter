@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const BackedProjects = ({ backedProjects, pledges }) => {
   const backedProjectList = backedProjects.reverse().map((project) => {
-    let pledgePercent;
-    pledgePercent = project.amount_pledged ? Math.round((project.amount_pledged / project.funding_goal) * 100) : 0
+    let amountPledged = project.amount_pledged ? project.amount_pledged : 0;
+    let pledgePercent = Math.round((amountPledged / project.funding_goal) * 100)
 
     let pledge = pledges.find((pledge) => pledge.project_id == project.id);
     return (

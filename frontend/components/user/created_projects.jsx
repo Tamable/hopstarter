@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const createdProjects = ({ createdProjects }) => {
 
   const createdProjectList = createdProjects.reverse().map((project) => {
-    let pledgePercent;
-    pledgePercent = project.amount_pledged ? Math.round((project.amount_pledged / project.funding_goal) * 100) : 0
+    let amountPledged = project.amount_pledged ? project.amount_pledged : 0;
+    let pledgePercent = Math.round((amountPledged / project.funding_goal) * 100)
     return (
       <Link to={`/projects/${project.id}`} key={project.id} className="profile-list-item">
         <li className="list-image"><img src={project.image_url} /></li>
