@@ -11,10 +11,6 @@ Category.destroy_all
 User.destroy_all
 Project.destroy_all
 
-filef = File.open("app/assets/images/flamingos.jpg")
-fileh = File.open("app/assets/images/hedgehog.jpg")
-filep = File.open("app/assets/images/penguin.jpg")
-
 u1 = User.create!(
   email: "test1@email.com",
   name: "DemoOne",
@@ -73,49 +69,160 @@ c7 = Category.create!(
   name: "Publishing"
 )
 
-User.all.each do |user|
-  2.times do
     Project.create!(
-      title: "My #{Faker::Color.color_name} project",
+      title: "My Tree design project",
       category_id: c1.id,
-      creator_id: user.id,
+      creator_id: user1.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/design1.jpg",
       description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
       funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
       location: "#{Faker::Address.city}, #{Faker::Address.state}"
     )
-  end
-end
 
-User.all.each do |user|
-  2.times do
+    Project.create!(
+      title: "My abstract design project",
+      category_id: c1.id,
+      creator_id: user2.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/design2.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+    Project.create!(
+      title: "My Nausicaa design project",
+      category_id: c1.id,
+      creator_id: user3.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/design3.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+    Project.create!(
+      title: "My Totoro design project",
+      category_id: c1.id,
+      creator_id: user4.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/design4.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+    Project.create!(
+      title: "My butterfly design project",
+      category_id: c1.id,
+      creator_id: user5.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/design5.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+
     Project.create!(
       title: "My #{Faker::Hacker.noun} project",
       category_id: c2.id,
-      creator_id: user.id,
+      creator_id: user1.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/game1.jpg",
       description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
       funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
       location: "#{Faker::Address.city}, #{Faker::Address.state}"
     )
-  end
-end
+    Project.create!(
+      title: "My #{Faker::Hacker.noun} project",
+      category_id: c2.id,
+      creator_id: user2.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/game1.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+    Project.create!(
+      title: "My #{Faker::Hacker.noun} project",
+      category_id: c2.id,
+      creator_id: user3.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/game2.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+    Project.create!(
+      title: "My #{Faker::Hacker.noun} project",
+      category_id: c2.id,
+      creator_id: user4.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/game3.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+    Project.create!(
+      title: "My #{Faker::Hacker.noun} project",
+      category_id: c2.id,
+      creator_id: user5.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/game4.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
 
-User.all.each do |user|
-  2.times do
     Project.create!(
       title: "My #{Faker::Music.instrument} project",
       category_id: c3.id,
-      creator_id: user.id,
+      creator_id: user1.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/music1.jpg",
       description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
       funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
       location: "#{Faker::Address.city}, #{Faker::Address.state}"
     )
-  end
+    Project.create!(
+      title: "My #{Faker::Music.instrument} project",
+      category_id: c3.id,
+      creator_id: user2.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/music2.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+    Project.create!(
+      title: "My #{Faker::Music.instrument} project",
+      category_id: c3.id,
+      creator_id: user3.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/music3.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+    Project.create!(
+      title: "My #{Faker::Music.instrument} project",
+      category_id: c3.id,
+      creator_id: user4.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/music4.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+    Project.create!(
+      title: "My #{Faker::Music.instrument} project",
+      category_id: c3.id,
+      creator_id: user5.id,
+      image: "https://s3.amazonaws.com/hopstarter-seed/music5.jpg",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
 
-User.all.each do |user|
-  2.times do
     Project.create!(
       title: "My #{Faker::Ancient.hero} project",
       category_id: c4.id,
@@ -125,44 +232,157 @@ User.all.each do |user|
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
       location: "#{Faker::Address.city}, #{Faker::Address.state}"
     )
-  end
 
-  User.all.each do |user|
-    2.times do
-      Project.create!(
-        title: "My #{Faker::Dog.breed} documentary",
-        category_id: c5.id,
-        creator_id: user.id,
-        description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
-        funding_goal: "#{Faker::Number.number(4)}",
-        end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
-        location: "#{Faker::Address.city}, #{Faker::Address.state}"
-      )
-    end
+  Project.create!(
+    title: "My #{Faker::Dog.breed} documentary",
+    category_id: c5.id,
+    creator_id: user1.id,
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    image: "https://s3.amazonaws.com/hopstarter-seed/dog1.jpg",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+  Project.create!(
+    title: "My #{Faker::Dog.breed} documentary",
+    category_id: c5.id,
+    creator_id: user2.id,
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    image: "https://s3.amazonaws.com/hopstarter-seed/dog2.jpg",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+  Project.create!(
+    title: "My #{Faker::Dog.breed} documentary",
+    category_id: c5.id,
+    creator_id: user3.id,
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    image: "https://s3.amazonaws.com/hopstarter-seed/dog3.jpg",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+  Project.create!(
+    title: "My #{Faker::Dog.breed} documentary",
+    category_id: c5.id,
+    creator_id: user4.id,
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    image: "https://s3.amazonaws.com/hopstarter-seed/dog4.jpg",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+  Project.create!(
+    title: "My #{Faker::Dog.breed} documentary",
+    category_id: c5.id,
+    creator_id: user5.id,
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    image: "https://s3.amazonaws.com/hopstarter-seed/dog5.jpg",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
 
-    User.all.each do |user|
-      2.times do
-        Project.create!(
-          title: "My #{Faker::Food.spice} project",
-          category_id: c6.id,
-          creator_id: user.id,
-          description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
-          funding_goal: "#{Faker::Number.number(4)}",
-          end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
-          location: "#{Faker::Address.city}, #{Faker::Address.state}"
-        )
-      end
+  Project.create!(
+    title: "My #{Faker::Food.spice} project",
+    category_id: c6.id,
+    creator_id: user1.id,
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    image: "https://s3.amazonaws.com/hopstarter-seed/food1.jpg",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+  Project.create!(
+    title: "My #{Faker::Food.spice} project",
+    category_id: c6.id,
+    creator_id: user2.id,
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    image: "https://s3.amazonaws.com/hopstarter-seed/food2.jpg",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+  Project.create!(
+    title: "My #{Faker::Food.spice} project",
+    category_id: c6.id,
+    creator_id: user3.id,
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    image: "https://s3.amazonaws.com/hopstarter-seed/food3.jpg",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+  Project.create!(
+    title: "My #{Faker::Food.spice} project",
+    category_id: c6.id,
+    creator_id: user4.id,
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    image: "https://s3.amazonaws.com/hopstarter-seed/food4.jpg",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+  Project.create!(
+    title: "My #{Faker::Food.spice} project",
+    category_id: c6.id,
+    creator_id: user5.id,
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    image: "https://s3.amazonaws.com/hopstarter-seed/food5.jpg",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
 
-User.all.each do |user|
-  2.times do
-    Project.create!(
-      title: "My book about#{Faker::ProgrammingLanguage.name}",
-      category_id: c7.id,
-      creator_id: user.id,
-      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
-      funding_goal: "#{Faker::Number.number(4)}",
-      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
-      location: "#{Faker::Address.city}, #{Faker::Address.state}"
-    )
-  end
-end
+  Project.create!(
+    title: "My book about#{Faker::ProgrammingLanguage.name}",
+    category_id: c7.id,
+    creator_id: user1.id,
+    image: "https://s3.amazonaws.com/hopstarter-seed/book1.jpg",
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+
+  Project.create!(
+    title: "My book about#{Faker::ProgrammingLanguage.name}",
+    category_id: c7.id,
+    creator_id: user2.id,
+    image: "https://s3.amazonaws.com/hopstarter-seed/book2.jpg",
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+  Project.create!(
+    title: "My book about#{Faker::ProgrammingLanguage.name}",
+    category_id: c7.id,
+    creator_id: user3.id,
+    image: "https://s3.amazonaws.com/hopstarter-seed/book3.jpg",
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+  Project.create!(
+    title: "My book about#{Faker::ProgrammingLanguage.name}",
+    category_id: c7.id,
+    creator_id: user4.id,
+    image: "https://s3.amazonaws.com/hopstarter-seed/book4.jpg",
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
+  Project.create!(
+    title: "My book about#{Faker::ProgrammingLanguage.name}",
+    category_id: c7.id,
+    creator_id: user5.id,
+    image: "https://s3.amazonaws.com/hopstarter-seed/book5.jpg",
+    description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+    funding_goal: "#{Faker::Number.number(4)}",
+    end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+    location: "#{Faker::Address.city}, #{Faker::Address.state}"
+  )
