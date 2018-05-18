@@ -13,4 +13,4 @@ Hopstarter is a single-page web application inspired by Kickstarter. It is built
 * each category index page shows a list of projects along with a link to the individual project show page
 6. Backing projects & rewards (16-17 May 2018)   
 * users need to be logged in to make/edit/cancel a pledge  
-7. A production README (17 May)     
+7. A production README (17 May 2018)     
