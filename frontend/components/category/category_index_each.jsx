@@ -10,29 +10,26 @@ class CategoryIndexEach extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newActive: true,
-      almostActive: false,
-      popularActive: false
+      show: 'newActive'
     };
   }
 
   switchPanes(pane) {
-    this.setState({
-      newActive: false,
-      almostActive: false,
-      popularActive: false
-    });
-    this.setState({ [pane]: true });
+    this.setState({ show: [pane] })
   }
 
   render() {
-    const allProjects = this.props.projects;
-    const allCreators = this.props.creators;
-    const categoryName = this.props.categoryObj.name;
+    const category = this.props.category;
+    const users = this.props.users;
+    const pledges = this.props.pledges;
 
-    const projectsOfCategory = allProjects.filter((project) =>  project.category_id == this.props.categoryObj.id )
-    const featuredProject = projectsOfCategory.sort((a, b) => {
-      return b.amount_pledged - a.amount_pledged })[0];
+    let projectsOfCategory = [];
+    category.projects.forEach((projectId) => {
+      projectsOfCategory.push(this.props.projects[projectId])
+    })
+
+    let featuredProject = projectsOfCategory.sort((a, b) => {
+      return b.pledges.length - a.pledges.length })[0];
 
       let featuredTitle = "";
       let featuredCreator = "";
@@ -41,26 +38,30 @@ class CategoryIndexEach extends React.Component {
       let image = "";
       if (featuredProject) {
         featuredTitle = featuredProject.title;
-        featuredCreator = allCreators[featuredProject.creator_id].name.toUpperCase();
-        pledgePercent = Math.round((featuredProject.amount_pledged / featuredProject.funding_goal) * 100);
+        featuredCreator = users[featuredProject.creator_id].name.toUpperCase();
+        let pledgeAmountOfProject = 0;
+        featuredProject.pledges.forEach((pledgeId) => {
+          pledgeAmountOfProject += pledges[pledgeId].amount
+        })
+        pledgePercent = Math.round((pledgeAmountOfProject / featuredProject.funding_goal) * 100);
         featuredId = featuredProject.id;
-        image = featuredProject.image_url
+        image = featuredProject.image_url;
       }
 
       let selectedPane;
-      if (this.state.newActive) {
-        selectedPane = <NewAndNoteworthy projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} />
-      } else if (this.state.almostActive) {
-        selectedPane = <AlmostThere projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} />
-      } else if (this.state.popularActive) {
-        selectedPane = <Popular projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} />
+      if (this.state.show == 'newActive') {
+        selectedPane = <NewAndNoteworthy projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} pledges={this.props.pledges} />
+      } else if (this.state.show == 'almostActive') {
+        selectedPane = <AlmostThere projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} pledges={this.props.pledges} />
+      } else if (this.state.show == 'popularActive') {
+        selectedPane = <Popular projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} pledges={this.props.pledges} />
       }
 
     return (
       <div className="project-container">
         <div className="featured-cat-container">
-          <span className="featured-category">{categoryName}</span>
-          <Link className="top-view-all" to={`/categories/${this.props.categoryObj.id}`}>VIEW ALL →</Link>
+          <span className="featured-category">{category.name}</span>
+          <Link className="top-view-all" to={`/categories/${category.id}`}>VIEW ALL →</Link>
         </div>
 
         <div className="featured-proj">
@@ -81,7 +82,7 @@ class CategoryIndexEach extends React.Component {
               <li onClick={ () => this.switchPanes('popularActive') }>POPULAR</li>
             </ul>
             {selectedPane}
-            <Link className="view-all-bottom" to={`/categories/${this.props.categoryObj.id}`}>VIEW ALL</Link>
+            <Link className="view-all-bottom" to={`/categories/${category.id}`}>VIEW ALL</Link>
           </div>
         </div>
       </div>

@@ -5,10 +5,11 @@ export const RECEIVE_REWARD = 'RECEIVE_REWARD';
 export const REMOVE_REWARD = 'REMOVE_REWARD';
 export const RECEIVE_REWARD_ERRORS = 'RECEIVE_REWARD_ERRORS';
 
-export const receiveRewards = (rewards) => {
+export const receiveRewards = (payload) => {
   return {
-    type: RECEIVE_REWARD,
-    rewards: rewards,
+    type: RECEIVE_REWARDS,
+    rewards: payload.rewards,
+    projects: payload.projects
   }
 }
 
@@ -35,9 +36,9 @@ export const receiveRewardErrors = (errorArr) => {
 
 export const fetchRewards = () => {
   return dispatch => {
-    return ApiUtil.fetchReward().then((rewards) => {
-      return dispatch(receiveReward(rewards));
-      return reward;
+    return ApiUtil.fetchReward().then((payload) => {
+      return dispatch(receiveReward(payload));
+      return payload;
     }).fail((err) => {
       return dispatch(receiveRewardErrors(err.responseJSON));
     })

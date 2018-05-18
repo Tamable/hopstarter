@@ -1,7 +1,10 @@
 class Api::PledgesController < ApplicationController
+  def index
+    @pledges = Pledge.all
+  end
 
   def show
-
+    render :show
   end
 
   def create

@@ -1,3 +1,10 @@
+export const fetchPledges = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/pledges`
+  })
+}
+
 export const fetchPledge = (id) => {
   return $.ajax({
     method: 'GET',

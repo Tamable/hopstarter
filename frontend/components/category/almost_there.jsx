@@ -1,19 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AlmostThere = ({ projectsOfCategory, featuredProject }) => {
-  const sortedByFundingProgress = projectsOfCategory.filter((project) =>
-    (project.funding_goal - project.amount_pledged > 0) && (project.amount_pledged / project.funding_goal > 0.75)
-  ).sort((a, b) => {
-    return (b.amount_pledged / b.funding_goal) - (a.amount_pledged / a.funding_goal)
-  });
+const AlmostThere = ({ projectsOfCategory, featuredProject, pledges }) => {
+  const sortedByFundingProgress = projectsOfCategory.filter((project) => {
+      let pledgeAmountOfProject = 0;
+      project.pledges.forEach((pledgeId) => {
+        pledgeAmountOfProject += pledges[pledgeId].amount
+      })
+      let pledgePercent = Math.round((pledgeAmountOfProject / project.funding_goal) * 100);
+      (project.funding_goal - project.pledgeAmountOfProject > 0) && (project.pledgeAmountOfProject / project.funding_goal > 0.5)
+    }).sort((a, b) => {
+      return (b.pledgeAmountOfProject / b.funding_goal) - (a.pledgeAmountOfProject / a.funding_goal)
+    });
 
   let almostProjects = sortedByFundingProgress.slice(0, 4).map((project) => {
     return (
       <Link to={`/projects/${project.id}`} key={project.id} className="list-item">
         <li className="list-image"><img src={project.image_url} /></li>
         <div><li className="list-title">{project.title}</li>
-        <li className="list-pledge">{Math.round((project.amount_pledged / project.funding_goal) * 100)}% funded</li></div>
+        <li className="list-pledge">{pledgePercent}% funded</li></div>
       </Link>
     )
   });

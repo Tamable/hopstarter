@@ -1,5 +1,5 @@
 class Pledge < ApplicationRecord
-  validates :amount, :supporter, :project, presence: true
+  validates :amount, :user, :supporter, presence: true
   validates_uniqueness_of :supporter_id, scope: :project_id
 
   belongs_to :supporter,

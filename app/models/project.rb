@@ -15,7 +15,7 @@ class Project < ApplicationRecord
 
   has_many :backers,
     through: :pledges,
-    source: :supporter_id
+    source: :supporter
 
   has_many :rewards,
     class_name: 'Reward',

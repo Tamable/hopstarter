@@ -45,39 +45,42 @@ u5 = User.create!(
   password: "password842",
 )
 
-u6 = User.create!(
-  email: "test6@email.com",
-  name: "DemoSix",
-  password: "password991",
-)
-
-u7 = User.create!(
-  email: "test7@email.com",
-  name: "DemoSeven",
-  password: "password773",
-)
-
 c1 = Category.create!(
-  name: "Hedgehogs"
+  name: "Design & Tech"
 )
 
 c2 = Category.create!(
-  name: "Penguins"
+  name: "Games"
 )
 
 c3 = Category.create!(
-  name: "Flamingos"
+  name: "Music"
+)
+
+c4 = Category.create!(
+  name: "Arts"
+)
+
+c5 = Category.create!(
+  name: "Film"
+)
+
+c6 = Category.create!(
+  name: "Food & Craft"
+)
+
+c7 = Category.create!(
+  name: "Publishing"
 )
 
 User.all.each do |user|
-  5.times do
+  2.times do
     Project.create!(
-      title: "#{Faker::Dessert.variety}",
+      title: "My #{Faker::Color.color_name} project",
       category_id: c1.id,
       creator_id: user.id,
-      description: "#{Faker::HowIMetYourMother.quote}",
-      image: fileh,
-      funding_goal: "#{Faker::Number.number(5)}",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
       location: "#{Faker::Address.city}, #{Faker::Address.state}"
     )
@@ -85,14 +88,13 @@ User.all.each do |user|
 end
 
 User.all.each do |user|
-  5.times do
+  2.times do
     Project.create!(
-      title: "#{Faker::Dessert.topping}",
+      title: "My #{Faker::Hacker.noun} project",
       category_id: c2.id,
       creator_id: user.id,
-      description: "#{Faker::HowIMetYourMother.quote}",
-      image: filep,
-      funding_goal: "#{Faker::Number.number(5)}",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
       location: "#{Faker::Address.city}, #{Faker::Address.state}"
     )
@@ -100,14 +102,65 @@ User.all.each do |user|
 end
 
 User.all.each do |user|
-  5.times do
+  2.times do
     Project.create!(
-      title: "#{Faker::Dessert.flavor}",
+      title: "My #{Faker::Music.instrument} project",
       category_id: c3.id,
       creator_id: user.id,
-      description: "#{Faker::HowIMetYourMother.quote}",
-      image: filef,
-      funding_goal: "#{Faker::Number.number(5)}",
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+  end
+
+User.all.each do |user|
+  2.times do
+    Project.create!(
+      title: "My #{Faker::Ancient.hero} project",
+      category_id: c4.id,
+      creator_id: user.id,
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
+      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+      location: "#{Faker::Address.city}, #{Faker::Address.state}"
+    )
+  end
+
+  User.all.each do |user|
+    2.times do
+      Project.create!(
+        title: "My #{Faker::Dog.breed} documentary",
+        category_id: c5.id,
+        creator_id: user.id,
+        description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+        funding_goal: "#{Faker::Number.number(4)}",
+        end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+        location: "#{Faker::Address.city}, #{Faker::Address.state}"
+      )
+    end
+
+    User.all.each do |user|
+      2.times do
+        Project.create!(
+          title: "My #{Faker::Food.spice} project",
+          category_id: c6.id,
+          creator_id: user.id,
+          description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+          funding_goal: "#{Faker::Number.number(4)}",
+          end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
+          location: "#{Faker::Address.city}, #{Faker::Address.state}"
+        )
+      end
+
+User.all.each do |user|
+  2.times do
+    Project.create!(
+      title: "My book about#{Faker::ProgrammingLanguage.name}",
+      category_id: c7.id,
+      creator_id: user.id,
+      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
+      funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
       location: "#{Faker::Address.city}, #{Faker::Address.state}"
     )

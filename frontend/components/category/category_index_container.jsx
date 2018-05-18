@@ -1,21 +1,23 @@
 import { connect } from 'react-redux';
 
 import CategoryIndex from './category_index';
-import { fetchCategory } from '../../actions/category_actions';
+import { fetchCategories } from '../../actions/category_actions';
 import { fetchProjects } from '../../actions/project_actions';
+import { fetchPledges } from '../../actions/pledge_actions';
 
 const mapStateToProps = (state) => {
   return {
-    categoryObj: state.entities.categories || {},
-    projects: Object.values(state.entities.projects) || [],
-    creators: state.entities.users
+    categories: state.entities.categories || {},
+    projects: state.entities.projects || {},
+    pledges: state.entities.pledges || {}
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCategory: (id) => dispatch(fetchCategory(id)),
-    fetchProjects: () => dispatch(fetchProjects())
+    fetchCategories: () => dispatch(fetchCategories()),
+    fetchProjects: () => dispatch(fetchProjects()),
+    fetchPledges: () => dispatch(fetchPledges())
   }
 }
 

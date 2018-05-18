@@ -11,7 +11,6 @@ export const receiveProjects = (payload) => {
     projects: payload.projects,
     users: payload.users,
     categories: payload.categories,
-    rewards: payload.rewards
   }
 }
 
