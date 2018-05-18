@@ -1,9 +1,6 @@
-# README
+#Hopstarter
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Hopstarter is a single-page web application inspired by Kickstarter. It is built with Ruby on Rails and React/Redux.
 
 * Ruby version
 
