@@ -395,7 +395,6 @@ c7 = Category.create!(
         description: "This is reward 1."
       )
     end
-end
 
 Project.all.each do |project|
     Reward.create!(
