@@ -405,4 +405,3 @@ Project.all.each do |project|
       description: "This is reward 2."
     )
   end
-end
