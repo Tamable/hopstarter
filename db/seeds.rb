@@ -336,7 +336,7 @@ c7 = Category.create!(
   )
 
   p27 = Project.create!(
-    title: "My book about#{Faker::ProgrammingLanguage.name}",
+    title: "My book about #{Faker::ProgrammingLanguage.name}",
     category_id: c7.id,
     creator_id: u1.id,
     image: "https://s3.amazonaws.com/hopstarter-seed/book1.jpg",
@@ -347,7 +347,7 @@ c7 = Category.create!(
   )
 
   p28 = Project.create!(
-    title: "My book about#{Faker::ProgrammingLanguage.name}",
+    title: "My book about #{Faker::ProgrammingLanguage.name}",
     category_id: c7.id,
     creator_id: u2.id,
     image: "https://s3.amazonaws.com/hopstarter-seed/book2.jpg",
@@ -357,7 +357,7 @@ c7 = Category.create!(
     location: "#{Faker::Address.city}, #{Faker::Address.state}"
   )
   p29 = Project.create!(
-    title: "My book about#{Faker::ProgrammingLanguage.name}",
+    title: "My book about #{Faker::ProgrammingLanguage.name}",
     category_id: c7.id,
     creator_id: u3.id,
     image: "https://s3.amazonaws.com/hopstarter-seed/book3.jpg",
@@ -367,7 +367,7 @@ c7 = Category.create!(
     location: "#{Faker::Address.city}, #{Faker::Address.state}"
   )
   p30 = Project.create!(
-    title: "My book about#{Faker::ProgrammingLanguage.name}",
+    title: "My book about #{Faker::ProgrammingLanguage.name}",
     category_id: c7.id,
     creator_id: u4.id,
     image: "https://s3.amazonaws.com/hopstarter-seed/book4.jpg",
@@ -377,7 +377,7 @@ c7 = Category.create!(
     location: "#{Faker::Address.city}, #{Faker::Address.state}"
   )
   p31 = Project.create!(
-    title: "My book about#{Faker::ProgrammingLanguage.name}",
+    title: "My book about #{Faker::ProgrammingLanguage.name}",
     category_id: c7.id,
     creator_id: u5.id,
     image: "https://s3.amazonaws.com/hopstarter-seed/book5.jpg",
