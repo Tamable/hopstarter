@@ -28,7 +28,8 @@ const mapStateToProps = (state, ownProps) => {
     creator,
     category,
     currentUser,
-    pledges: state.entities.pledges
+    pledges: state.entities.pledges,
+    rewards: state.entities.rewards
   }
 }
 

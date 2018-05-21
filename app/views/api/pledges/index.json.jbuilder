@@ -6,7 +6,7 @@ json.pledges do
   end
 end
 
-json.users do
+json.supporters do
   @pledges.map(&:supporter).each do |supporter|
     json.set! supporter.id do
       json.partial! 'api/users/user', user: supporter

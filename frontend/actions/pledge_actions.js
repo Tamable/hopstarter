@@ -9,7 +9,7 @@ export const receivePledges = (payload) => {
   return {
     type: RECEIVE_PLEDGES,
     pledges: payload.pledges,
-    users: payload.users,
+    users: payload.supporters,
     projects: payload.projects
   }
 }

@@ -10,6 +10,7 @@ class ProjectPreview extends React.Component {
 
   componentDidMount() {
     this.props.fetchProject(this.props.project.id);
+    this.props.fetchRewards();
   };
 
   render() {
@@ -23,14 +24,25 @@ class ProjectPreview extends React.Component {
     let amountPledged = project.amount_pledged ? project.amount_pledged : 0;
     let location = project.location ? project.location : "N/A"
 
-    const rewards = project.rewards.map((reward) => {
+    const rewards = project.rewards.map((rewardId) => {
+      let currentReward = this.props.rewards[rewardId];
+      let currentRewardTitle = "";
+      let currentRewardItem = "";
+      let currentRewardDescription = "";
+      let currentRewardAmount = "";
+      if (currentReward) {
+        currentRewardTitle = currentReward.title;
+        currentRewardItem = currentReward.item;
+        currentRewardDescription = currentReward.description;
+        currentRewardAmount = currentReward.pledge_amount;
+      }
       return (
         <li className="each-reward-container">
           <div>
-          <div className="reward-amount">Pledge ${reward.pledge_amount} or more</div>
-          <div className="reward-title"> {reward.title}</div>
-          <div className="reward-item">{reward.item}</div>
-          <div className="reward-description">{reward.description}</div>
+          <div className="reward-amount">Pledge ${currentRewardAmount} or more</div>
+          <div className="reward-title"> {currentRewardTitle}</div>
+          <div className="reward-item">{currentRewardItem}</div>
+          <div className="reward-description">{currentRewardDescription}</div>
           </div>
           <div className="overlay">
             <div className="pledge-text">Back this project</div>

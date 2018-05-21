@@ -13,8 +13,6 @@ const rewardsReducer = (state = {}, action) => {
       let newState = merge({}, state);
       delete newState[action.id];
       return newState;
-    case RECEIVE_PROJECT:
-      return merge({}, state, action.project.rewards)
     default:
       return state;
   }

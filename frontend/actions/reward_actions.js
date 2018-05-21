@@ -36,8 +36,8 @@ export const receiveRewardErrors = (errorArr) => {
 
 export const fetchRewards = () => {
   return dispatch => {
-    return ApiUtil.fetchReward().then((payload) => {
-      return dispatch(receiveReward(payload));
+    return ApiUtil.fetchRewards().then((payload) => {
+      return dispatch(receiveRewards(payload));
       return payload;
     }).fail((err) => {
       return dispatch(receiveRewardErrors(err.responseJSON));

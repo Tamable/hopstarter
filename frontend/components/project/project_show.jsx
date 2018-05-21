@@ -21,7 +21,9 @@ class ProjectShow extends React.Component {
     let creatorProjectCount = 0;
     if (creator) {
       creatorName = creator.name;
-      creatorProjectCount = creator.projectProposalIds.length
+      if (creator.projectProposalIds) {
+        creatorProjectCount = creator.projectProposalIds.length
+      }
     }
 
     let category = this.props.category;
@@ -29,7 +31,7 @@ class ProjectShow extends React.Component {
     let rewards;
     if (project.rewards) {
       rewards = project.rewards.map((rewardId) => {
-        let reward = this.props.rewards(rewardId)
+        let reward = this.props.rewards[rewardId]
         return (
           <li className="each-reward-container">
             <div>
@@ -62,7 +64,7 @@ class ProjectShow extends React.Component {
     let today = new Date();
     let endDate = new Date(project.end_date);
     let oneDay = 24*60*60*1000;
-    let diffDays = Math.round(Math.abs((endDate.getTime() - today.getTime())/(oneDay)));
+    let diffDays = Math.round(Math.abs((endDate.getTime() - today.getTime())/(oneDay))).toString();
     let pledgeAmountOfProject = 0;
     if (project.pledges) {
       project.pledges.forEach((pledgeId) => {

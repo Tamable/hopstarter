@@ -95,7 +95,7 @@ class RewardItem extends React.Component {
           <button className="reward-submit-button">{this.props.buttonText}</button>
           <button className="reward-delete-button" onClick={this.delete}><img src={window.staticImages.trash} /> Delete</button>
         </form>
-      </div>
+    </div>
     )
   };
 };

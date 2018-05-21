@@ -37,7 +37,7 @@ class FeaturedCategory extends React.Component {
       let pledgePercent = "";
       let featuredId = "";
       let image = "";
-      if (featuredProject) {
+      if (featuredProject && users) {
         featuredTitle = featuredProject.title;
         featuredCreator = users[featuredProject.creator_id].name.toUpperCase();
         let pledgeAmountOfProject = 0;

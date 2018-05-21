@@ -7,8 +7,9 @@ json.rewards do
 end
 
 json.projects do
-  @rewards.map(&:projects).each do |project|
+  @rewards.map(&:project).each do |project|
     json.set! project.id do
       json.partial! 'api/projects/project', project: project
     end
+  end
 end

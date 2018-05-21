@@ -11,11 +11,14 @@ const ProjectIndexItem = (props) => {
 
   let pledgeAmountOfProject = 0;
     project.pledges.forEach((pledgeId) => {
-      if (project.pledges[pledgeId]) {
-        pledgeAmountOfProject += project.pledges[pledgeId].amount
-      }
+      pledgeAmountOfProject += props.pledges[pledgeId].amount
     })
   let pledgePercent = Math.round((pledgeAmountOfProject / project.funding_goal) * 100);
+
+  let creatorName = ""
+  if (props.creator) {
+    creatorName = props.creator.name
+  }
 
   return (
     <div>
@@ -27,7 +30,7 @@ const ProjectIndexItem = (props) => {
         <li className='project-index-item' key={project.id}>
           <div className='title-name'>
           <span className='project-title'>{project.title}</span><br></br>
-          <span className='project-creator'>by {props.creator.name}</span>
+          <span className='project-creator'>by {creatorName}</span>
           </div>
           <div className='pledge-progress-container'>
             <div className='pledge-progress-bar-outer'>

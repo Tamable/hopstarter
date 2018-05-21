@@ -9,6 +9,10 @@ class CreateRewardForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
+  componentDidMount() {
+    this.props.fetchRewards();
+  }
+
   update(field) {
     return e => {
       this.setState({ [field]: e.target.value })

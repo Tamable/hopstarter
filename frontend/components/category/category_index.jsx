@@ -11,6 +11,7 @@ class CategoryIndex extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchUsers();
     this.props.fetchProjects();
     this.props.fetchCategories();
     this.props.fetchPledges();

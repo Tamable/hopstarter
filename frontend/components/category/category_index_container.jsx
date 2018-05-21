@@ -4,6 +4,7 @@ import CategoryIndex from './category_index';
 import { fetchCategories } from '../../actions/category_actions';
 import { fetchProjects } from '../../actions/project_actions';
 import { fetchPledges } from '../../actions/pledge_actions';
+import { fetchUsers } from '../../actions/user_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -17,7 +18,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchCategories: () => dispatch(fetchCategories()),
     fetchProjects: () => dispatch(fetchProjects()),
-    fetchPledges: () => dispatch(fetchPledges())
+    fetchPledges: () => dispatch(fetchPledges()),
+    fetchUsers: () => dispatch(fetchUsers())
   }
 }
 

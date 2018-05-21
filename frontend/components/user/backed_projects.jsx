@@ -1,18 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BackedProjects = ({ backedProjects, pledges }) => {
-  const backedProjectList = backedProjects.reverse().map((project) => {
-    let pledgePercent;
-    pledgePercent = project.amount_pledged ? Math.round((project.amount_pledged / project.funding_goal) * 100) : 0
+const BackedProjects = ({ projects, pledges, user }) => {
+  let userBackedProjects = [];
+  user.supportProjectIds.map((projectId) => {
+    userBackedProjects.push(projects[projectId])
+  })
+  const backedProjectList = userBackedProjects.reverse().map((project) => {
+    let pledgeAmountOfProject = 0;
+    let userPledgeAmount = "";
+    if (project.pledges) {
+      project.pledges.forEach((pledgeId) => {
+        if (pledges) {
+          pledgeAmountOfProject += pledges[pledgeId].amount;
+          if (pledges[pledgeId].supporter_id == user.id) {
+            userPledgeAmount = pledges[pledgeId].amount
+          }
+        }
+      })
+    }
+    let pledgePercent = Math.round((pledgeAmountOfProject / project.funding_goal) * 100);
 
-    let pledge = pledges.find((pledge) => pledge.project_id == project.id);
     return (
       <Link to={`/projects/${project.id}`} key={project.id} className="profile-list-item">
         <li className="list-image"><img src={project.image_url} /></li>
         <div><li className="list-title">{project.title}</li>
         <li className="list-pledge">{pledgePercent}% funded</li></div>
-        <div>supporting ${pledge.amount}</div>
+        <div>supporting ${userPledgeAmount}</div>
         <div><Link to={`/projects/${project.id}/pledge/edit`} className="edit-botton">Edit</Link></div>
       </Link>
     )
