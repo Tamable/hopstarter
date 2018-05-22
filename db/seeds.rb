@@ -373,7 +373,7 @@ c7 = Category.create!(
     title: "My book about #{Faker::ProgrammingLanguage.name}",
     category_id: c7.id,
     creator_id: u5.id,
-    image: "https://s3.amazonaws.com/hopstarter-seed/book5.jpg",
+    image: "https://s3.amazonaws.com/hopstarter-seed/book6.jpg",
     description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
     funding_goal: "#{Faker::Number.number(4)}",
     end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
