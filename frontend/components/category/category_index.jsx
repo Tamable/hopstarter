@@ -36,7 +36,9 @@ class CategoryIndex extends React.Component {
     projects.forEach((project) => {
       let pledgeAmountOfProject = 0;
       project.pledges.forEach((pledgeId) => {
-        pledgeAmountOfProject += this.props.pledges[pledgeId].amount
+        if (this.props.pledges[pledgeId]) {
+          pledgeAmountOfProject += this.props.pledges[pledgeId].amount
+        }
       })
       if (pledgeAmountOfProject >= project.funding_goal) {
         fundedProjects.push(project)
