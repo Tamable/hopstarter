@@ -11,42 +11,58 @@ class CategoryIndex extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchUsers();
     this.props.fetchProjects();
+    this.props.fetchCategories();
+    this.props.fetchPledges();
   }
 
   render() {
-    const allProjects = this.props.projects;
-    const categories = Object.values(this.props.categoryObj);
-    const categoryList = categories.map((category) => {
+    const projects = Object.values(this.props.projects);
+    const categories = Object.values(this.props.categories);
+
+    const categoryList = categories.map((category, i) => {
       return (
-        <li key={category.id} category={category}><Link to={`/home/${category.id}/` }>{category.name}</Link></li>
+        <li key={category.id * i} category={category}><Link to={`/home/${category.id}/` }>{category.name}</Link></li>
         )
     });
 
     let totalBackers = 0;
-    allProjects.forEach((project) => {
-      totalBackers += project.backer_count
+    projects.forEach((project) => {
+      totalBackers += project.backers.length
     });
 
-    const fundedProjects = allProjects.filter((project) => {
-      return project.funding_goal <= project.amount_pledged
-    }).length;
+    let fundedProjects = 0;
+    projects.forEach((project) => {
+      let pledgeAmountOfProject = 0;
+      project.pledges.forEach((pledgeId) => {
+        pledgeAmountOfProject += this.props.pledges[pledgeId].amount
+      })
+      if (pledgeAmountOfProject >= project.funding_goal) {
+        fundedProjects.push(project)
+      }
+    })
+
+    let totalPledgeAmount = 0;
+    Object.values(this.props.pledges).forEach((pledge) => {
+      totalPledgeAmount += pledge.amount
+    })
 
     let today = new Date();
-    const liveProjects = allProjects.filter((project) => {
+    const liveProjects = projects.filter((project) => {
       return new Date(project.end_date) >= today
     }).length;
 
     let sampleProjects = [];
     for (let i = 0; i < 6; i++) {
-      let randomChoice = allProjects[Math.floor(Math.random() * allProjects.length)];
+      let randomChoice = projects[Math.floor(Math.random() * projects.length)];
       sampleProjects.push(randomChoice)
     };
     let sampleProjectList = [];
     if (typeof(sampleProjects[0]) !== 'undefined') {
-        sampleProjectList = sampleProjects.map((project) => {
+        sampleProjectList = sampleProjects.map((project, i) => {
         return (
-          <li className="sample-project-list" key={project.id}>
+          <li className="sample-project-list" key={project.id * i}>
             <div>
             <Link to={`/projects/${project.id}`}>
               <div className='sample-image'><img src={project.image_url} /></div>

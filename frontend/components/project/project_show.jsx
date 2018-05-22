@@ -7,16 +7,31 @@ class ProjectShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchProject(this.props.match.params.id);
+    this.props.fetchPledges();
+    this.props.fetchRewards();
+    this.props.fetchUsers();
+    this.props.fetchCategories();
   }
 
   render() {
     let project = this.props.project;
     let creator = this.props.creator;
+
+    let creatorName = "";
+    let creatorProjectCount = 0;
+    if (creator) {
+      creatorName = creator.name;
+      if (creator.projectProposalIds) {
+        creatorProjectCount = creator.projectProposalIds.length
+      }
+    }
+
     let category = this.props.category;
     let currentUser = this.props.currentUser;
     let rewards;
     if (project.rewards) {
-      rewards = project.rewards.map((reward) => {
+      rewards = project.rewards.map((rewardId) => {
+        let reward = this.props.rewards[rewardId]
         return (
           <li className="each-reward-container">
             <div>
@@ -35,9 +50,9 @@ class ProjectShow extends React.Component {
 
     let redirectLink = "";
     let buttonText = "";
-    if (currentUser.supporting_projects) {
-      currentUser.supporting_projects.find((supportingProject) => {
-        if (supportingProject.id == project.id) {
+    if (currentUser.supportProjectIds) {
+      currentUser.supportProjectIds.find((supportProjectId) => {
+        if (supportProjectId == project.id) {
           redirectLink = `/projects/${project.id}/pledge/edit`;
           buttonText = "Edit your pledge";
         }
@@ -49,19 +64,26 @@ class ProjectShow extends React.Component {
     let today = new Date();
     let endDate = new Date(project.end_date);
     let oneDay = 24*60*60*1000;
-    let diffDays = Math.round(Math.abs((endDate.getTime() - today.getTime())/(oneDay)));
-    let amountPledged = project.amount_pledged ? project.amount_pledged : 0;
+    let diffDays = Math.round(Math.abs((endDate.getTime() - today.getTime())/(oneDay))).toString();
+    let pledgeAmountOfProject = 0;
+    if (project.pledges) {
+      project.pledges.forEach((pledgeId) => {
+        if (this.props.pledges[pledgeId]) {
+          pledgeAmountOfProject += this.props.pledges[pledgeId].amount
+        }
+      })
+    }
     let location = project.location ? project.location : "N/A"
 
-    // <img src={creator.image_url}></img> line 28
     return (
       <div>
         <div className='show-outer-container'>
           <section className='show-top-section'>
             <section className='title-section'>
               <div className='title-sec-left'>
-                <p className='creator-info'>{creator.name}<br></br>
-                  <span>{creator.project_count} created</span>
+                <img src={creator.image_url}></img>
+                <p className='creator-info'>{creatorName}<br></br>
+                  <span>{creatorProjectCount} created</span>
                 </p>
               </div>
               <div className='title-sec-right'>
@@ -76,9 +98,9 @@ class ProjectShow extends React.Component {
               </div>
               <div className='stats-side'>
                 <br></br><br></br>
-                <div className='show-pledged'>${amountPledged}</div>
+                <div className='show-pledged'>${pledgeAmountOfProject}</div>
                 <p>pledged of ${project.funding_goal} goal</p>
-                <div>{project.backer_count}</div>
+                <div>{project.backers ? project.backers.length : 0}</div>
                 <p>backers</p>
                 <div>{diffDays}</div>
                 <p>days to go</p>

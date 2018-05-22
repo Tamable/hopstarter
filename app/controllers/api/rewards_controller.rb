@@ -4,7 +4,6 @@ class Api::RewardsController < ApplicationController
   end
 
   def show
-    render :show
   end
 
   def create

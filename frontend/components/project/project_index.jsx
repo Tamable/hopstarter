@@ -8,6 +8,8 @@ class ProjectIndex extends React.Component {
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchCategories();
+    this.props.fetchPledges();
+    this.props.fetchUsers();
   }
 
   render() {
@@ -22,7 +24,7 @@ class ProjectIndex extends React.Component {
       <div className='project-index-container'>
         <ul>
           {this.props.projects.reverse().map(project => {
-            return <ProjectIndexItemContainer key={project.id} project={project} />
+            return <ProjectIndexItemContainer key={project.id} project={project} pledges={this.props.pledges} creator={this.props.users[project.creator_id]} />
           })}
         </ul>
       </div>

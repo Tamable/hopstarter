@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import CreateRewardForm from './create_reward_form';
-import { createReward } from '../../actions/reward_actions';
+import { createReward, fetchRewards } from '../../actions/reward_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -24,7 +24,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    action: (reward) => dispatch(createReward(reward))
+    action: (reward) => dispatch(createReward(reward)),
+    fetchRewards: () => dispatch(fetchRewards())
   }
 }
 

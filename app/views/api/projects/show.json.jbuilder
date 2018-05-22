@@ -9,7 +9,3 @@ end
 json.category do
   json.partial! 'api/categories/category', category: @project.category
 end
-
-# json.rewards do
-#   json.partial! 'api/rewards/reward', reward: @project.rewards
-# end

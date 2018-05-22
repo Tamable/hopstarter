@@ -11,12 +11,15 @@ class EditPledgeForm extends React.Component {
     this.cancelPledge = this.cancelPledge.bind(this);
   }
 
-
   componentDidMount() {
+    this.props.fetchPledges();
     this.props.fetchUser(this.props.currentUser.id);
-    let existingPledge = this.props.currentUser.pledges.find((pledge) =>
-      pledge.project_id == this.props.project.id
-    )
+    let existingPledge = {};
+    this.props.currentUser.pledges.forEach((pledgeId) => {
+      if (this.props.pledges[pledgeId].project_id == this.props.project.id) {
+        existingPledge = this.props.pledges[pledgeId]
+      }
+    })
     this.setState({
       id: existingPledge.id || ''
     })
@@ -61,9 +64,15 @@ class EditPledgeForm extends React.Component {
   }
 
   render() {
-    let existingPledge = this.props.currentUser.pledges.find((pledge) =>
-      pledge.project_id == this.props.project.id
-    )
+    let existingPledge = {};
+    Object.values(this.props.currentUser.pledges).forEach((pledgeId) => {
+      if (typeof this.props.pledges[pledgeId] != 'undefined') {
+        if (this.props.pledges[pledgeId].project_id == this.props.project.id) {
+          existingPledge = this.props.pledges[pledgeId]
+        }
+      }
+    })
+
     let existingPledgeAmount = existingPledge.amount;
 
     return (

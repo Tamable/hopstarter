@@ -2,16 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProjectIndexItem = (props) => {
-  let project = props.project;
+  const project = props.project;
 
   let today = new Date();
   let endDate = new Date(project.end_date);
   let oneDay = 24*60*60*1000;
   let diffDays = Math.round(Math.abs((endDate.getTime() - today.getTime())/(oneDay)));
-  let amountPledged = project.amount_pledged ? project.amount_pledged : 0;
-  let pledgePercent = Math.round((project.amount_pledged / project.funding_goal) * 100)
 
-  // <img className='project-img' src={project.image_url} /> line 19
+  let pledgeAmountOfProject = 0;
+    project.pledges.forEach((pledgeId) => {
+      pledgeAmountOfProject += props.pledges[pledgeId].amount
+    })
+  let pledgePercent = Math.round((pledgeAmountOfProject / project.funding_goal) * 100);
+
+  let creatorName = ""
+  if (props.creator) {
+    creatorName = props.creator.name
+  }
 
   return (
     <div>
@@ -20,10 +27,10 @@ const ProjectIndexItem = (props) => {
           <img src={project.image_url} />
         <div className="collection">Project We Love</div>
         </div>
-        <li className='project-index-item'>
+        <li className='project-index-item' key={project.id}>
           <div className='title-name'>
           <span className='project-title'>{project.title}</span><br></br>
-          <span className='project-creator'>by {props.creator.name}</span>
+          <span className='project-creator'>by {creatorName}</span>
           </div>
           <div className='pledge-progress-container'>
             <div className='pledge-progress-bar-outer'>
@@ -31,7 +38,7 @@ const ProjectIndexItem = (props) => {
             </div>
           </div>
           <div className='stats-box'>
-          <span className='project-pledge'>${amountPledged} pledged</span><br></br>
+          <span className='project-pledge'>${pledgeAmountOfProject} pledged</span><br></br>
           <span>{pledgePercent}% funded</span><br></br>
           <span>{diffDays} days to go</span><br></br><br></br>
           <Link to={`/categories/${props.category.id}`} className='project-category'>{props.category.name}</Link>

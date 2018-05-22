@@ -9,53 +9,56 @@ class FeaturedCategory extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newActive: true,
-      almostActive: false,
-      popularActive: false
+      show: 'newActive'
     };
   }
 
   switchPanes(pane) {
-    this.setState({
-      newActive: false,
-      almostActive: false,
-      popularActive: false
-    });
-    this.setState({ [pane]: true });
+    this.setState({ show: [pane] })
   }
 
   render() {
-    const allProjects = this.props.projects;
-    const showCategoryId = this.props.showCategoryId;
-    const allCreators = this.props.creators;
-    const featuredCategory = this.props.categoryObj[showCategoryId];
+    const users = this.props.users;
+      let categoryIdArr = Object.keys(this.props.categories);
+      let showCategoryId = categoryIdArr[Math.floor(Math.random() * categoryIdArr.length)]
+      const featuredCategory = this.props.categories[showCategoryId];
 
-    const projectsOfCategory = allProjects.filter((project) => project.category_id == showCategoryId);
+    let projectsOfCategory = [];
+    if (featuredCategory) {
+      featuredCategory.projects.forEach((projectId) => {
+        projectsOfCategory.push(this.props.projects[projectId])
+      })
+    }
+
     const featuredProject = projectsOfCategory.sort((a, b) => {
-      return b.amount_pledged - a.amount_pledged })[0];
+      return b.pledges.length - a.pledges.length })[0];
       let featuredTitle = "";
       let featuredCreator = "";
       let pledgePercent = "";
       let featuredId = "";
       let image = "";
-      if (featuredProject) {
+      if (featuredProject && users) {
         featuredTitle = featuredProject.title;
-        featuredCreator = allCreators[featuredProject.creator_id].name.toUpperCase();
-        pledgePercent = Math.round((featuredProject.amount_pledged / featuredProject.funding_goal) * 100);
+        featuredCreator = users[featuredProject.creator_id].name.toUpperCase();
+        let pledgeAmountOfProject = 0;
+        featuredProject.pledges.forEach((pledgeId) => {
+          pledgeAmountOfProject += this.props.pledges[pledgeId].amount
+        })
+        pledgePercent = Math.round((pledgeAmountOfProject / featuredProject.funding_goal) * 100);
         featuredId = featuredProject.id;
-        image = featuredProject.image_url
-      };
+        image = featuredProject.image_url;
+      }
 
     let categoryName = featuredCategory ? featuredCategory.name : ""
 
     let selectedPane;
-    if (this.state.newActive) {
-      selectedPane = <NewAndNoteworthy projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} />
-    } else if (this.state.almostActive) {
-      selectedPane = <AlmostThere projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} />
-    } else if (this.state.popularActive) {
-      selectedPane = <Popular projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} />
-    }
+      if (this.state.show == 'newActive') {
+        selectedPane = <NewAndNoteworthy projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} pledges={this.props.pledges} />
+      } else if (this.state.show == 'almostActive') {
+        selectedPane = <AlmostThere projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} pledges={this.props.pledges} />
+      } else if (this.state.show == 'popularActive') {
+        selectedPane = <Popular projectsOfCategory={projectsOfCategory} featuredProject={featuredProject} pledges={this.props.pledges} />
+      }
 
     return (
       <div className="project-container">

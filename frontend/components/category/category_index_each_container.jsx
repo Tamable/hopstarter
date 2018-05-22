@@ -6,9 +6,10 @@ const mapStateToProps = (state, ownProps) => {
   const showCategoryId = ownProps.match.params.id;
 
   return {
-    categoryObj: state.entities.categories[showCategoryId] || {},
-    projects: Object.values(state.entities.projects) || [],
-    creators: state.entities.users
+    category: state.entities.categories[showCategoryId] || {},
+    projects: state.entities.projects || {},
+    users: state.entities.users || {},
+    pledges: state.entities.pledges || {}
   }
 }
 

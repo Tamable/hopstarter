@@ -1,18 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const createdProjects = ({ createdProjects }) => {
+const createdProjects = ({ projects, pledges, user }) => {
+  let userCreatedProjects = [];
+  user.projectProposalIds.map((projectId) => {
+    userCreatedProjects.push(projects[projectId])
+  })
+  let pledgeAmountOfProject = 0;
+  let pledgePercent = 0;
+  let projectId = "";
+  let projectImage = "";
+  let projectTitle = "";
+  let projectCreatedAt = "";
+  let projectFundingGoal = "";
+  const createdProjectList = userCreatedProjects.reverse().map((project, i) => {
+    if (project) {
+      project.pledges.forEach((pledgeId) => {
+        if (pledges) {
+          pledgeAmountOfProject += pledges[pledgeId].amount
+          pledgePercent = Math.round((pledgeAmountOfProject / project.funding_goal) * 100);
+        }
+      })
+      projectId = project.id;
+      projectImage = project.image_url;
+      projectTitle = project.title;
+      projectCreatedAt = project.created_at;
+      projectFundingGoal = project.funding_goal;
+    }
 
-  const createdProjectList = createdProjects.reverse().map((project) => {
-    let amountPledged = project.amount_pledged ? project.amount_pledged : 0;
-    let pledgePercent = Math.round((amountPledged / project.funding_goal) * 100)
     return (
-      <Link to={`/projects/${project.id}`} key={project.id} className="profile-list-item">
-        <li className="list-image"><img src={project.image_url} /></li>
-        <div><li className="list-title">{project.title}</li>
+      <Link to={`/projects/${projectId}`} key={projectId + i + projectFundingGoal} className="profile-list-item">
+        <li className="list-image"><img src={projectImage} /></li>
+        <div><li className="list-title">{projectTitle}</li>
         <li className="list-pledge">{pledgePercent}% funded</li></div>
-        <div>created on {new Date(project.created_at).toDateString()}</div>
-        <div><Link to={`/projects/${project.id}/edit`} className="edit-botton">Edit</Link></div>
+        <div>created on {new Date(projectCreatedAt).toDateString()}</div>
+        <div><Link to={`/projects/${projectId}/edit`} className="edit-botton">Edit</Link></div>
       </Link>
     )
   });

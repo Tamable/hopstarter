@@ -7,21 +7,19 @@ class CategoryShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchCategory(this.props.match.params.id);
+    this.props.fetchProjects();
+    this.props.fetchPledges();
   }
 
   render() {
-    let category = this.props.category;
-    let projects = this.props.projects;
-    let creators = this.props.creators;
-
     return (
       <div className='project-index-container'>
         <ul>
-          {projects.reverse().map((project) => {
-            let creator = creators[project.creator_id];
+          {Object.values(this.props.projects).reverse().map((project) => {
+            let creator = this.props.users[project.creator_id];
             return (
               <div key={project.id}>
-                <ProjectIndexItem project={project} creator={creator} category={category}/>
+                <ProjectIndexItem project={project} creator={creator} category={this.props.category} pledges={this.props.pledges}/>
               </div>
             )
           })}

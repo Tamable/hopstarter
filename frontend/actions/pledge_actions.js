@@ -1,8 +1,18 @@
 import * as ApiUtil from '../util/pledge_api_util';
 
+export const RECEIVE_PLEDGES = 'RECEIVE_PLEDGES';
 export const RECEIVE_PLEDGE = 'RECEIVE_PLEDGE';
 export const REMOVE_PLEDGE = 'REMOVE_PLEDGE';
 export const RECEIVE_PLEDGE_ERRORS = 'RECEIVE_PLEDGE_ERRORS';
+
+export const receivePledges = (payload) => {
+  return {
+    type: RECEIVE_PLEDGES,
+    pledges: payload.pledges,
+    users: payload.supporters,
+    projects: payload.projects
+  }
+}
 
 export const receivePledge = (pledge) => {
   return {
@@ -22,6 +32,17 @@ export const receivePledgeErrors = (errorArr) => {
   return {
     type: RECEIVE_PLEDGE_ERRORS,
     errors: errorArr
+  }
+}
+
+export const fetchPledges = () => {
+  return dispatch => {
+    return ApiUtil.fetchPledges().then((payload) => {
+      return dispatch(receivePledges(payload));
+      return payload;
+    }).fail((err) => {
+      return dispatch(receivePledgeErrors(err.responseJSON));
+    })
   }
 }
 

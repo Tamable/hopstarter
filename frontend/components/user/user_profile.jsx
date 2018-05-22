@@ -15,6 +15,7 @@ class UserProfile extends React.Component {
     this.props.fetchUser(this.props.match.params.id);
     this.props.fetchCategories();
     this.props.fetchProjects();
+    this.props.fetchPledges();
   };
 
   switchPanes(pane) {
@@ -24,7 +25,6 @@ class UserProfile extends React.Component {
   render() {
     const user = this.props.user;
     const projects = this.props.projects;
-    let pledges = this.props.user.pledges || [];
     const month = [
       "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
@@ -32,21 +32,19 @@ class UserProfile extends React.Component {
     const joinedMonth = month[new Date(user.created_at).getMonth()];
     const joinedYear = new Date(user.created_at).getFullYear();
 
-    const createdProjects = this.props.user.project_proposals;
-    const backedProjects = this.props.user.supporting_projects;
-    // let createdProjects = Object.values(projects).filter((project) => {
-    //   project.creator_id == user.id
-    // }) || []
-
     let selectedPane;
     if (this.state.currentPane == 'createdActive') {
-      selectedPane = <CreatedProjects createdProjects={createdProjects} />
+      selectedPane = <CreatedProjects projects={projects} pledges={this.props.pledges} user={user} />
     } else if (this.state.currentPane == 'backedActive') {
-      selectedPane = <BackedProjects backedProjects={backedProjects} pledges={pledges} />
-    };
+      selectedPane = <BackedProjects projects={projects} pledges={this.props.pledges} user={user} />
+    }
 
-    const categories = Object.values(this.props.categoryObj);
-    const categoryList = categories.map((category) => {
+    let userSupportProjectCount = 0;
+    if (user.supportProjectIds) {
+      userSupportProjectCount = user.supportProjectIds.length
+    }
+
+    const categoryList = Object.values(this.props.categories).map((category, i) => {
       return (
         <li key={category.id} category={category}><Link to={`/home/${category.id}/` }>{category.name}</Link></li>
         )
@@ -59,7 +57,7 @@ class UserProfile extends React.Component {
           <div className="user-info">
             <h1 className="user-name">{user.name}</h1>
             <span className="user-projects">
-              Backed {backedProjects.length} projects · Joined {joinedMonth} {joinedYear}
+              Backed {userSupportProjectCount} projects · Joined {joinedMonth} {joinedYear}
             </span>
           </div>
         </div>

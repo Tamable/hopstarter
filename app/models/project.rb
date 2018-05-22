@@ -9,15 +9,15 @@ class Project < ApplicationRecord
     class_name: 'Category',
     foreign_key: :category_id
 
-  has_many :pledges,
+  has_many :pledges, dependent: :destroy,
     class_name: 'Pledge',
     foreign_key: :project_id
 
   has_many :backers,
     through: :pledges,
-    source: :supporter_id
+    source: :supporter
 
-  has_many :rewards,
+  has_many :rewards, dependent: :destroy,
     class_name: 'Reward',
     foreign_key: :project_id
 
