@@ -42,7 +42,9 @@ class FeaturedCategory extends React.Component {
         featuredCreator = users[featuredProject.creator_id].name.toUpperCase();
         let pledgeAmountOfProject = 0;
         featuredProject.pledges.forEach((pledgeId) => {
-          pledgeAmountOfProject += this.props.pledges[pledgeId].amount
+          if (this.props.pledges[pledgeId]) {
+            pledgeAmountOfProject += this.props.pledges[pledgeId].amount
+          }
         })
         pledgePercent = Math.round((pledgeAmountOfProject / featuredProject.funding_goal) * 100);
         featuredId = featuredProject.id;
