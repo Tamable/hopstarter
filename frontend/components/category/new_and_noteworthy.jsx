@@ -7,11 +7,13 @@ const NewAndNoteworthy = ({ projectsOfCategory, featuredProject, pledges }) => {
   });
 
   let newProjects = sortedByCreatedAt.slice(0, 4).map((project) => {
-  
+
     if (project !== featuredProject) {
       let pledgeAmountOfProject = 0;
       project.pledges.forEach((pledgeId) => {
-        pledgeAmountOfProject += pledges[pledgeId].amount
+        if (pledges[pledgeId]) {
+          pledgeAmountOfProject += pledges[pledgeId].amount
+        }
       })
       let pledgePercent = Math.round((pledgeAmountOfProject / project.funding_goal) * 100);
       return (

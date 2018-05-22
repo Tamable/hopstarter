@@ -65,15 +65,16 @@ class EditPledgeForm extends React.Component {
 
   render() {
     let existingPledge = {};
+    let existingPledgeAmount = 0;
     Object.values(this.props.currentUser.pledges).forEach((pledgeId) => {
       if (typeof this.props.pledges[pledgeId] != 'undefined') {
         if (this.props.pledges[pledgeId].project_id == this.props.project.id) {
           existingPledge = this.props.pledges[pledgeId]
+          existingPledgeAmount = existingPledge.amount;
         }
       }
     })
 
-    let existingPledgeAmount = existingPledge.amount;
 
     return (
       <div className='pledge-page'>
