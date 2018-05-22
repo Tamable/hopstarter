@@ -14,10 +14,10 @@ class RewardForm extends React.Component {
       project.rewards.map((rewardId) => {
         rewardsOfProject.push(rewards[rewardId])
       })
-      rewardList = rewardsOfProject.map((reward) => {
+      rewardList = rewardsOfProject.map((reward, i) => {
         return (
           <ul>
-            <li key={reward.id}><RewardItem reward={reward} action={action} deleteReward={deleteReward} buttonText={buttonText} project={project} errors={errors}/></li>
+            <li key={i}><RewardItem reward={reward} action={action} deleteReward={deleteReward} buttonText={buttonText} project={project} errors={errors}/></li>
           </ul>
         )
       })

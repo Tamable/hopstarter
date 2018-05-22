@@ -18,27 +18,47 @@ class ProjectShow extends React.Component {
     let creator = this.props.creator;
 
     let creatorName = "";
+    let creatorImage = "";
     let creatorProjectCount = 0;
     if (creator) {
       creatorName = creator.name;
+      creatorImage = creator.image_url;
       if (creator.projectProposalIds) {
         creatorProjectCount = creator.projectProposalIds.length
       }
     }
 
     let category = this.props.category;
+    let categoryId = "";
+    let categoryName = "";
+    if (category) {
+      categoryId = category.id;
+      categoryName = category.name;
+    }
+    
     let currentUser = this.props.currentUser;
     let rewards;
     if (project.rewards) {
       rewards = project.rewards.map((rewardId) => {
         let reward = this.props.rewards[rewardId]
+        let rewardPledgeAmount = "";
+        let rewardTitle = "";
+        let rewardItem = "";
+        let rewardDescription = "";
+
+        if (reward) {
+          rewardPledgeAmount = reward.pledge_amount;
+          rewardTitle = reward.title;
+          rewardItem = reward.item;
+          rewardDescription = reward.description;
+        }
         return (
           <li className="each-reward-container">
             <div>
-              <div className="reward-amount">Pledge ${reward.pledge_amount} or more</div>
-              <div className="reward-title">{reward.title}</div>
-              <div className="reward-item">{reward.item}</div>
-              <div className="reward-description">{reward.description}</div>
+              <div className="reward-amount">Pledge ${rewardPledgeAmount} or more</div>
+              <div className="reward-title">{rewardTitle}</div>
+              <div className="reward-item">{rewardItem}</div>
+              <div className="reward-description">{rewardDescription}</div>
             </div>
             <div className="overlay">
               <div className="pledge-text"><Link to={`/projects/${project.id}/pledge`}>Back this project</Link></div>
@@ -81,7 +101,7 @@ class ProjectShow extends React.Component {
           <section className='show-top-section'>
             <section className='title-section'>
               <div className='title-sec-left'>
-                <img src={creator.image_url}></img>
+                <img src={creatorImage}></img>
                 <p className='creator-info'>{creatorName}<br></br>
                   <span>{creatorProjectCount} created</span>
                 </p>
@@ -114,7 +134,7 @@ class ProjectShow extends React.Component {
             <div><img src={window.staticImages.favicon} />
             <p>Project We Love</p></div>
             <div><img src={window.staticImages.compass} />
-            <Link to={`/categories/${category.id}`}>{category.name}</Link></div>
+            <Link to={`/categories/${categoryId}`}>{categoryName}</Link></div>
             <div><img src={window.staticImages.pin_map_icon} />
             <p>{location}</p></div>
           </div>
