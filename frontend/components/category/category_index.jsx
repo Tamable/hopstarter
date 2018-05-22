@@ -41,7 +41,7 @@ class CategoryIndex extends React.Component {
         }
       })
       if (pledgeAmountOfProject >= project.funding_goal) {
-        fundedProjects.push(project)
+        fundedProjects += 1;
       }
     })
 
