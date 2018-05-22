@@ -47,7 +47,9 @@ class CategoryIndex extends React.Component {
 
     let totalPledgeAmount = 0;
     Object.values(this.props.pledges).forEach((pledge) => {
-      totalPledgeAmount += pledge.amount
+      if (pledge) {
+        totalPledgeAmount += pledge.amount
+      }
     })
 
     let today = new Date();
