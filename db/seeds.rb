@@ -60,13 +60,6 @@ c3 = Category.create!(
   name: "Music"
 )
 
-<<<<<<< HEAD
-# c4 = Category.create!(
-#   name: "Arts"
-# )
-
-=======
->>>>>>> testing
 c5 = Category.create!(
   name: "Film"
 )
@@ -74,13 +67,6 @@ c5 = Category.create!(
 c6 = Category.create!(
   name: "Food & Craft"
 <<<<<<< HEAD
-)
-
-c7 = Category.create!(
-  name: "Publishing"
-)
-
-=======
 )
 
 c7 = Category.create!(
@@ -133,11 +119,7 @@ c7 = Category.create!(
       title: "My butterfly design project",
       category_id: c1.id,
       creator_id: u5.id,
-<<<<<<< HEAD
-      image: "https://s3.amazonaws.com/hopstarter-seed/design5.jpg",
-=======
       image: "https://s3.amazonaws.com/hopstarter-seed/design5.png",
->>>>>>> testing
       description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
       funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
@@ -158,11 +140,7 @@ c7 = Category.create!(
       title: "My #{Faker::Hacker.noun} project",
       category_id: c2.id,
       creator_id: u2.id,
-<<<<<<< HEAD
-      image: "https://s3.amazonaws.com/hopstarter-seed/game1.jpg",
-=======
       image: "https://s3.amazonaws.com/hopstarter-seed/game2.jpg",
->>>>>>> testing
       description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
       funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
@@ -172,11 +150,7 @@ c7 = Category.create!(
       title: "My #{Faker::Hacker.noun} project",
       category_id: c2.id,
       creator_id: u3.id,
-<<<<<<< HEAD
-      image: "https://s3.amazonaws.com/hopstarter-seed/game2.jpg",
-=======
       image: "https://s3.amazonaws.com/hopstarter-seed/game3.jpg",
->>>>>>> testing
       description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
       funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
@@ -186,11 +160,7 @@ c7 = Category.create!(
       title: "My #{Faker::Hacker.noun} project",
       category_id: c2.id,
       creator_id: u4.id,
-<<<<<<< HEAD
-      image: "https://s3.amazonaws.com/hopstarter-seed/game3.jpg",
-=======
       image: "https://s3.amazonaws.com/hopstarter-seed/game4.jpg",
->>>>>>> testing
       description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
       funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
@@ -200,11 +170,7 @@ c7 = Category.create!(
       title: "My #{Faker::Hacker.noun} project",
       category_id: c2.id,
       creator_id: u5.id,
-<<<<<<< HEAD
-      image: "https://s3.amazonaws.com/hopstarter-seed/game4.jpg",
-=======
       image: "https://s3.amazonaws.com/hopstarter-seed/game5.jpg",
->>>>>>> testing
       description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
       funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
@@ -213,7 +179,6 @@ c7 = Category.create!(
 
     p11 = Project.create!(
       title: "My #{Faker::Music.instrument} project",
-<<<<<<< HEAD
       category_id: c3.id,
       creator_id: u1.id,
       image: "https://s3.amazonaws.com/hopstarter-seed/music1.jpg",
@@ -257,70 +222,11 @@ c7 = Category.create!(
       category_id: c3.id,
       creator_id: u5.id,
       image: "https://s3.amazonaws.com/hopstarter-seed/music5.jpg",
-=======
-      category_id: c3.id,
-      creator_id: u1.id,
-      image: "https://s3.amazonaws.com/hopstarter-seed/music1.jpg",
->>>>>>> testing
       description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
       funding_goal: "#{Faker::Number.number(4)}",
       end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
       location: "#{Faker::Address.city}, #{Faker::Address.state}"
     )
-<<<<<<< HEAD
-
-    # p16 = Project.create!(
-    #   title: "My #{Faker::Ancient.hero} project",
-    #   category_id: c4.id,
-    #   creator_id: user.id,
-    #   description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
-    #   funding_goal: "#{Faker::Number.number(4)}",
-    #   end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
-    #   location: "#{Faker::Address.city}, #{Faker::Address.state}"
-    # )
-=======
-    p12 = Project.create!(
-      title: "My #{Faker::Music.instrument} project",
-      category_id: c3.id,
-      creator_id: u2.id,
-      image: "https://s3.amazonaws.com/hopstarter-seed/music2.jpg",
-      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
-      funding_goal: "#{Faker::Number.number(4)}",
-      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
-      location: "#{Faker::Address.city}, #{Faker::Address.state}"
-    )
-    p13 = Project.create!(
-      title: "My #{Faker::Music.instrument} project",
-      category_id: c3.id,
-      creator_id: u3.id,
-      image: "https://s3.amazonaws.com/hopstarter-seed/music3.jpg",
-      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
-      funding_goal: "#{Faker::Number.number(4)}",
-      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
-      location: "#{Faker::Address.city}, #{Faker::Address.state}"
-    )
-    p14 = Project.create!(
-      title: "My #{Faker::Music.instrument} project",
-      category_id: c3.id,
-      creator_id: u4.id,
-      image: "https://s3.amazonaws.com/hopstarter-seed/music4.jpg",
-      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
-      funding_goal: "#{Faker::Number.number(4)}",
-      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
-      location: "#{Faker::Address.city}, #{Faker::Address.state}"
-    )
-    p15 = Project.create!(
-      title: "My #{Faker::Music.instrument} project",
-      category_id: c3.id,
-      creator_id: u5.id,
-      image: "https://s3.amazonaws.com/hopstarter-seed/music5.jpg",
-      description: "expiros camo ad obdurerant interdum dacos qui lividum. pacificaterant se elixibus est dolerrimus et ago flagitorum marave!",
-      funding_goal: "#{Faker::Number.number(4)}",
-      end_date: "#{Faker::Date.between(Date.today, 1.year.from_now)}",
-      location: "#{Faker::Address.city}, #{Faker::Address.state}"
-    )
->>>>>>> testing
-
   p17 = Project.create!(
     title: "My #{Faker::Dog.breed} documentary",
     category_id: c5.id,
