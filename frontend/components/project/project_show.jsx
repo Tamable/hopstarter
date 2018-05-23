@@ -35,7 +35,7 @@ class ProjectShow extends React.Component {
       categoryId = category.id;
       categoryName = category.name;
     }
-    
+
     let currentUser = this.props.currentUser;
     let rewards;
     if (project.rewards) {
@@ -61,7 +61,7 @@ class ProjectShow extends React.Component {
               <div className="reward-description">{rewardDescription}</div>
             </div>
             <div className="overlay">
-              <div className="pledge-text"><Link to={`/projects/${project.id}/pledge`}>Back this project</Link></div>
+              <Link to={`/projects/${project.id}/pledge`}><div className="pledge-text">Back this project</div></Link>
             </div>
           </li>
         )

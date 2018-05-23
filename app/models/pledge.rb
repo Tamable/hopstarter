@@ -1,6 +1,6 @@
 class Pledge < ApplicationRecord
   validates :amount, :project, :supporter, presence: true
-  validates_uniqueness_of :supporter_id, scope: :project_id
+  validates_uniqueness_of :supporter_id, scope: :project_id, message: 'Please edit your existing pledge.'
 
   belongs_to :supporter,
     class_name: 'User',

@@ -1,6 +1,6 @@
 # Hopstarter
 
-**[Live]**: https://hopstarter.herokuapp.com/#/home
+[Live]: http://hopstarter.herokuapp.com/#/home
 
 Hopstarter is a single-page web application inspired by Kickstarter. It is built with Ruby on Rails (ruby ver. 2.3.1p112) and React/Redux.
 
