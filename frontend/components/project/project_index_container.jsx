@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchProjects: () => dispatch(fetchProjects()),
     fetchCategories: () => dispatch(fetchCategories()),
     fetchPledges: () => dispatch(fetchPledges()),
-    fetchUsers: () => dispatch(fetchUsers())
+    fetchUsers: () => dispatch(fetchUsers()),
   }
 }
 

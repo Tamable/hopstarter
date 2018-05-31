@@ -5,11 +5,31 @@ import ProjectIndexItemContainer from './project_index_item_container';
 
 class ProjectIndex extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      projects: [],
+    }
+  }
+
   componentDidMount() {
     this.props.fetchProjects();
     this.props.fetchCategories();
     this.props.fetchPledges();
     this.props.fetchUsers();
+  }
+
+  searchProjects(query) {
+    query = query.toLowerCase();
+    let searchedProjects = this.props.projects.filter((project) => {
+      return project.title.toLowerCase().includes(query) || project.description.toLowerCase().includes(query)
+    });
+
+    this.setState({ projects: searchedProjects });
+  }
+
+  handleSearch(e) {
+    this.searchProjects(e.target.value)
   }
 
   render() {
@@ -19,8 +39,22 @@ class ProjectIndex extends React.Component {
         )
     });
 
+    const searchedProjects = this.state.projects.map((project) => {
+      return (
+        <li key={project.id}><Link to={`/projects/${project.id}`}>{project.title}</Link></li>
+      )
+    })
+
     return (
     <div>
+      <div className="search-box-modal">
+        <div className='search-input'>
+          <input type='text' defaultValue='Search' onKeyUp={this.handleSearch.bind(this)} />
+        </div>
+        <div className='search-result'>
+          <ul>{searchedProjects}</ul>
+        </div>
+      </div>
       <div className='project-index-container'>
         <ul>
           {this.props.projects.reverse().map(project => {

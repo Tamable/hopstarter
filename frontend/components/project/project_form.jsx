@@ -59,7 +59,12 @@ class ProjectForm extends React.Component {
   noRewardRedirect(e) {
     e.preventDefault();
     let formData = new FormData();
-    formData.append('project[project]', this.state.project);
+    formData.append('project[title]', this.state.title);
+    formData.append('project[creator_id]', this.state.creator_id);
+    formData.append('project[category_id]', this.state.category_id);
+    formData.append('project[description]', this.state.description);
+    formData.append('project[funding_goal]', this.state.funding_goal);
+    formData.append('project[end_date]', this.state.end_date);
     formData.append('project[image]', this.state.imageFile);
     this.props.action(formData).then((payload) => {
       this.props.history.replace(`/projects/${payload.project.id}/preview`)
