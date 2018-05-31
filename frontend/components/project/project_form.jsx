@@ -10,6 +10,7 @@ class ProjectForm extends React.Component {
     this.addRewardRedirect = this.addRewardRedirect.bind(this);
     this.editRewardRedirect = this.editRewardRedirect.bind(this);
     this.delete = this.delete.bind(this);
+    this.updateFile = this.updateFile.bind(this);
     this.noRewardRedirect = this.noRewardRedirect.bind(this);
   };
 
@@ -19,9 +20,31 @@ class ProjectForm extends React.Component {
     }
   };
 
+  updateFile(e) {
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
+    fileReader.onloadend = () =>
+      this.setState({ imageFile: file, imageUrl: fileReader.result });
+
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: "", imageFile: null });
+    }
+  }
+
   addRewardRedirect(e) {
     e.preventDefault();
-    this.props.action(this.state).then((payload) => {
+    let formData = new FormData();
+    formData.append('project[title]', this.state.title);
+    formData.append('project[creator_id]', this.state.creator_id);
+    formData.append('project[category_id]', this.state.category_id);
+    formData.append('project[description]', this.state.description);
+    formData.append('project[funding_goal]', this.state.funding_goal);
+    formData.append('project[end_date]', this.state.end_date);
+    formData.append('project[image]', this.state.imageFile);
+    this.props.action(formData).then((payload) => {
       this.props.history.replace(`/projects/${payload.project.id}/rewards`);
     })
   };
@@ -35,7 +58,10 @@ class ProjectForm extends React.Component {
 
   noRewardRedirect(e) {
     e.preventDefault();
-    this.props.action(this.state).then((payload) => {
+    let formData = new FormData();
+    formData.append('project[project]', this.state.project);
+    formData.append('project[image]', this.state.imageFile);
+    this.props.action(formData).then((payload) => {
       this.props.history.replace(`/projects/${payload.project.id}/preview`)
     })
   };
@@ -130,6 +156,13 @@ class ProjectForm extends React.Component {
             <input type="text" placeholder="$" value={this.state.funding_goal} onChange={this.update('funding_goal')}></input>
             </div>
           </label>
+          <label>
+            <div className='field'>Image</div>
+            <div className='input'>
+              <input type='file' onChange={this.updateFile}></input>
+            </div>
+          </label>
+          <img src={this.state.imageUrl} />
 
           <div className="proceed-buttons">
           <button onClick={this.addRewardRedirect}>{this.props.addRewardButton}</button>

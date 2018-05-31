@@ -12,7 +12,9 @@ const mapStateToProps = (state) => {
       category_id: '',
       description: '',
       funding_goal: '',
-      end_date: ''
+      end_date: '',
+      imageFile: null,
+      imageUrl: null
     },
     categories: Object.values(state.entities.categories),
     addRewardButton: "Add rewards",
