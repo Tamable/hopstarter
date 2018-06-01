@@ -22,9 +22,12 @@
   margin-top: 30px;
   width: 328px;
   height: 200px;
-  background-color: #EDEDF2;
+  // background-color: #EDEDF2;
   border: 1px solid #aaa;
   border-bottom: none;
+}
+
+.image_container > img {
 }
 
 .collection {
@@ -275,4 +278,15 @@
 
 .message-close {
   font-size: 26px;
+}
+
+.search-box-container {
+
+}
+
+.search-input {
+
+}
+
+.search-result {
 }

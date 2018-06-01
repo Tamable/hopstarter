@@ -23,13 +23,13 @@ class ProjectIndex extends React.Component {
     query = query.toLowerCase();
     let searchedProjects = this.props.projects.filter((project) => {
       return project.title.toLowerCase().includes(query) || project.description.toLowerCase().includes(query)
-    });
+    })
 
-    this.setState({ projects: searchedProjects });
+    this.setState({ projects: searchedProjects })
   }
 
   handleSearch(e) {
-    this.searchProjects(e.target.value)
+    this.searchProjects(e.target.value);
   }
 
   render() {
@@ -47,7 +47,7 @@ class ProjectIndex extends React.Component {
 
     return (
     <div>
-      <div className="search-box-modal">
+      <div className="search-box-container">
         <div className='search-input'>
           <input type='text' defaultValue='Search' onKeyUp={this.handleSearch.bind(this)} />
         </div>
