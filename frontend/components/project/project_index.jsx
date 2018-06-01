@@ -21,11 +21,14 @@ class ProjectIndex extends React.Component {
 
   searchProjects(query) {
     query = query.toLowerCase();
-    let searchedProjects = this.props.projects.filter((project) => {
-      return project.title.toLowerCase().includes(query) || project.description.toLowerCase().includes(query)
-    })
-
-    this.setState({ projects: searchedProjects })
+    if (query == '') {
+      this.setState({ projects: [] })
+    } else {
+      let searchedProjects = this.props.projects.filter((project) => {
+        return project.title.toLowerCase().includes(query) || project.description.toLowerCase().includes(query)
+      })
+      this.setState({ projects: searchedProjects })
+    }
   }
 
   handleSearch(e) {
