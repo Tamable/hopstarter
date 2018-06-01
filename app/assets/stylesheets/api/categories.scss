@@ -96,8 +96,8 @@
   border: 0.5px solid #DCDEDD
 }
 
-.proj-image-container:hover {
-
+.proj-image-container > img {
+  width: 100%;
 }
 
 .project-info-container {
