@@ -27,16 +27,6 @@ class PledgeForm extends React.Component {
     });
   }
 
-  errors() {
-    if (this.props.erros) {
-      return (
-        this.props.errors.map((error) => {
-          return (<li key={error}>{error}</li>);
-        })
-      )
-    }
-  }
-
   render() {
     return (
       <div className='pledge-page'>
@@ -45,7 +35,11 @@ class PledgeForm extends React.Component {
           <span>by {this.props.creator.name}</span>
         </div></Link>
         <ul className="error">
-          { this.errors() }
+          {
+            this.props.errors.map((error) => {
+            return (<li key={error}>{error}</li>);
+            })
+          }
         </ul>
         <section className="pledge-form-section">
           <div>
