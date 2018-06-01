@@ -22,12 +22,12 @@
   margin-top: 30px;
   width: 328px;
   height: 200px;
-  // background-color: #EDEDF2;
   border: 1px solid #aaa;
   border-bottom: none;
 }
 
-.image_container > img {
+.image-container > img {
+  height: 100%;
 }
 
 .collection {
@@ -61,11 +61,14 @@
 }
 
 .title-name {
-  width: 360px;
+  width: 270px;
   height: 110px;
   line-height: 2.7;
   margin: 0 10px;
   padding: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .project-title {
@@ -282,12 +285,23 @@
 }
 
 .search-box-container {
-
+  font-family: 'Open Sans', sans-serif;
+  margin: 0 30px;
+  color: #7A8C95;
+  font-size: 13px;
 }
 
-.search-input {
-
+.search-input > input {
+  font-style: italic;
+  background-color: #E8E8E8;
 }
 
 .search-result {
+  margin: 0 50px;
+}
+
+.search-result > ul > li:hover {
+  color: #F47F60;
+  text-decoration: underline;
+  cursor: pointer;
 }
