@@ -77,7 +77,7 @@ class ProjectShow extends React.Component {
           buttonText = "Edit your pledge";
         } else {
           redirectLink = `/projects/${project.id}/pledge`;
-          buttonText = "Back this project";                
+          buttonText = "Back this project";
         }
       })
     } else {
@@ -128,7 +128,8 @@ class ProjectShow extends React.Component {
                 <p>backers</p>
                 <div>{diffDays}</div>
                 <p>days to go</p>
-                <span className='pledge-link-button'><Link to={redirectLink}>{buttonText}</Link></span><br></br>
+                <Link to={redirectLink}>
+                  <span className='pledge-link-button'>{buttonText}</span></Link><br></br>
                 <span className='small-print-underlined'>All or nothing.&nbsp;</span>
                 <span className='small-print'>This project will only be funded if it reaches its goal by {project.end_date}.</span>
               </div>
