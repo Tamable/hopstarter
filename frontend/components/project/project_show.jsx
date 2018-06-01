@@ -75,8 +75,12 @@ class ProjectShow extends React.Component {
         if (supportProjectId == project.id) {
           redirectLink = `/projects/${project.id}/pledge/edit`;
           buttonText = "Edit your pledge";
+        } else {
+          redirectLink = `/projects/${project.id}/pledge`;
+          buttonText = "Back this project";                
         }
       })
+    } else {
       redirectLink = `/projects/${project.id}/pledge`;
       buttonText = "Back this project";
     }
