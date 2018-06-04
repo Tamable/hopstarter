@@ -17,7 +17,6 @@ class CategoryShow extends React.Component {
 
   render() {
     let categoryId = Number(this.props.match.params.id);
-    debugger
     return (
       <div className='project-index-container'>
         <ul>
