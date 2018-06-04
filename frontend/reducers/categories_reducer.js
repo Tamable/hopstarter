@@ -7,11 +7,10 @@ const categoriesReducer = (state = {}, action) => {
     case RECEIVE_CATEGORY:
       return merge({}, state, { [action.category.id]: action.category });
     case RECEIVE_CATEGORIES:
+    case RECEIVE_PROJECTS:
       return merge({}, state, action.categories);
     default:
       return state;
-    case RECEIVE_PROJECTS:
-      return merge({}, state, action.categories);
   }
 }
 

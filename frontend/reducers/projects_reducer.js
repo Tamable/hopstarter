@@ -15,14 +15,6 @@ const projectsReducer = (state = {}, action) => {
       let newState = merge({}, state);
       delete newState[action.id];
       return newState;
-    case RECEIVE_PLEDGES:
-      return merge({}, state, action.projects)
-    case RECEIVE_REWARDS:
-      return merge({}, state, action.projects)
-    case RECEIVE_CATEGORY:
-      return merge({}, state, action.category.projects)
-    case RECEIVE_USER:
-      return merge({}, state, action.user.projects)
     default:
       return state;
   }
