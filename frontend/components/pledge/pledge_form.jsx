@@ -75,7 +75,7 @@ class PledgeForm extends React.Component {
               <p className='answer'>If this project is successfully funded, your card will be charged on {this.props.project.end_date}, along with all the other backers of this project.</p>
               <br></br>
               <span>▶ So I'm only charged if funding succeeds?</span><br></br>
-              <p className='answer'>Yes! That's part of what makes Kickstarter special. If a project isn't successfully funded, no one pays anything.</p>
+              <p className='answer'>Yes! That's part of what makes Hopstarter special. If a project isn't successfully funded, no one pays anything.</p>
             </div>
         </div>
       </section>

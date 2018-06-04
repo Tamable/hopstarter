@@ -11,10 +11,10 @@ class CategoryIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUsers();
-    this.props.fetchProjects();
-    this.props.fetchCategories();
-    this.props.fetchPledges();
+    this.props.fetchCategories().then(
+    this.props.fetchPledges()).then(
+    this.props.fetchUsers()).then(
+    this.props.fetchProjects())
   }
 
   render() {

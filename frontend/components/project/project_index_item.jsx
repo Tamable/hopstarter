@@ -27,6 +27,7 @@ const ProjectIndexItem = (props) => {
           <img src={project.image_url} />
         <div className="collection">Project We Love</div>
         </div>
+      </Link>
         <li className='project-index-item' key={project.id}>
           <div className='title-name'>
           <span className='project-title'>{project.title}</span><br></br>
@@ -41,10 +42,10 @@ const ProjectIndexItem = (props) => {
           <span className='project-pledge'>${pledgeAmountOfProject} pledged</span><br></br>
           <span>{pledgePercent}% funded</span><br></br>
           <span>{diffDays} days to go</span><br></br><br></br>
-          <Link to={`/categories/${props.category.id}`} className='project-category'>{props.category.name}</Link>
+          <Link to={`/categories/${props.category.id}`} className='project-category'>{props.category.name}
+          </Link>
           </div>
         </li>
-      </Link>
     </div>
   )
 }
