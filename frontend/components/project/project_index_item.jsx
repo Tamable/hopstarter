@@ -27,7 +27,6 @@ const ProjectIndexItem = (props) => {
           <img src={project.image_url} />
         <div className="collection">Project We Love</div>
         </div>
-      </Link>
         <li className='project-index-item' key={project.id}>
           <div className='title-name'>
           <span className='project-title'>{project.title}</span><br></br>
@@ -46,6 +45,7 @@ const ProjectIndexItem = (props) => {
           </Link>
           </div>
         </li>
+      </Link>
     </div>
   )
 }
