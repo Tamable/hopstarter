@@ -114,7 +114,6 @@ class ProjectShow extends React.Component {
       project.pledges.forEach((pledgeId) => {
         if (this.props.pledges[pledgeId]) {
           pledgeAmountOfProject += this.props.pledges[pledgeId].amount
-          pledgeAmountOfProject = this.insertComma(pledgeAmountOfProject)
         }
       })
     }
