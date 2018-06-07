@@ -142,7 +142,7 @@ class ProjectShow extends React.Component {
               </div>
               <div className='stats-side'>
                 <br></br><br></br>
-                <div className='show-pledged'>${pledgeAmountOfProject}</div>
+                <div className='show-pledged'>${this.insertComma(pledgeAmountOfProject)}</div>
                 <p>pledged of ${this.insertComma(project.funding_goal)} goal</p>
                 <div>{project.backers ? project.backers.length : 0}</div>
                 <p>backers</p>
