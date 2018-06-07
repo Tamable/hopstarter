@@ -13,6 +13,26 @@ class ProjectShow extends React.Component {
     this.props.fetchCategories();
   }
 
+  insertComma(num) {
+    let stringNum = String(num)
+    let separated = []
+
+    let sliceIdx = stringNum.length % 3
+
+    if (sliceIdx != 0) {
+      separated.push(stringNum.slice(0, sliceIdx))
+    }
+
+    let remainingNum = stringNum.slice(sliceIdx)
+    while (remainingNum.length > 0) {
+      separated.push(remainingNum.slice(0, 3))
+
+      remainingNum = remainingNum.slice(3)
+    }
+
+    return separated.join(',')
+  }
+
   render() {
     let project = this.props.project;
     let creator = this.props.creator;
@@ -94,6 +114,7 @@ class ProjectShow extends React.Component {
       project.pledges.forEach((pledgeId) => {
         if (this.props.pledges[pledgeId]) {
           pledgeAmountOfProject += this.props.pledges[pledgeId].amount
+          pledgeAmountOfProject = this.insertComma(pledgeAmountOfProject)
         }
       })
     }
@@ -123,7 +144,7 @@ class ProjectShow extends React.Component {
               <div className='stats-side'>
                 <br></br><br></br>
                 <div className='show-pledged'>${pledgeAmountOfProject}</div>
-                <p>pledged of ${project.funding_goal} goal</p>
+                <p>pledged of ${this.insertComma(project.funding_goal)} goal</p>
                 <div>{project.backers ? project.backers.length : 0}</div>
                 <p>backers</p>
                 <div>{diffDays}</div>
