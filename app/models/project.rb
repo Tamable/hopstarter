@@ -23,6 +23,7 @@ class Project < ApplicationRecord
 
   has_attached_file :image, default_url: "hedgehog.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  validates_attachment :image, size: { less_than: 10.megabytes }
 
   def backer_count
     self.pledges.count

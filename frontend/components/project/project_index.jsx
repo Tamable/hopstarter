@@ -54,7 +54,7 @@ class ProjectIndex extends React.Component {
     <div>
       <div className="search-box-container">
         <div className='search-input'>
-          <input type='text' defaultValue='Search by project title or description...' onKeyUp={this.handleSearch.bind(this)} />
+          <input type='text' placeholder='Search by project title or description...' onKeyUp={this.handleSearch.bind(this)} />
         </div>
         <div className='search-result'>
           <ul>{searchedProjects}</ul>
